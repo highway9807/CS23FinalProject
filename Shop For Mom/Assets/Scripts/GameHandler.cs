@@ -7,10 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
+    [Header("Game State")]
     // TODO: add player gameObject (pirvate, serialize)
-    // TODO: add any TMP objects (private, serialize)
-    // TOdO: initialize any gamestate variables we may need (private, serialize)
+    // TODO: add any TextMP objects (private, serialize)
+    // TODO: initialize any gamestate variables we may need (private, serialize)
 
+    [Header("Buttons")]
+    [SerializeField]
+    private Button startBtn, quitBtn, settingsBtn;
+    //TODO: drag button prefabs 
 
     // add scene names to easily switch using scene manager (private, serialize)
 
@@ -25,4 +30,6 @@ public class GameHandler : MonoBehaviour
     {
         
     }
+
+    
 }
