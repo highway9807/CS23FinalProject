@@ -1,101 +1,99 @@
 using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+//This script goes onto the Player object
+public class CarController_TopDown : MonoBehaviour {
 
-    // Code for animations and sound effects, we will use later
+    [Header("Car settings")]
+    public float accelerationFactor = 10.0f;
+    public float turnFactor = 3.5f;
+    public float driftFactor = 0.95f; // adds more natural drift
+    public float rotationLimiter = 5f; // increase to increase rotation angle.
+    public bool allowStandingRotation = false; // enable for rotation without driving
+    public float maxSpeed = 20; // Caps car speed
 
-    //   private Animator animator;
-    //   private bool FaceRight = false;
-    //   public AudioSource WalkSFX;
-      
-      private Rigidbody2D rb2D;
+     // Local Variables
+    Vector2 inputVector;
+    float accelerationInput = 0f;
+    float steeringInput = 0f;
+    float rotationAngle = 0f;
+    float velocityVsUp = 0f; // Track forwards velocity
 
-    // Public movement/other settings
-      public static float runSpeed = 10f;
-      public float startSpeed = 10f;
-      public bool isAlive = true;
-    
-    // Horizontal movement
-      private Vector3 hMove;
+    // Components
+    Rigidbody2D carRb2D;
 
-      void Start(){
-        
-        // Again, we will use this later
-        //    animator = gameObject.GetComponentInChildren<Animator>();
+    void Awake(){
+        carRb2D = GetComponent<Rigidbody2D>();
+    }
 
-        // Get the rigid body
-           rb2D = transform.GetComponent<Rigidbody2D>();
-      }
+    void Update(){
+        inputVector = Vector2.zero;
+        inputVector.x = Input.GetAxis("Horizontal");
+        inputVector.y = Input.GetAxis("Vertical");
+        SetInputVector(inputVector);
+     }
 
-      void Update() {
-        // For now, isAlive is always true (I don't think our player dies)
-        // We may add other states
+    void FixedUpdate(){
+          ApplyEngineForce();
+          KillOrthogonalVelocity(); // Apply drifting function
+          ApplySteering();
+     }
 
-            if (isAlive == true) {
-                 // NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right
-                 // arrow is 1
-                 // Get the horizontal movement from the keyboard input
+     void ApplyEngineForce(){
+          // Calculate directional velocity (how much "forward" we are moving)
+          velocityVsUp = Vector2.Dot(transform.up, carRb2D.linearVelocity);
 
-                 // Apparently there was an update to keyboard input, so I had
-                 // to add some code
+          // Limit velocity to maxSpeed
+          if (velocityVsUp > maxSpeed && accelerationInput > 0) {
+               return;
+          }
 
-                 // Get the current keyboard
-                 var keyboard = Keyboard.current;
-                 // Terminate if there is no keyboard
-                if (keyboard == null) return;
+          // Limit velocity reversing
+          if (velocityVsUp < -maxSpeed * 0.5f && accelerationInput < 0) {
+               return;
+          }
 
-                // Direct replacement for GetAxis
-                float horizontal_input = 0;
-                // Detect key presses and assign horizontal inputs
-                if (keyboard.dKey.isPressed) horizontal_input = 1f;
-                if (keyboard.aKey.isPressed) horizontal_input = -1f;
-                // Create movement vector
-                 hMove = new Vector3(horizontal_input, 0.0f, 0.0f);
-           
-                // More animation code we will use later
-                //   if (Input.GetAxis("Horizontal") != 0){
-                //         animator.SetBool ("Walk", true);
-                //     //     if (!WalkSFX.isPlaying){
-                //     //           WalkSFX.Play();
-                //     //    }
-                //   } else {
-                //        animator.SetBool ("Walk", false);
-                //     //    WalkSFX.Stop();
-                //   }
-           }
-      }
+          // Do the same for all other directions
+          if (carRb2D.linearVelocity.sqrMagnitude > maxSpeed * maxSpeed && accelerationInput > 0) {
+               return;
+          }
 
-      void FixedUpdate(){
-            if (isAlive == true){
-                  // Move the player:
-                 rb2D.position = transform.position + hMove * runSpeed * Time.fixedDeltaTime;
+          // Apply drag if there is no acceleration input
+          if (accelerationInput == 0) {
+               carRb2D.linearDamping = Mathf.Lerp(carRb2D.linearDamping, 3.0f, Time.fixedDeltaTime * 3);
+          } else {
+               carRb2D.linearDamping = 0;
+          }
 
-                // We don't have turning quite yet
+          // Create a force for the car to start
+          Vector2 engineForceVector = transform.up * accelerationInput * accelerationFactor;
 
-                //   // Turning: Reverse art if input is moving the Player right and Player faces left
-                //  if ((hMove.x <0 && !FaceRight) || (hMove.x >0 && FaceRight)){
-                //         playerTurn();
-                //   }
+          // Apply force to car
+          carRb2D.AddForce(engineForceVector, ForceMode2D.Force);
+     }
 
-                  //slow down on hills / stops sliding from velocity
-                  if (hMove.x == 0){
-                       rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x / 1.1f, rb2D.linearVelocity.y) ;
-                  }
-            }
-      }
+     void ApplySteering(){
+          float minSpeedBeforeTurning = 1;
+          // Limit the car's ability to turn when moving slowly:
+          if (!allowStandingRotation){
+               minSpeedBeforeTurning = (carRb2D.linearVelocity.magnitude / rotationLimiter);
+               minSpeedBeforeTurning = Mathf.Clamp01(minSpeedBeforeTurning);
+          }
+          // Update rotation angle based on input direction
+          rotationAngle -= steeringInput * turnFactor * minSpeedBeforeTurning;
+          // Apply rotation to car
+          carRb2D.MoveRotation(rotationAngle);         
+     }
 
-    // Once again, we don't have turning yet
+     void KillOrthogonalVelocity(){
+          Vector2 fwdVelocity = transform.up * Vector2.Dot(carRb2D.linearVelocity, transform.up);
+          Vector2 rightVelocity = transform.right * Vector2.Dot(carRb2D.linearVelocity, transform.right);
+          carRb2D.linearVelocity = fwdVelocity + rightVelocity * driftFactor;         
+     }
 
-    //   private void playerTurn(){
-    //         // NOTE: Switch player facing label
-    //         FaceRight = !FaceRight;
-
-    //         // NOTE: Multiply player's x local scale by -1.
-    //         Vector3 theScale = transform.localScale;
-    //         theScale.x *= -1;
-    //         transform.localScale = theScale;
-    //   }
+     void SetInputVector(Vector2 inputVector){
+          steeringInput = inputVector.x;
+          accelerationInput = inputVector.y;
+     }
 }

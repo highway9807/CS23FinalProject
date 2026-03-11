@@ -120,8 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d73c9feaf93491a99c3ddd1117a546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  startSpeed: 10
-  isAlive: 1
+  accelerationFactor: 5
+  turnFactor: 3.5
+  driftFactor: 0.95
+  rotationLimiter: 5
+  allowStandingRotation: 0
+  maxSpeed: 10
 --- !u!1 &4897039304640668870
 GameObject:
   m_ObjectHideFlags: 0
