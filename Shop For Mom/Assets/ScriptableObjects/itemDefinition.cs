@@ -15,4 +15,5 @@ public class itemDefinition : ScriptableObject
     public int id;
     public string itemName;
     public Sprite sprite;
+
 }
