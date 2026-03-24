@@ -38,37 +38,37 @@ public class GameHandler : MonoBehaviour
     {
         // assign the click events
         if(startBtn != null) 
-            startBtn.onClick.AddListener(onStartPressed);
+            startBtn.onClick.AddListener(loadStartScene);
         if(quitBtn != null) 
-            quitBtn.onClick.AddListener(onQuitPressed);
+            quitBtn.onClick.AddListener(quitGame);
         if(settingsBtn != null) 
-            settingsBtn.onClick.AddListener(onSettingsPressed);
+            settingsBtn.onClick.AddListener(loadSettingsScene);
         if(credsBtn != null) 
-            credsBtn.onClick.AddListener(onCredsPressed);
+            credsBtn.onClick.AddListener(loadCredsScene);
         if(how2PlayBtn != null) 
-            credsBtn.onClick.AddListener(onHow2PlayPressed);
+            credsBtn.onClick.AddListener(loadH2PScene);
     }
 
     // click events
-    private void onStartPressed()
+    private void loadStartScene()
     {
         if(startSceneName != null)
             SceneManager.LoadScene(startSceneName);
     }
-    private void onCredsPressed()
+    private void loadCredsScene()
     {
         if(credsSceneName != null)
             SceneManager.LoadScene(credsSceneName);
     }
 
-    private void onHow2PlayPressed()
+    private void loadH2PScene()
     {
         if(how2PlaySceneName != null)
             SceneManager.LoadScene(how2PlaySceneName);
     }
 
 
-    private void onQuitPressed()
+    private void quitGame()
     {
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
@@ -77,7 +77,7 @@ public class GameHandler : MonoBehaviour
         #endif
     }
 
-    private void onSettingsPressed()
+    private void loadSettingsScene()
     {
         
     }
