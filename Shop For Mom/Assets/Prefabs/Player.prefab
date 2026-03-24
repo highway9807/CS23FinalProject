@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 184077279647630663}
   - component: {fileID: 2938719570889229007}
   - component: {fileID: 6412425118218784974}
+  - component: {fileID: 1093584736668926656}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -126,6 +127,19 @@ MonoBehaviour:
   rotationLimiter: 5
   allowStandingRotation: 0
   maxSpeed: 10
+--- !u!114 &1093584736668926656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031665850178919844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2006d941674441286ef5aa12bcd9b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerItemPickup
+  player: {fileID: 0}
 --- !u!1 &4897039304640668870
 GameObject:
   m_ObjectHideFlags: 0
