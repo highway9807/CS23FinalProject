@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e9ce0a8e8dcd362488cb7b12f08bf412
+guid: c425d0957e0f03b41a5b2ec1ae33395a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1195948027347293786
-    second: walls and plants_0
-  - first:
-      213: -2798158572790651044
-    second: walls and plants_1
+      213: 7318940610712914324
+    second: walls and plants fix_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,11 +113,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walls and plants_0
+      name: walls and plants fix_0
       rect:
         serializedVersion: 2
-        x: 256
-        y: 976
+        x: 0
+        y: 960
         width: 64
         height: 64
       alignment: 0
@@ -131,40 +128,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a9a2240b93276fe0800000000000000
-      internalID: -1195948027347293786
+      spriteID: 49949b145b9129560800000000000000
+      internalID: 7318940610712914324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_1
+      name: walls and plants fix_1
       rect:
         serializedVersion: 2
-        x: 320
-        y: 976
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c5769937a91fa29d0800000000000000
-      internalID: -2798158572790651044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_2
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 976
+        x: 64
+        y: 960
         width: 64
         height: 64
       alignment: 0
@@ -175,18 +150,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3d4fe129ee5cda4bb94a3aff773cae5
-      internalID: 137195627
+      spriteID: cdc82492b85ec1c4c89b66434bbef6ff
+      internalID: -635076545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_3
+      name: walls and plants fix_2
       rect:
         serializedVersion: 2
-        x: 448
-        y: 976
+        x: 128
+        y: 960
         width: 64
         height: 64
       alignment: 0
@@ -197,18 +172,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8ff1d0c46856e441a87c7583ba6c61a
-      internalID: -1888261316
+      spriteID: 2bd6213333449cd49af8d9457b7c9a92
+      internalID: -458939925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_4
+      name: walls and plants fix_3
       rect:
         serializedVersion: 2
-        x: 512
-        y: 976
+        x: 192
+        y: 960
         width: 64
         height: 64
       alignment: 0
@@ -219,40 +194,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49608a3899c7a5b4f9b50afae571af3e
-      internalID: 175052144
+      spriteID: 378153551e727ee49ad9e2f833ffb7b9
+      internalID: 1092882200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_5
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 976
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 035ddef30abb7eb41a1a4a1fd1b4af5b
-      internalID: 868776416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_6
+      name: walls and plants fix_4
       rect:
         serializedVersion: 2
         x: 256
-        y: 912
+        y: 960
         width: 64
         height: 64
       alignment: 0
@@ -263,18 +216,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22a9651e25d6ada41b65ac3c8629f257
-      internalID: 873933261
+      spriteID: 2b88a4ce3fe729c409c199ae7baf947a
+      internalID: 519954950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_7
+      name: walls and plants fix_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 912
+        x: 0
+        y: 896
         width: 64
         height: 64
       alignment: 0
@@ -285,18 +238,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5fd4c3b372dc3b4c8606314c8bcd067
-      internalID: -88169195
+      spriteID: 823624dba3799634eaf6f1cd07ef9703
+      internalID: -1000173148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_8
+      name: walls and plants fix_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 912
+        x: 64
+        y: 896
         width: 64
         height: 64
       alignment: 0
@@ -307,18 +260,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26206f0a9f20c4041a97e931acfce345
-      internalID: 2113948804
+      spriteID: 9036ca5ac1aed4f4c9a408909d2f00ee
+      internalID: 203131500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_9
+      name: walls and plants fix_7
       rect:
         serializedVersion: 2
-        x: 448
-        y: 912
+        x: 128
+        y: 896
         width: 64
         height: 64
       alignment: 0
@@ -329,18 +282,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fea11363af51ea145a89947971a23bc8
-      internalID: 1303413047
+      spriteID: e7d512429a2e6794b91c268b788fce76
+      internalID: -1105542849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_10
+      name: walls and plants fix_8
       rect:
         serializedVersion: 2
-        x: 512
-        y: 912
+        x: 192
+        y: 896
         width: 64
         height: 64
       alignment: 0
@@ -351,40 +304,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f21100519ca8d546ba582af99513752
-      internalID: -1452942963
+      spriteID: 0710f0a3a0a1c384ca740a0f9d3ffaac
+      internalID: 468861087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_11
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 912
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02fb5928398d7844daca62855a814439
-      internalID: -283593769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_12
+      name: walls and plants fix_9
       rect:
         serializedVersion: 2
         x: 256
-        y: 848
+        y: 896
         width: 64
         height: 64
       alignment: 0
@@ -395,18 +326,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f351aaade01aebe4687fa6451e9cd433
-      internalID: 1165192306
+      spriteID: 44d54fa362b3f194e877acbf1a26b4e5
+      internalID: 1157625845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_13
+      name: walls and plants fix_10
       rect:
         serializedVersion: 2
-        x: 320
-        y: 848
+        x: 0
+        y: 832
         width: 64
         height: 64
       alignment: 0
@@ -417,18 +348,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f9c41bddad9dd4eb9cc706c07656b5
-      internalID: 2132652895
+      spriteID: bb54e73cdcad12c4baa8d2f59cab8d6a
+      internalID: 1845947620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_14
+      name: walls and plants fix_11
       rect:
         serializedVersion: 2
-        x: 384
-        y: 848
+        x: 64
+        y: 832
         width: 64
         height: 64
       alignment: 0
@@ -439,18 +370,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4e3206698ac82b4a9cdc79416aeafb0
-      internalID: -381530576
+      spriteID: eabcfe22eec7a224786c171f63fa9ea7
+      internalID: 322120805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_15
+      name: walls and plants fix_12
       rect:
         serializedVersion: 2
-        x: 448
-        y: 848
+        x: 128
+        y: 832
         width: 64
         height: 64
       alignment: 0
@@ -461,18 +392,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00910a12888918d44b78d3bd68019e83
-      internalID: -1310737878
+      spriteID: 8710a7b5d2414aa46a539ab51bda5514
+      internalID: -383755366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_16
+      name: walls and plants fix_13
       rect:
         serializedVersion: 2
-        x: 512
-        y: 848
+        x: 192
+        y: 832
         width: 64
         height: 64
       alignment: 0
@@ -483,128 +414,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08e8ee588b3585c4e8a203919da75e41
-      internalID: -954988921
+      spriteID: af60cf12a9509914e9a05cd9eeff01ee
+      internalID: 1746055024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_17
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 784
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f480ebb7a7a5adf4db4c516ffb74bcc5
-      internalID: -531810809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_18
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 784
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d2678e4cacafa64481157e00de130a7
-      internalID: -244114928
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_19
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 784
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c1ec92ad0f445649bd809fd665c11ba
-      internalID: -482879971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_20
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 784
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7259af8cf560d34db5bf0081f3c7540
-      internalID: 1290958142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_21
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 784
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d93d92f001be8b247b05e429de347fe6
-      internalID: -1942648553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walls and plants_22
+      name: walls and plants fix_14
       rect:
         serializedVersion: 2
         x: 256
-        y: 720
+        y: 832
         width: 64
         height: 64
       alignment: 0
@@ -615,18 +436,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 694630231fa796c45b97498fe6edd3b7
-      internalID: -313962000
+      spriteID: a438ba35aad177e4291f992f1e0d4db8
+      internalID: -243894541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_23
+      name: walls and plants fix_15
       rect:
         serializedVersion: 2
-        x: 320
-        y: 720
+        x: 0
+        y: 768
         width: 64
         height: 64
       alignment: 0
@@ -637,18 +458,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3507f57ec3c246b47a2a94d877c3353a
-      internalID: 608311167
+      spriteID: a45240735196e574c92e9c341b77cc82
+      internalID: 394448826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_24
+      name: walls and plants fix_16
       rect:
         serializedVersion: 2
-        x: 384
-        y: 720
+        x: 64
+        y: 768
         width: 64
         height: 64
       alignment: 0
@@ -659,18 +480,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ae8ea6582fa805418dbf5a580dc8525
-      internalID: -181874523
+      spriteID: 4cf706a8045cca1488c6fc45c1aafeec
+      internalID: 1671469728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_25
+      name: walls and plants fix_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2962617bfc6db1845baaff83942119a8
+      internalID: 1851043597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walls and plants fix_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00e14d3e25430c43b6e042cbb591f41
+      internalID: 342278068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walls and plants fix_19
       rect:
         serializedVersion: 2
         x: 256
-        y: 656
+        y: 768
         width: 64
         height: 64
       alignment: 0
@@ -681,18 +546,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a216bc56568621447a6d408fa5c097ff
-      internalID: 1761855958
+      spriteID: e93d31e82a8ff0c4fa71e7a4428bf79d
+      internalID: -1239847397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_26
+      name: walls and plants fix_20
       rect:
         serializedVersion: 2
-        x: 320
-        y: 656
+        x: 0
+        y: 704
         width: 64
         height: 64
       alignment: 0
@@ -703,18 +568,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4501a77c3ac06254da3ca1b5b63e3b15
-      internalID: -1477285643
+      spriteID: 0beaa70851caee34d947666389425672
+      internalID: 1189078036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls and plants_27
+      name: walls and plants fix_21
       rect:
         serializedVersion: 2
-        x: 256
-        y: 592
+        x: 64
+        y: 704
         width: 64
         height: 64
       alignment: 0
@@ -725,8 +590,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e78d4b0799557744bd2e407e5d06554
-      internalID: -1446885174
+      spriteID: 805090aa707c6f846b7edcc64d5c8750
+      internalID: -2014094907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walls and plants fix_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed99db8decb7c274abe3504429e9477a
+      internalID: -470762568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walls and plants fix_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1240a01bec6859449935e4e31f08555e
+      internalID: -1952318473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walls and plants fix_24
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8241da1829e624881f2496af862318
+      internalID: 2143996827
       vertices: []
       indices: 
       edges: []
@@ -735,7 +666,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9c8402ee78561ae4a8decf3c00b2168e
+    spriteID: 54277950550b1c345a5b495d7116dfbd
     internalID: 0
     vertices: []
     indices: 
@@ -745,36 +676,33 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      walls and plants_0: -1195948027347293786
-      walls and plants_1: -2798158572790651044
-      walls and plants_10: -1452942963
-      walls and plants_11: -283593769
-      walls and plants_12: 1165192306
-      walls and plants_13: 2132652895
-      walls and plants_14: -381530576
-      walls and plants_15: -1310737878
-      walls and plants_16: -954988921
-      walls and plants_17: -531810809
-      walls and plants_18: -244114928
-      walls and plants_19: -482879971
-      walls and plants_2: 137195627
-      walls and plants_20: 1290958142
-      walls and plants_21: -1942648553
-      walls and plants_22: -313962000
-      walls and plants_23: 608311167
-      walls and plants_24: -181874523
-      walls and plants_25: 1761855958
-      walls and plants_26: -1477285643
-      walls and plants_27: -1446885174
-      walls and plants_3: -1888261316
-      walls and plants_4: 175052144
-      walls and plants_5: 868776416
-      walls and plants_6: 873933261
-      walls and plants_7: -88169195
-      walls and plants_8: 2113948804
-      walls and plants_9: 1303413047
+      walls and plants fix_0: 7318940610712914324
+      walls and plants fix_1: -635076545
+      walls and plants fix_10: 1845947620
+      walls and plants fix_11: 322120805
+      walls and plants fix_12: -383755366
+      walls and plants fix_13: 1746055024
+      walls and plants fix_14: -243894541
+      walls and plants fix_15: 394448826
+      walls and plants fix_16: 1671469728
+      walls and plants fix_17: 1851043597
+      walls and plants fix_18: 342278068
+      walls and plants fix_19: -1239847397
+      walls and plants fix_2: -458939925
+      walls and plants fix_20: 1189078036
+      walls and plants fix_21: -2014094907
+      walls and plants fix_22: -470762568
+      walls and plants fix_23: -1952318473
+      walls and plants fix_24: 2143996827
+      walls and plants fix_3: 1092882200
+      walls and plants fix_4: 519954950
+      walls and plants fix_5: -1000173148
+      walls and plants fix_6: 203131500
+      walls and plants fix_7: -1105542849
+      walls and plants fix_8: 468861087
+      walls and plants fix_9: 1157625845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
