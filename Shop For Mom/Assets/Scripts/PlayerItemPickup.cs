@@ -19,7 +19,7 @@ public class PlayerItemPickup : MonoBehaviour
         {
             if (pickup == null) return;
             Renderer renderer = pickup.GetComponent<Renderer>();
-            if (Vector3.Distance(player.position, pickup.transform.position) <= 2f)
+            if (Vector3.Distance(player.position, pickup.transform.position) <= 1.5f)
             {
                 Debug.Log(pickup.name + " is within the radius.");
                 // Change the color
