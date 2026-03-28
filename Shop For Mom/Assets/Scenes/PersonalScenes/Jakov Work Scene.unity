@@ -709,6 +709,26 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 854057068}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: spawners.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'spawners.Array.data[0]'
+      value: 
+      objectReference: {fileID: 620497296}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'spawners.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1334507001}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'spawners.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1180872260}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'spawners.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1205574225}
     - target: {fileID: 4031665850178919844, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
       propertyPath: m_Name
       value: Player
