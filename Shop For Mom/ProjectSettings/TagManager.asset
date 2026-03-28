@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameHandler
   - Pickups
+  - SpawnPoints
   layers:
   - Default
   - TransparentFX
