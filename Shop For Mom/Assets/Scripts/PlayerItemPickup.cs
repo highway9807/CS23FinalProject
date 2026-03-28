@@ -12,7 +12,6 @@ public class PlayerItemPickup : MonoBehaviour
     void Start()
     {
         player = GetComponent<Transform>();
-        pickups = GameObject.FindGameObjectsWithTag("Pickups");
     }
 
     void Update()
@@ -28,6 +27,7 @@ public class PlayerItemPickup : MonoBehaviour
             {
                 closestDist = dist;
                 closest = pickup;
+                //
             }
         }
 

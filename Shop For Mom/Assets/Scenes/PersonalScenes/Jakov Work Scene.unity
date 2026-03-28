@@ -710,9 +710,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 854057068}
     - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: pickups.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
       propertyPath: spawners.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'pickups.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2023292271}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'pickups.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1874982778}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'pickups.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1766791503}
+    - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
+      propertyPath: 'pickups.Array.data[3]'
+      value: 
+      objectReference: {fileID: 14265}
     - target: {fileID: 1093584736668926656, guid: 65078159d13064a01b95d6a3158fa6e6, type: 3}
       propertyPath: 'spawners.Array.data[0]'
       value: 
