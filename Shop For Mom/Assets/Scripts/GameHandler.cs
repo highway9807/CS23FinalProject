@@ -36,6 +36,12 @@ public class GameHandler : MonoBehaviour
 
     // add scene names to easily switch using scene manager (private, serialize)
 
+    [SerializeField]
+    private PlayerInventory playerInv;
+
+    /// Inventory API for UI and gameplay systems. </summary>
+    public PlayerInventory PlayerInventory => playerInv;
+
     void Awake()
     {
         // ensure no game object duplicates

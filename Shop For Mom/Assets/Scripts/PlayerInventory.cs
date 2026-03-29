@@ -122,4 +122,26 @@ public class PlayerInventory : MonoBehaviour
         Changed?.Invoke();
     }
 
+    // Name: PrintInventory
+    // Purpose: Print the inventory to console while we work on UI
+    // Inputs:  None.
+    // Outputs: Prints the contents of the current playerinventory to console.
+    public void printInventory()
+    {
+        string invString = "---------------------------------------------" +
+                           "Inventory" +
+                           "---------------------------------------------\n";
+        for(int i = 0; i < slots.Count; i++)
+        {
+            invString += "Slot " + i + ": " + slots[i].itemName;
+            if (((i + 1) % 5) == 0)
+            {
+                invString += "\n";
+            } else
+            {
+                invString += ", ";
+            }
+        }
+        Debug.Log(invString);
+    }
 }
