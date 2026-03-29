@@ -31,7 +31,7 @@ public class TutorialButton : MonoBehaviour
 			{
 				isRunning = false;
 				moveAudio.Stop();
-				SceneManager.LoadScene(3);
+				SceneManager.LoadScene(1);
 			}
 		}
 	}
