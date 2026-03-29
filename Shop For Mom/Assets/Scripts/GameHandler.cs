@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
+    public static GameHandler gh;
+
+
     [Header("Game State")]
     // TODO: add player gameObject (pirvate, serialize)
     // TODO: add any TextMP objects (private, serialize)
@@ -32,6 +35,28 @@ public class GameHandler : MonoBehaviour
     //TODO: drag button prefabs 
 
     // add scene names to easily switch using scene manager (private, serialize)
+
+    void Awake()
+    {
+        // ensure no game object duplicates
+        if ((gh != null) && (gh != this))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // assign this particular obj to be the official gamestate
+        gh = this;
+
+        // allow gs to persist across scene changes
+        DontDestroyOnLoad(gameObject);
+        // create the 
+        playerInv = GetComponent<PlayerInventory>();
+        if(!playerInv)
+        {
+            playerInv = gameObject.AddComponent<PlayerInventory>();
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
