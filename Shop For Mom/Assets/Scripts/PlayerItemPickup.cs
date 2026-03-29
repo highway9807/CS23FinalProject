@@ -77,5 +77,6 @@ public class PlayerItemPickup : MonoBehaviour
             heldItem.SetActive(true);
             heldItem = null;
         }
+        pickups = GameObject.FindGameObjectsWithTag("Pickups");
     }
 }
