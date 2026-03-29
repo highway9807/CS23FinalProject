@@ -27,6 +27,7 @@ public class TutorialButton : MonoBehaviour
 			rect.anchoredPosition += Vector2.up*speed*Time.deltaTime;
 			//transform.Translate(Vector3.up * speed * Time.deltaTime);
 			timer += Time.deltaTime;
+			SceneManager.LoadScene(1);
 			if (timer >= moveDuration)
 			{
 				isRunning = false;
