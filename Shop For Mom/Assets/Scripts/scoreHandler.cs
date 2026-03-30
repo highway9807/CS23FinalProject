@@ -22,7 +22,8 @@ public class ScoreHandler : MonoBehaviour
         // Calculate the total score
         int totalScore = correctCount*correctPoints - incorrectCount*incorrectPoints;
         // Update the text displays
-        UpdateText(totalScoreText, $"Total Score: {totalScore}");
+        UpdateText(totalScoreText,
+        $"Total Score: {correctCount} x {correctPoints} - {incorrectCount} x {incorrectPoints} = {totalScore}");
         UpdateText(correctItemsText, $"Correct Items: {correctCount}");
         UpdateText(incorrectItemsText, $"Incorrect Items: {incorrectCount}");
     }
