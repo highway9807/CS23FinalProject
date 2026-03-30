@@ -13,6 +13,10 @@ public class CarController_TopDown : MonoBehaviour {
     public bool allowStandingRotation = false; // enable for rotation without driving
     public float maxSpeed = 20; // Caps car speed
 
+    [Header("Sound effects")]
+    public AudioSource playerAudio;
+    public AudioClip wallThud;
+
      // Local Variables
     Vector2 inputVector;
     float accelerationInput = 0f;
@@ -96,4 +100,14 @@ public class CarController_TopDown : MonoBehaviour {
           steeringInput = inputVector.x;
           accelerationInput = inputVector.y;
      }
+
+     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Detect wall collisions
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            // Play wall thud sound effect
+            playerAudio.PlayOneShot(wallThud);
+        }
+    }
 }

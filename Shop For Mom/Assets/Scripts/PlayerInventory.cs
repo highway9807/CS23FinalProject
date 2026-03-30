@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
     // note: Action denotes a void return with no parameter input
     // in C/C++ terms, this behaves like a list of function pointers called in
     // order when this object/file calls Changed().
-    // THIS class controls when the event is called, but other scripts decide 
+    // THIS class controls when the event is called, but other scripts decide
     // what functions should run when it happens by "subscribing". Assuming we
     // declared:
     //     PlayerInventory playerInv;
