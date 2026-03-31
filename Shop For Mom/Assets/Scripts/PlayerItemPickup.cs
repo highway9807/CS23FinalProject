@@ -18,7 +18,6 @@ public class PlayerItemPickup : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         player = GetComponent<Transform>();
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
-        spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
         foreach (GameObject spawn in spawners){
             spawn.SetActive(false);
         }
@@ -86,6 +85,10 @@ public class PlayerItemPickup : MonoBehaviour
         }
 
  
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log($"closest_spawn={closest_spawn}, heldItem={heldItem}");
+        }
 
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
