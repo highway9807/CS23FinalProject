@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialButton : MonoBehaviour
+public class PlayButton : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 	public float speed = 5f;
@@ -58,7 +58,7 @@ public class TutorialButton : MonoBehaviour
 			{
 				isRunning = false;
 				//moveAudio.Stop();
-				SceneManager.LoadScene(1);
+				SceneManager.LoadScene(4);
 			}
 		}
 	}

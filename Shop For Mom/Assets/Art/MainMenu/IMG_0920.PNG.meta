@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 5b5c51df3786f4563b63aefb6f39d4f6
+guid: cc4825f391ee2484fae43f81ef1282e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8156526432797010691
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 2_0"
+      213: -2688682580249748241
+    second: IMG_0920_0
+  - first:
+      213: 418208058682988167
+    second: IMG_0920_1
+  - first:
+      213: 1394732349380694046
+    second: IMG_0920_2
+  - first:
+      213: 8578898988895670756
+    second: IMG_0920_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,30 +105,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 2_0"
+      name: IMG_0920_0
       rect:
         serializedVersion: 2
-        x: 85
-        y: 236
-        width: 222
-        height: 291
+        x: 7
+        y: 5
+        width: 45
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df4dc0cac623ece80800000000000000
-      internalID: -8156526432797010691
+      spriteID: fecde624071efaad0800000000000000
+      internalID: -2688682580249748241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_0920_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 8
+        width: 41
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786510c7306cdc500800000000000000
+      internalID: 418208058682988167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_0920_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 9
+        width: 55
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e101591aea51b5310800000000000000
+      internalID: 1394732349380694046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_0920_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 10
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1951d6d2f5e0770800000000000000
+      internalID: 8578898988895670756
       vertices: []
       indices: 
       edges: []
@@ -148,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u672A\u547D\u540D\u4F5C\u54C1 2_0": -8156526432797010691
+      IMG_0920_0: -2688682580249748241
+      IMG_0920_1: 418208058682988167
+      IMG_0920_2: 1394732349380694046
+      IMG_0920_3: 8578898988895670756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

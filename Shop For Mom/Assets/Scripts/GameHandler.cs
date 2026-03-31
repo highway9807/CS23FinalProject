@@ -80,6 +80,16 @@ public class GameHandler : MonoBehaviour
             credsBtn.onClick.AddListener(loadH2PScene);
     }
 
+    // Name: Update
+    // Purpose: Provide quick keyboard pause toggle using Escape.
+    // Inputs:  Escape key press.
+    // Outputs: None.
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            TogglePauseMenu();
+    }
+
     // click events
     private void loadStartScene()
     {
@@ -111,6 +121,36 @@ public class GameHandler : MonoBehaviour
     private void loadSettingsScene()
     {
         
+    }
+
+    // Name: TogglePauseMenu
+    // Purpose: Toggle pause state using PauseManager with PauseMenu reason.
+    // Inputs:  None.
+    // Outputs: None.
+    public void TogglePauseMenu()
+    {
+        if (PauseManager.isPaused)
+            PauseManager.ReleasePause(PauseReason.PauseMenu);
+        else
+            PauseManager.RequestPause(PauseReason.PauseMenu);
+    }
+
+    // Name: PauseFromButton
+    // Purpose: Pause gameplay when called from a UI button.
+    // Inputs:  None.
+    // Outputs: None.
+    public void PauseFromButton()
+    {
+        PauseManager.RequestPause(PauseReason.PauseMenu);
+    }
+
+    // Name: ResumeFromButton
+    // Purpose: Resume gameplay when called from a UI button.
+    // Inputs:  None.
+    // Outputs: None.
+    public void ResumeFromButton()
+    {
+        PauseManager.ReleasePause(PauseReason.PauseMenu);
     }
 
 

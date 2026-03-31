@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 89d8e0fafc2a042cbabf93d368d966d3
+guid: 98ce30f3bce10954ca4730d15636f0b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8755360935863916650
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 11_0"
+      213: 8652701026483863029
+    second: IMG_0914_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 11_0"
+      name: IMG_0914_0
       rect:
         serializedVersion: 2
-        x: 81
-        y: 192
-        width: 282
-        height: 285
+        x: 697
+        y: 635
+        width: 237
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a68108e126a418970800000000000000
-      internalID: 8755360935863916650
+      spriteID: 5fd7a375db1941870800000000000000
+      internalID: 8652701026483863029
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u672A\u547D\u540D\u4F5C\u54C1 11_0": 8755360935863916650
+      IMG_0914_0: 8652701026483863029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

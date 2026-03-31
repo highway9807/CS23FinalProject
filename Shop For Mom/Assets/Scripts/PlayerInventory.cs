@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
 
+    public int invPrintSpacing = 30;
+
     // Scripts call this event whenever the inventory changes so UI can update.
     // note: Action denotes a void return with no parameter input
     // in C/C++ terms, this behaves like a list of function pointers called in
@@ -133,14 +135,19 @@ public class PlayerInventory : MonoBehaviour
                            "---------------------------------------------\n";
         for(int i = 0; i < slots.Count; i++)
         {
-            invString += "Slot " + i + ": " + slots[i].itemName;
+            string toConcat = "Slot " + i + ": " + slots[i].itemName;
+
             if (((i + 1) % 5) == 0)
             {
-                invString += "\n";
+                toConcat += "\n";
             } else
             {
-                invString += ", ";
+                int spacesNeeded = invPrintSpacing - toConcat.Length;
+                if(spacesNeeded > 0)
+                    toConcat += new string(' ', spacesNeeded);
+
             }
+            invString += toConcat;
         }
         Debug.Log(invString);
     }
