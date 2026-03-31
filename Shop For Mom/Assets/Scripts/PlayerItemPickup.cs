@@ -7,11 +7,15 @@ public class PlayerItemPickup : MonoBehaviour
     public Transform player;
     public GameObject[] pickups;
     public GameObject[] spawners;
+    public ItemDefinition appleItem;
     private GameObject heldItem = null;
+    private PlayerInventory playerInventory;
 
     void Start()
     {
         player = GetComponent<Transform>();
+        if (GameHandler.gh != null)
+            playerInventory = GameHandler.gh.PlayerInventory;
     }
 
     void Update()
@@ -38,7 +42,7 @@ public class PlayerItemPickup : MonoBehaviour
             Renderer renderer = pickup.GetComponent<Renderer>();
             if (pickup == closest)
             {
-                Debug.Log(pickup.name + " is within the radius.");
+                //Debug.Log(pickup.name + " is within the radius.");
                 renderer.material.color = Color.blue;
 
             }
@@ -50,9 +54,12 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P) && closest != null)
         {
-            Debug.Log("Picked up " + closest.name);
-            heldItem = closest;
-            closest.SetActive(false);
+            if (playerInventory != null && appleItem != null && playerInventory.TryAdd(appleItem))
+            {
+                Debug.Log("Picked up " + closest.name);
+                heldItem = closest;
+                closest.SetActive(false);
+            }
         }
 
         GameObject closest_spawn = null;
@@ -72,10 +79,13 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
-            Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
-            heldItem.transform.position = closest_spawn.transform.position;
-            heldItem.SetActive(true);
-            heldItem = null;
+            if (playerInventory != null && appleItem != null && playerInventory.TryRemove(appleItem))
+            {
+                Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
+                heldItem.transform.position = closest_spawn.transform.position;
+                heldItem.SetActive(true);
+                heldItem = null;
+            }
         }
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
     }
