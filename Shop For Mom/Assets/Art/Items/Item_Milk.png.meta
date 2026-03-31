@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0e8d08a41d3614442ad4ae17aa374bce
+guid: dfe0e828a2e044db7abe17e701f24574
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3046559524262668322
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 8_0"
+      213: 5174462982432113785
+    second: Item_Milk (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 8_0"
+      name: Item_Milk (1)_0
       rect:
         serializedVersion: 2
-        x: 105
-        y: 243
-        width: 329
-        height: 307
+        x: 48
+        y: 6
+        width: 183
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed79d39014278b5d0800000000000000
-      internalID: -3046559524262668322
+      spriteID: 9744643caa26fc740800000000000000
+      internalID: 5174462982432113785
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u672A\u547D\u540D\u4F5C\u54C1 8_0": -3046559524262668322
+      Item_Milk (1)_0: 5174462982432113785
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

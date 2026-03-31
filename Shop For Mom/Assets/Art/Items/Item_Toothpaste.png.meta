@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 42549dd03af1d42c1b77e38c1239dac9
+guid: 2469acfa69df842faaea2f04a57fcf3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3724663155520363627
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 4_0"
-  - first:
-      213: -3134914300366853403
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 4_1"
-  - first:
-      213: 6232879931299796337
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 4_2"
-  - first:
-      213: -2671440803402464528
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 4_3"
+      213: 867833905398665336
+    second: Item_Toothpaste 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 4_0"
+      name: Item_Toothpaste 1_0
       rect:
         serializedVersion: 2
-        x: 945
-        y: 619
-        width: 26
-        height: 27
+        x: 85
+        y: 1
+        width: 86
+        height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6cd6c4e769a0b330800000000000000
-      internalID: 3724663155520363627
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 4_1"
-      rect:
-        serializedVersion: 2
-        x: 894
-        y: 582
-        width: 16
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ea6755ad0c8e74d0800000000000000
-      internalID: -3134914300366853403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 4_2"
-      rect:
-        serializedVersion: 2
-        x: 622
-        y: 76
-        width: 337
-        height: 496
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 17519c83643af7650800000000000000
-      internalID: 6232879931299796337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 4_3"
-      rect:
-        serializedVersion: 2
-        x: 738
-        y: 55
-        width: 50
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f246b24eb22dead0800000000000000
-      internalID: -2671440803402464528
+      spriteID: 870d357c65a2b0c00800000000000000
+      internalID: 867833905398665336
       vertices: []
       indices: 
       edges: []
@@ -223,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u672A\u547D\u540D\u4F5C\u54C1 4_0": 3724663155520363627
-      "\u672A\u547D\u540D\u4F5C\u54C1 4_1": -3134914300366853403
-      "\u672A\u547D\u540D\u4F5C\u54C1 4_2": 6232879931299796337
-      "\u672A\u547D\u540D\u4F5C\u54C1 4_3": -2671440803402464528
+      Item_Toothpaste 1_0: 867833905398665336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

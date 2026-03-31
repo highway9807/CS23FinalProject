@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 93d21555d477144d7b661615b78d89f7
+guid: 589a5e70615bf4c07ab504f763f15973
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6101559886262733743
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 14_0"
-  - first:
-      213: 5010272504696932700
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 14_1"
-  - first:
-      213: 1798862247070394418
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 14_2"
+      213: -9051181507504301854
+    second: Item_Ketchup 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 14_0"
+      name: Item_Ketchup 1_0
       rect:
         serializedVersion: 2
-        x: 667
-        y: 261
-        width: 536
-        height: 1619
+        x: 69
+        y: 10
+        width: 116
+        height: 233
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15479836c97e25ba0800000000000000
-      internalID: -6101559886262733743
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 14_1"
-      rect:
-        serializedVersion: 2
-        x: 1301
-        y: 760
-        width: 17
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c590e562c40188540800000000000000
-      internalID: 5010272504696932700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 14_2"
-      rect:
-        serializedVersion: 2
-        x: 1363
-        y: 758
-        width: 6
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 238ed74dea7d6f810800000000000000
-      internalID: 1798862247070394418
+      spriteID: 2e81f97cf5eb36280800000000000000
+      internalID: -9051181507504301854
       vertices: []
       indices: 
       edges: []
@@ -198,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u672A\u547D\u540D\u4F5C\u54C1 14_0": -6101559886262733743
-      "\u672A\u547D\u540D\u4F5C\u54C1 14_1": 5010272504696932700
-      "\u672A\u547D\u540D\u4F5C\u54C1 14_2": 1798862247070394418
+      Item_Ketchup 1_0: -9051181507504301854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

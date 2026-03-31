@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 4d3fc4cf380814ee7a9a2971f2104105
+guid: 9c0b3be74385a4f6d84266a21fa52e2c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9192843683492645960
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 5_0"
-  - first:
-      213: -8263793831564600789
-    second: "\u672A\u547D\u540D\u4F5C\u54C1 5_1"
+      213: 6493175934889521734
+    second: Item_Egg (1) (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 5_0"
+      name: Item_Egg (1) (1)_0
       rect:
         serializedVersion: 2
-        x: 554
-        y: 587
-        width: 13
-        height: 15
+        x: 36
+        y: 71
+        width: 179
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b33ab920657c6080800000000000000
-      internalID: -9192843683492645960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u672A\u547D\u540D\u4F5C\u54C1 5_1"
-      rect:
-        serializedVersion: 2
-        x: 178
-        y: 210
-        width: 238
-        height: 328
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2a178c2b4b115d80800000000000000
-      internalID: -8263793831564600789
+      spriteID: 64274374c156c1a50800000000000000
+      internalID: 6493175934889521734
       vertices: []
       indices: 
       edges: []
@@ -173,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u672A\u547D\u540D\u4F5C\u54C1 5_0": -9192843683492645960
-      "\u672A\u547D\u540D\u4F5C\u54C1 5_1": -8263793831564600789
+      Item_Egg (1) (1)_0: 6493175934889521734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
