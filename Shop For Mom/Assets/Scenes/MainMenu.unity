@@ -728,7 +728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: startSceneName
-      value: Gameplay
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: how2PlaySceneName
