@@ -80,6 +80,16 @@ public class GameHandler : MonoBehaviour
             credsBtn.onClick.AddListener(loadH2PScene);
     }
 
+    // Name: Update
+    // Purpose: Provide quick keyboard pause toggle using Escape.
+    // Inputs:  Escape key press.
+    // Outputs: None.
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            TogglePauseMenu();
+    }
+
     // click events
     private void loadStartScene()
     {
