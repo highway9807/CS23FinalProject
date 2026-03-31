@@ -1076,7 +1076,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16925,6 +16925,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2743548049349764206, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3305646451373620060, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2
@@ -16966,6 +16970,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: pickups.Array.size
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: spawners.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
       propertyPath: 'pickups.Array.data[0]'
       value: 
       objectReference: {fileID: 1674213345}
@@ -16981,6 +16993,138 @@ PrefabInstance:
       propertyPath: 'pickups.Array.data[3]'
       value: 
       objectReference: {fileID: 1357165831}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1132813114}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[5]'
+      value: 
+      objectReference: {fileID: 544429767}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[6]'
+      value: 
+      objectReference: {fileID: 62682906}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[7]'
+      value: 
+      objectReference: {fileID: 353426521}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1957885183}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[9]'
+      value: 
+      objectReference: {fileID: 952333799}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[10]'
+      value: 
+      objectReference: {fileID: 983925746}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[11]'
+      value: 
+      objectReference: {fileID: 195907029}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[12]'
+      value: 
+      objectReference: {fileID: 1864659755}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[13]'
+      value: 
+      objectReference: {fileID: 2001646932}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[14]'
+      value: 
+      objectReference: {fileID: 1468847780}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[15]'
+      value: 
+      objectReference: {fileID: 455077460}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[16]'
+      value: 
+      objectReference: {fileID: 35867196}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[17]'
+      value: 
+      objectReference: {fileID: 1924815626}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[18]'
+      value: 
+      objectReference: {fileID: 775707767}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[19]'
+      value: 
+      objectReference: {fileID: 1583933869}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[20]'
+      value: 
+      objectReference: {fileID: 446516887}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[21]'
+      value: 
+      objectReference: {fileID: 849205490}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[22]'
+      value: 
+      objectReference: {fileID: 1395945997}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[23]'
+      value: 
+      objectReference: {fileID: 857662956}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[24]'
+      value: 
+      objectReference: {fileID: 1793607694}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[25]'
+      value: 
+      objectReference: {fileID: 516940017}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[26]'
+      value: 
+      objectReference: {fileID: 1624249177}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[27]'
+      value: 
+      objectReference: {fileID: 1842781984}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[28]'
+      value: 
+      objectReference: {fileID: 2022803550}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[29]'
+      value: 
+      objectReference: {fileID: 1502932668}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[30]'
+      value: 
+      objectReference: {fileID: 1738359497}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[31]'
+      value: 
+      objectReference: {fileID: 243497510}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[32]'
+      value: 
+      objectReference: {fileID: 1697153433}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[33]'
+      value: 
+      objectReference: {fileID: 1187979025}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[34]'
+      value: 
+      objectReference: {fileID: 1329907313}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'pickups.Array.data[35]'
+      value: 
+      objectReference: {fileID: 557408045}
+    - target: {fileID: 7484308622802179125, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
+      propertyPath: 'spawners.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1127108314}
     - target: {fileID: 8902909362695784137, guid: c8ec5c13c375142339375fcd450d7103, type: 3}
       propertyPath: m_Name
       value: SpawnPoints
