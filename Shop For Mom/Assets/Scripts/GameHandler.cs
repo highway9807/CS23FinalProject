@@ -113,6 +113,36 @@ public class GameHandler : MonoBehaviour
         
     }
 
+    // Name: TogglePauseMenu
+    // Purpose: Toggle pause state using PauseManager with PauseMenu reason.
+    // Inputs:  None.
+    // Outputs: None.
+    public void TogglePauseMenu()
+    {
+        if (PauseManager.isPaused)
+            PauseManager.ReleasePause(PauseReason.PauseMenu);
+        else
+            PauseManager.RequestPause(PauseReason.PauseMenu);
+    }
+
+    // Name: PauseFromButton
+    // Purpose: Pause gameplay when called from a UI button.
+    // Inputs:  None.
+    // Outputs: None.
+    public void PauseFromButton()
+    {
+        PauseManager.RequestPause(PauseReason.PauseMenu);
+    }
+
+    // Name: ResumeFromButton
+    // Purpose: Resume gameplay when called from a UI button.
+    // Inputs:  None.
+    // Outputs: None.
+    public void ResumeFromButton()
+    {
+        PauseManager.ReleasePause(PauseReason.PauseMenu);
+    }
+
 
     
 }
