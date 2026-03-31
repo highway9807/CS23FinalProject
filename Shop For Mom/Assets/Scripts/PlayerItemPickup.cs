@@ -59,6 +59,7 @@ public class PlayerItemPickup : MonoBehaviour
                 Debug.Log("Picked up " + closest.name);
                 heldItem = closest;
                 closest.SetActive(false);
+                playerInventory.printInventory();
             }
         }
 
