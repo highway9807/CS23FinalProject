@@ -17,6 +17,7 @@ public class PlayerItemPickup : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         player = GetComponent<Transform>();
+        pickups = GameObject.FindGameObjectsWithTag("Pickups");
         spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
         foreach (GameObject spawn in spawners){
             spawn.SetActive(false);
@@ -88,7 +89,7 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
-            if (playerInventory != null && appleItem != null )//include try Drop
+            if (playerInventory != null && appleItem != null && playerInventory.TryRemove(appleItem))//include try Drop
             {
                 Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
                 heldItem.transform.position = closest_spawn.transform.position;
