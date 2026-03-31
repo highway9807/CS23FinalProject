@@ -8,12 +8,25 @@ public class TutorialButton : MonoBehaviour
 	public float targetY = 12f;
 	public float moveDuration = 2f;
 
+	public float rotateSpeed = 100f;
+	public float targetAngle = 90f;
+
+	private float remainingAngle = 0f;
+
 	//public AudioSource moveAudio;
 
 	private bool isRunning = false;
 	private float timer = 0f;
 	private RectTransform rect;
 
+
+	public void StartRotating()
+	{
+		if(remainingAngle <= 0)
+		{
+			remainingAngle = targetAngle;
+		}
+	}
 
 	void Start()
 	{
@@ -24,9 +37,22 @@ public class TutorialButton : MonoBehaviour
 	{
 		if (isRunning)
 		{
+			if(remainingAngle > 0)
+			{
+				float rotationThisFrame = rotateSpeed * Time.deltaTime;
+				if(rotationThisFrame > remainingAngle)
+				{
+					rotationThisFrame = remainingAngle;
+				}
+				transform.Rotate(0,0,-rotationThisFrame);
+				remainingAngle -= rotationThisFrame;
+			}
+			
 			rect.anchoredPosition += Vector2.down*speed*Time.deltaTime;
+			
 			//transform.Translate(Vector3.up * speed * Time.deltaTime);
 			timer += Time.deltaTime;
+			
 			//SceneManager.LoadScene(1);
 			if (timer >= moveDuration)
 			{
@@ -36,6 +62,7 @@ public class TutorialButton : MonoBehaviour
 			}
 		}
 	}
+
 
 	public void GameStart()
 	{
