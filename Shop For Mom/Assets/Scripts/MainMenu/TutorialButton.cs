@@ -8,7 +8,7 @@ public class TutorialButton : MonoBehaviour
 	public float targetY = 12f;
 	public float moveDuration = 2f;
 
-	public AudioSource moveAudio;
+	//public AudioSource moveAudio;
 
 	private bool isRunning = false;
 	private float timer = 0f;
@@ -24,14 +24,14 @@ public class TutorialButton : MonoBehaviour
 	{
 		if (isRunning)
 		{
-			rect.anchoredPosition += Vector2.up*speed*Time.deltaTime;
+			rect.anchoredPosition += Vector2.down*speed*Time.deltaTime;
 			//transform.Translate(Vector3.up * speed * Time.deltaTime);
 			timer += Time.deltaTime;
-			SceneManager.LoadScene(1);
+			//SceneManager.LoadScene(1);
 			if (timer >= moveDuration)
 			{
 				isRunning = false;
-				moveAudio.Stop();
+				//moveAudio.Stop();
 				SceneManager.LoadScene(1);
 			}
 		}
@@ -41,7 +41,7 @@ public class TutorialButton : MonoBehaviour
 	{
 		isRunning = true;
 		timer = 0f;
-		moveAudio.Play();
+		//moveAudio.Play();
 		
 	}
 	public void ExitGame()

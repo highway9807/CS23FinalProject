@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 347674464}
   - component: {fileID: 347674466}
   - component: {fileID: 347674465}
+  - component: {fileID: 347674467}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -538,6 +539,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347674463}
   m_CullTransparentMesh: 1
+--- !u!114 &347674467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347674463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4012cac20b04dca488ff8788c0eec4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialButton
+  speed: 400
+  targetY: 10000
+  moveDuration: 2
 --- !u!1 &387021305
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,8 +774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825efe8bb94fed24ca216f7b3ecebc9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
-  offsetMultiplier: 15
-  smoothTime: 0.5
+  offsetMultiplier: 10
+  smoothTime: 0.3
 --- !u!114 &651313772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,8 +864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825efe8bb94fed24ca216f7b3ecebc9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
-  offsetMultiplier: 20
-  smoothTime: 0.4
+  offsetMultiplier: 15
+  smoothTime: 0.5
 --- !u!114 &827231332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,8 +1029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825efe8bb94fed24ca216f7b3ecebc9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
-  offsetMultiplier: 15
-  smoothTime: 0.5
+  offsetMultiplier: 10
+  smoothTime: 0.3
 --- !u!114 &983409666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1406,8 +1422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825efe8bb94fed24ca216f7b3ecebc9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
-  offsetMultiplier: 15
-  smoothTime: 0.5
+  offsetMultiplier: 10
+  smoothTime: 0.3
 --- !u!114 &1155648766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1761,14 +1777,14 @@ RectTransform:
   m_GameObject: {fileID: 1404916538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.2615576, y: 3.0392225, z: 1.8531845}
+  m_LocalScale: {x: 13.53884, y: 8.5428915, z: 4.0069847}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 118621570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -182}
+  m_AnchoredPosition: {x: -103, y: 32}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1404916540
@@ -1798,14 +1814,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f41c95f399f6888418883515833cb398, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1908,7 +1924,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1542190194}
+      - m_Target: {fileID: 347674467}
         m_TargetAssemblyTypeName: TutorialButton, Assembly-CSharp
         m_MethodName: GameStart
         m_Mode: 1
@@ -1973,7 +1989,6 @@ MonoBehaviour:
   speed: 5
   targetY: 12
   moveDuration: 2
-  moveAudio: {fileID: 0}
 --- !u!1 &1561395052
 GameObject:
   m_ObjectHideFlags: 0
