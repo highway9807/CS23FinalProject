@@ -1,34 +1,19 @@
 fileFormatVersion: 2
-guid: 585145293445bad45aa01f76a4299d4c
+guid: cc4825f391ee2484fae43f81ef1282e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4081890714412545689
-    second: IMG_0909_0
+      213: -2688682580249748241
+    second: IMG_0920_0
   - first:
-      213: -6571043133066825315
-    second: IMG_0909_1
+      213: 418208058682988167
+    second: IMG_0920_1
   - first:
-      213: -7781027546698351286
-    second: IMG_0909_2
+      213: 1394732349380694046
+    second: IMG_0920_2
   - first:
-      213: 3632696144129209296
-    second: IMG_0909_3
-  - first:
-      213: 4922614066701043404
-    second: IMG_0909_4
-  - first:
-      213: 7193801986093858512
-    second: IMG_0909_5
-  - first:
-      213: 861326886866711138
-    second: IMG_0909_6
-  - first:
-      213: -5842104354732420458
-    second: IMG_0909_7
-  - first:
-      213: 8772426751018514472
-    second: IMG_0909_8
+      213: 8578898988895670756
+    second: IMG_0920_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -124,23 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_0909_0
+      name: IMG_0920_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 309
-        width: 1280
-        height: 411
+        x: 7
+        y: 5
+        width: 45
+        height: 83
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 465, y: 0, z: 484, w: 296}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 996768c5af9c5a830800000000000000
-      internalID: 4081890714412545689
+      spriteID: fecde624071efaad0800000000000000
+      internalID: -2688682580249748241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_0920_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 8
+        width: 41
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786510c7306cdc500800000000000000
+      internalID: 418208058682988167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_0920_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 9
+        width: 55
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e101591aea51b5310800000000000000
+      internalID: 1394732349380694046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_0920_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 10
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1951d6d2f5e0770800000000000000
+      internalID: 8578898988895670756
       vertices: []
       indices: 
       edges: []
@@ -157,11 +208,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1280.0,"y":720.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      IMG_0909_0: 4081890714412545689
+      IMG_0920_0: -2688682580249748241
+      IMG_0920_1: 418208058682988167
+      IMG_0920_2: 1394732349380694046
+      IMG_0920_3: 8578898988895670756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
