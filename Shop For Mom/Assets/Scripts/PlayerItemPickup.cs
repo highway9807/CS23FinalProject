@@ -8,12 +8,19 @@ public class PlayerItemPickup : MonoBehaviour
     public GameObject[] pickups;
     public GameObject[] spawners;
     public ItemDefinition appleItem;
+    public AudioSource audioSource;
+    public AudioClip soundFX;
     private GameObject heldItem = null;
     private PlayerInventory playerInventory;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GetComponent<Transform>();
+        spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
+        foreach (GameObject spawn in spawners){
+            spawn.SetActive(false);
+        }
         if (GameHandler.gh != null)
             playerInventory = GameHandler.gh.PlayerInventory;
     }
@@ -57,6 +64,7 @@ public class PlayerItemPickup : MonoBehaviour
             if (playerInventory != null && appleItem != null && playerInventory.TryAdd(appleItem))
             {
                 Debug.Log("Picked up " + closest.name);
+                audioSource.PlayOneShot(soundFX);
                 heldItem = closest;
                 closest.SetActive(false);
                 playerInventory.printInventory();
@@ -80,7 +88,7 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
-            if (playerInventory != null && appleItem != null && playerInventory.TryRemove(appleItem))
+            if (playerInventory != null && appleItem != null )//include try Drop
             {
                 Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
                 heldItem.transform.position = closest_spawn.transform.position;
