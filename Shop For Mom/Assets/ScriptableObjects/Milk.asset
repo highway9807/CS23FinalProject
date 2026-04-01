@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be14251a25a8547088bd57b9baabf254, type: 3}
   m_Name: Milk
   m_EditorClassIdentifier: Assembly-CSharp::ItemDefinition
-  id: 5
-  itemName: 
+  id: 6
+  itemName: Milk
   pointValue: 1
   sprite: {fileID: 21300000, guid: dfe0e828a2e044db7abe17e701f24574, type: 3}
