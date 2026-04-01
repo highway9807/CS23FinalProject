@@ -8,6 +8,8 @@ public class PlayerItemPickup : MonoBehaviour
     public GameObject[] pickups;
     public GameObject[] spawners;
     public ItemDefinition appleItem;
+    public ItemDefinition bananaItem;
+    public ItemDefinition ketchupItem;
     public AudioSource audioSource;
     public AudioClip soundFX;
     private GameObject heldItem = null;

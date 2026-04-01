@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be14251a25a8547088bd57b9baabf254, type: 3}
-  m_Name: Banana
+  m_Name: Ketchup
   m_EditorClassIdentifier: Assembly-CSharp::ItemDefinition
   id: 0
-  itemName: Banana
+  itemName: Ketchup
   pointValue: 0
-  sprite: {fileID: 21300000, guid: 52b378d5026294668b01886344d461d4, type: 3}
+  sprite: {fileID: 21300000, guid: 589a5e70615bf4c07ab504f763f15973, type: 3}
