@@ -646,12 +646,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d73c9feaf93491a99c3ddd1117a546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  accelerationFactor: 5
-  turnFactor: 3.5
-  driftFactor: 0.95
-  rotationLimiter: 5
-  allowStandingRotation: 0
+  movementSpeed: 2
+  acceleration: 5
+  deacceleration: 3
   maxSpeed: 10
+  playerSpriteTransform: {fileID: 3244438422367239718}
   playerAudio: {fileID: 3393840253315285805}
   wallThud: {fileID: 8300000, guid: 3fd80c52319694e0cbc9f317d560828e, type: 3}
 --- !u!114 &5666377381038093696
@@ -669,3 +668,8 @@ MonoBehaviour:
   player: {fileID: 7990244213398356672}
   pickups: []
   spawners: []
+  appleItem: {fileID: 0}
+  bananaItem: {fileID: 0}
+  ketchupItem: {fileID: 0}
+  audioSource: {fileID: 0}
+  soundFX: {fileID: 0}
