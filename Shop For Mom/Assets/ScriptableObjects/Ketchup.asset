@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be14251a25a8547088bd57b9baabf254, type: 3}
   m_Name: Ketchup
   m_EditorClassIdentifier: Assembly-CSharp::ItemDefinition
-  id: 0
+  id: 2
   itemName: Ketchup
-  pointValue: 0
+  pointValue: 1
   sprite: {fileID: 21300000, guid: 589a5e70615bf4c07ab504f763f15973, type: 3}

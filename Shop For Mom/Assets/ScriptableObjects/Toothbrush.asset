@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be14251a25a8547088bd57b9baabf254, type: 3}
-  m_Name: Banana
+  m_Name: Toothbrush
   m_EditorClassIdentifier: Assembly-CSharp::ItemDefinition
-  id: 1
-  itemName: Banana
-  pointValue: 1
-  sprite: {fileID: 21300000, guid: 52b378d5026294668b01886344d461d4, type: 3}
+  id: 8
+  itemName: 
+  pointValue: 0
+  sprite: {fileID: 21300000, guid: 6120e4b176d6f41a8885008b054a2516, type: 3}
