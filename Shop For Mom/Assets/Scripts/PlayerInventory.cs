@@ -65,7 +65,7 @@ public class PlayerInventory : MonoBehaviour
     public bool hasItem(ItemDefinition item)
     {
 
-        if (item == null) return 0;
+        if (item == null) return false;
 
         int slotCount = slots.Count;
         for (int i = 0; i < slotCount; i++)
