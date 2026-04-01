@@ -32,6 +32,14 @@ public class PlayerController_TopDown : MonoBehaviour {
         if (playerSpriteTransform != null) {
             playerSpriteTransform.rotation = Quaternion.identity;
         }
+        if (inputVector.x > 0) {
+            // Facing Right
+            playerSpriteTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        else if (inputVector.x < 0) {
+            // Facing Left
+            playerSpriteTransform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+        }
     }
 
     void FixedUpdate() {
