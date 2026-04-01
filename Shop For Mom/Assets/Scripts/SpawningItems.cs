@@ -5,9 +5,7 @@ public class SpawningItems : MonoBehaviour
     public GameObject[] pickups;
     public GameObject[] spawners;
     public ItemDefinition[] itemList;
-    // public ItemDefinition appleItem;
-    // public ItemDefinition bananaItem;
-    // public ItemDefinition ketchupItem;
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
