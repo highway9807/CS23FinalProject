@@ -153,6 +153,15 @@ public class GameHandler : MonoBehaviour
         PauseManager.ReleasePause(PauseReason.PauseMenu);
     }
 
+    // Name: LoadScoreScene
+    // Purpose: Load the score scene after the completion of a level
+    // Inputs: None
+    // Oututs: None
+    public void LoadScoreScene()
+    {
+        SceneManager.LoadScene("ScoreScene");
+    }
+
 
     
 }

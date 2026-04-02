@@ -62,6 +62,24 @@ public class PlayerInventory : MonoBehaviour
         return itemTotal;
     }
 
+    public bool hasItem(ItemDefinition item)
+    {
+
+        if (item == null) return false;
+
+        int slotCount = slots.Count;
+        for (int i = 0; i < slotCount; i++)
+        {   
+
+            ItemDefinition currItem = slots[i];
+            if (currItem == item)
+                return true;
+            
+        }
+
+        return false;
+    }
+
     // Name: ClearAll
     // Purpose: Remove every entry from the inventory and notify listeners.
     // Inputs:  None.
