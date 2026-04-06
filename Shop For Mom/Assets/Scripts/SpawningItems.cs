@@ -31,7 +31,7 @@ public class SpawningItems : MonoBehaviour
                 pickups[i].name = currentItem.itemName;
             }
 
-            spawn.SetActive(false);
+            //spawn.SetActive(false);
             // More specific debug statement
             Debug.Log($"Spawned {pickups[i].name} at {spawn.transform.position}");
 
