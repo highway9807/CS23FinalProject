@@ -62,17 +62,17 @@ public class CartSister : MonoBehaviour
 
     void SpawnItemAtFeet(ItemDefinition item)
     {
-        // We look through the global list of pickups managed by SpawningItems
+        // Look through the global list of pickups
         foreach (GameObject p in spawner.pickups)
         {
-            // Find a physical object that is currently hidden and matches the data
+            // Find a object that is currently hidden and matches
             if (p != null && !p.activeSelf)
             {
-                // Here we assume you added a script to your pickups that holds their ItemDefinition
-                // If not, you can check p.name == item.itemName
+                // Check if the item matches what we need to drop
                 if (p.name == item.itemName)
                 {
-                    p.transform.position = transform.position; // Drop at the cart's location
+                    // Drop it at the current location
+                    p.transform.position = transform.position; 
                     p.SetActive(true);
                     break;
                 }
