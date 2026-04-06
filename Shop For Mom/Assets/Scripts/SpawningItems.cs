@@ -3,22 +3,27 @@ using UnityEngine;
 public class SpawningItems : MonoBehaviour
 {
     public GameObject[] pickups;
-    public GameObject[] spawners;
+    public GameObject applePickupPrefab;   // prefab with ItemIdentity set to apple asset
+    //public GameObject bananaPickupPrefab;
+    public GameObject[] spawnPoints;
     public ItemDefinition[] itemList;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoints");
         int i = 0;
-        foreach(GameObject spawn in spawners) {
+        foreach(GameObject spawn in spawnPoints) {
             // Make sure we don't go past the end of either list
-            if (i >= pickups.Length) break;
-            if (i >= itemList.Length) break;
 
-            pickups[i].transform.position = spawn.transform.position;
-            pickups[i].SetActive(true);
+            //if (i >= pickups.Length) break;
+            //if (i >= itemList.Length) break;
 
+            //pickups[i].transform.position = spawn.transform.position;
+
+            SpawnItem(applePickupPrefab, spawn.transform);
+
+            /*
             // Get the current item
             ItemDefinition currentItem = itemList[i];
 
@@ -39,12 +44,16 @@ public class SpawningItems : MonoBehaviour
                     sr.sprite = currentItem.sprite;
                 pickups[i].name = currentItem.itemName;
             }
+            */
 
             //spawn.SetActive(false);
             // More specific debug statement
-            Debug.Log($"Spawned {pickups[i].name} at {spawn.transform.position}");
+            //Debug.Log($"Spawned {pickups[i].name} at {spawn.transform.position}");
+            Debug.Log($"Spawning at {spawn.transform.position}");
+            spawn.SetActive(false);
             i++;
         }
+        applePickupPrefab.SetActive(false);
     }
 
     
@@ -52,5 +61,9 @@ public class SpawningItems : MonoBehaviour
     {
 
 
+    }
+    public void SpawnItem(GameObject prefab, Transform point)
+    {
+        Instantiate(prefab, point.position, point.rotation);
     }
 }

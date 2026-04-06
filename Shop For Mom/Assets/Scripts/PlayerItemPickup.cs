@@ -18,9 +18,7 @@ public class PlayerItemPickup : MonoBehaviour
     {
         player = GetComponent<Transform>();
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
-        foreach (GameObject spawn in spawners){
-            spawn.SetActive(false);
-        }
+        spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
         if (GameHandler.gh != null)
             playerInventory = GameHandler.gh.PlayerInventory;
     }
