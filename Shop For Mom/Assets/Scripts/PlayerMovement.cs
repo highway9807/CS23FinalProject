@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController_TopDown : MonoBehaviour {
 
     [Header("Movement settings")]
+	private Animator anim;
     public float movementSpeed = 1.0f;
     public float acceleration = 5.0f; // How fast the player reaches max speed
     public float deacceleration = 3.0f; // How fast the player stops
@@ -12,8 +13,8 @@ public class PlayerController_TopDown : MonoBehaviour {
     public Transform playerSpriteTransform;
 
     [Header("Sound effects")]
-    public AudioSource playerAudio;
-    public AudioClip wallThud;
+    public AudioSource playerWalk;
+    public AudioSource wallThud;
 
     // Local Variables
     Vector2 inputVector;
@@ -21,6 +22,7 @@ public class PlayerController_TopDown : MonoBehaviour {
 
     void Awake() {
         playerRb2D = GetComponent<Rigidbody2D>();
+		anim = GetComponentInChildren<Animator>();
     }
 
     void Update() {
@@ -40,6 +42,20 @@ public class PlayerController_TopDown : MonoBehaviour {
             // Facing Left
             playerSpriteTransform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         }
+
+		//walking audio
+		if (inputVector.x !=0 || inputVector.y !=0)
+		{
+			anim.SetBool("Walk", true);
+			if (!playerWalk.isPlaying){
+			playerWalk.Play();
+			}
+		}
+		else
+		{
+			anim.SetBool("Walk", false);
+			playerWalk.Stop();
+		}
     }
 
     void FixedUpdate() {
@@ -66,7 +82,8 @@ public class PlayerController_TopDown : MonoBehaviour {
         if (collision.gameObject.CompareTag("Wall")) {
             // Only play thud if hitting reasonably hard
             if(collision.relativeVelocity.magnitude > 2f) {
-                playerAudio.PlayOneShot(wallThud);
+                //playerAudio.PlayOneShot(wallThud);
+				wallThud.Play();
             }
         }
     }

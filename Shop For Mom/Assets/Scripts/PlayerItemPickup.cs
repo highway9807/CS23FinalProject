@@ -10,14 +10,12 @@ public class PlayerItemPickup : MonoBehaviour
     public ItemDefinition appleItem;
     public ItemDefinition bananaItem;
     public ItemDefinition ketchupItem;
-    public AudioSource audioSource;
-    public AudioClip soundFX;
+    public AudioSource SFX_PickUp;
     private GameObject heldItem = null;
     private PlayerInventory playerInventory;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         player = GetComponent<Transform>();
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
         foreach (GameObject spawn in spawners){
@@ -63,13 +61,22 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P) && closest != null)
         {
-            if (playerInventory != null && appleItem != null && playerInventory.TryAdd(appleItem))
+            // Get the identity script from the object we are standing near
+            ItemIdentity id = closest.GetComponent<ItemIdentity>();
+
+            if (id != null && playerInventory != null)
             {
-                Debug.Log("Picked up " + closest.name);
-                audioSource.PlayOneShot(soundFX);
-                heldItem = closest;
-                closest.SetActive(false);
-                playerInventory.printInventory();
+                // Try to add specific item type
+                if (playerInventory.TryAdd(id.itemType)) {
+                    Debug.Log("Picked up " + closest.name);
+                    SFX_PickUp.Play();
+                    heldItem = closest;
+                    closest.SetActive(false);
+                    playerInventory.printInventory();
+                }
+                else {
+                    Debug.Log($"There was an issue picking up an {id.itemType}");
+                }
             }
         }
 
