@@ -25,6 +25,15 @@ public class SpawningItems : MonoBehaviour
             // Use ItemDefinition data for spawned world objects (apple for now).
             if (currentItem != null)
             {
+                // 1. Get or add item identity slot if its missing
+                ItemIdentity identity = pickups[i].GetComponent<ItemIdentity>();
+                if (identity == null) {
+                    identity = pickups[i].gameObject.AddComponent<ItemIdentity>();
+                }
+
+                // Assign the identity
+                identity.itemType = currentItem;
+
                 SpriteRenderer sr = pickups[i].GetComponent<SpriteRenderer>();
                 if (sr != null && currentItem.sprite != null)
                     sr.sprite = currentItem.sprite;
@@ -34,7 +43,6 @@ public class SpawningItems : MonoBehaviour
             spawn.SetActive(false);
             // More specific debug statement
             Debug.Log($"Spawned {pickups[i].name} at {spawn.transform.position}");
-
             i++;
         }
     }
