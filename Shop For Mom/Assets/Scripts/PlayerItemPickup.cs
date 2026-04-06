@@ -36,25 +36,16 @@ public class PlayerItemPickup : MonoBehaviour
             {
                 closestDist = dist;
                 closest = pickup;
-                //
             }
         }
 
-        // Color only the closest one blue, rest red
+        // Add glow to the closest pickup, remove glow from all others
         foreach (GameObject pickup in pickups)
         {
             if (pickup == null) continue;
-            Renderer renderer = pickup.GetComponent<Renderer>();
-            if (pickup == closest)
-            {
-                //Debug.Log(pickup.name + " is within the radius.");
-                renderer.material.color = Color.blue;
-
-            }
-            else
-            {
-                renderer.material.color = Color.red;
-            }
+            Transform glowChild = pickup.transform.Find("Glow");
+            if (glowChild != null)
+                glowChild.gameObject.SetActive(pickup == closest);
         }
 
         if (Input.GetKeyDown(KeyCode.P) && closest != null)
@@ -91,7 +82,7 @@ public class PlayerItemPickup : MonoBehaviour
             }
         }
 
- 
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log($"closest_spawn={closest_spawn}, heldItem={heldItem}");
