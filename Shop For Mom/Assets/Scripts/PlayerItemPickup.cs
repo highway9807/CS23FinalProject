@@ -10,7 +10,7 @@ public class PlayerItemPickup : MonoBehaviour
     public ItemDefinition appleItem;
     public ItemDefinition bananaItem;
     public ItemDefinition ketchupItem;
-    public AudioSource SFX_PickUP;
+    public AudioSource SFX_PickUp;
     private GameObject heldItem = null;
     private PlayerInventory playerInventory;
 
@@ -18,7 +18,6 @@ public class PlayerItemPickup : MonoBehaviour
     {
         player = GetComponent<Transform>();
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
-        spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
         foreach (GameObject spawn in spawners){
             spawn.SetActive(false);
         }
@@ -70,7 +69,7 @@ public class PlayerItemPickup : MonoBehaviour
                 // Try to add specific item type
                 if (playerInventory.TryAdd(id.itemType)) {
                     Debug.Log("Picked up " + closest.name);
-                    SFX_PickUP.Play();
+                    SFX_PickUp.Play();
                     heldItem = closest;
                     closest.SetActive(false);
                     playerInventory.printInventory();
@@ -94,22 +93,19 @@ public class PlayerItemPickup : MonoBehaviour
             }
         }
 
+ 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log($"closest_spawn={closest_spawn}, heldItem={heldItem}");
+        }
+
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
-            bool removed = playerInventory != null && appleItem != null && playerInventory.TryRemove(appleItem);
-            Debug.Log($"TryRemove result: {removed}"); // add this
-            if (removed)
+            if (playerInventory != null && appleItem != null && playerInventory.TryRemove(appleItem))//include try Drop
             {
+                Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
                 heldItem.transform.position = closest_spawn.transform.position;
                 heldItem.SetActive(true);
-
-                // Attach apple item as child of the dropped item
-                if (appleItem != null && appleItem != null)
-                {
-                    GameObject appleChild = Instantiate(appleItem, heldItem.transform);
-                    appleChild.transform.localPosition = Vector3.zero;
-                }
-
                 heldItem = null;
             }
         }
