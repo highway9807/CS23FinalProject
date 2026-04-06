@@ -1,10 +1,10 @@
 using UnityEngine;
 
+
 public class SpawningItems : MonoBehaviour
 {
     public GameObject[] pickups;
-    public GameObject applePickupPrefab;   // prefab with ItemIdentity set to apple asset
-    //public GameObject bananaPickupPrefab;
+    public GameObject[] prefabs;  // prefab with ItemIdentity set to apple asset
     public GameObject[] spawnPoints;
     public ItemDefinition[] itemList;
    
@@ -21,7 +21,9 @@ public class SpawningItems : MonoBehaviour
 
             //pickups[i].transform.position = spawn.transform.position;
 
-            SpawnItem(applePickupPrefab, spawn.transform);
+            int rand_index = Random.Range(0, prefabs.Length);
+
+            SpawnItem(prefabs[rand_index], spawn.transform);
 
             /*
             // Get the current item
@@ -53,7 +55,9 @@ public class SpawningItems : MonoBehaviour
             spawn.SetActive(false);
             i++;
         }
-        applePickupPrefab.SetActive(false);
+        for (int j = 0; j < prefabs.Length; j ++){
+            prefabs[j].SetActive(false);
+        }
     }
 
     

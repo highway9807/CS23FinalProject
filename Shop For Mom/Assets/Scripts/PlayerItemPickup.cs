@@ -7,9 +7,6 @@ public class PlayerItemPickup : MonoBehaviour
     public Transform player;
     public GameObject[] pickups;
     public GameObject[] spawners;
-    public ItemDefinition appleItem;
-    public ItemDefinition bananaItem;
-    public ItemDefinition ketchupItem;
     public AudioSource SFX_PickUp;
     private GameObject heldItem = null;
     private PlayerInventory playerInventory;
@@ -60,6 +57,7 @@ public class PlayerItemPickup : MonoBehaviour
                     Debug.Log("Picked up " + closest.name);
                     SFX_PickUp.Play();
                     heldItem = closest;
+                    
                     closest.SetActive(false);
                     playerInventory.printInventory();
                 }
@@ -90,7 +88,8 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
-            if (playerInventory != null && appleItem != null && playerInventory.TryRemove(appleItem))//include try Drop
+            ItemIdentity heldId = heldItem.GetComponent<ItemIdentity>();
+            if (playerInventory != null && heldId != null && playerInventory.TryRemove(heldId.itemType))
             {
                 Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
                 heldItem.transform.position = closest_spawn.transform.position;
