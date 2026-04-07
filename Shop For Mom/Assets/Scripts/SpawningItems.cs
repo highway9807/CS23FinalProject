@@ -6,7 +6,7 @@ public class SpawningItems : MonoBehaviour
     public GameObject[] pickups;
     public GameObject[] prefabs;  // prefab with ItemIdentity set to apple asset
     public GameObject[] spawnPoints;
-    public ItemDefinition[] itemList;
+    //public ItemDefinition[] itemList;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,7 +55,7 @@ public class SpawningItems : MonoBehaviour
             spawn.SetActive(false);
             i++;
         }
-        for (int j = 0; j < prefabs.Length; j ++){
+        for (int j = 0; j < prefabs.Length; j++){
             prefabs[j].SetActive(false);
         }
     }
