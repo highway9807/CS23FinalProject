@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7675288041018187707}
   - component: {fileID: 662387796960303759}
   m_Layer: 0
-  m_Name: Cookie
+  m_Name: Oil
   m_TagString: Pickups
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaac841f22b324fbcaa4bd2e128221b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemIdentity
-  itemType: {fileID: 11400000, guid: 245cce9d15a274176b69c72d3188a100, type: 2}
+  itemType: {fileID: 11400000, guid: 31a8d9061738e4dcb8bc018190153381, type: 2}
 --- !u!61 &7675288041018187707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.68}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 2.56, y: 2.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -234,7 +234,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2000
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 9308f75ba20d64841b84d22dbb248665, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de27f16b8ed8442609d6995ea191f5dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

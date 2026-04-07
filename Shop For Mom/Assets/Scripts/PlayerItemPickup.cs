@@ -18,9 +18,6 @@ public class PlayerItemPickup : MonoBehaviour
         spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
         if (GameHandler.gh != null)
             playerInventory = GameHandler.gh.PlayerInventory;
-        foreach(GameObject spawn in spawners) {
-            spawn.SetActive(false);
-        }
     }
 
     void Update()
@@ -92,7 +89,7 @@ public class PlayerItemPickup : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
             ItemIdentity heldId = heldItem.GetComponent<ItemIdentity>();
-            if (playerInventory != null && heldId != null ) //&& playerInventory.TryRemove(heldId.itemType)
+            if (playerInventory != null && heldId != null && playerInventory.TryRemove(heldId.itemType)) 
             {
                 Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
                 heldItem.transform.position = closest_spawn.transform.position;

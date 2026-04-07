@@ -62,7 +62,9 @@ public class SpawningItems : MonoBehaviour
     
     void Update()
     {
-
+        foreach(GameObject spawn in spawnPoints) {
+            spawn.SetActive(false);
+        }
 
     }
     public void SpawnItem(GameObject prefab, Transform point)
