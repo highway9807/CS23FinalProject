@@ -5,8 +5,11 @@ using System.Collections.Generic;
 public class CartSister : MonoBehaviour
 {
     [Header("Dropping Settings")]
-    public float minDropTime = 15f;
-    public float maxDropTime = 45f;
+    public float minDropTime = 1f;
+    public float maxDropTime = 5f;
+
+    // The pickup prefab for spawing items
+    public GameObject pickupPrefab;
     
     // The little sister needs access to the inventory to drop items and the
     // spawners to respawn them
@@ -46,37 +49,36 @@ public class CartSister : MonoBehaviour
             ItemDefinition toDrop = currentItems[randomIndex];
             // Try to remove it from the player's inventory inventory
             if (playerInventory.TryRemove(toDrop)) {
-                // Testing debug statement
-                Debug.Log($"Little Sister tossed the {toDrop.itemName} out of the cart!");
+                // // Testing debug statement
+                // Debug.Log($"Little Sister tossed the {toDrop.itemName} out of the cart!");
                 // Put the physical object back in the world at her feet
-                SpawnItemAtFeet(toDrop);
+                TossItem(toDrop);
             }
-            else {
-                Debug.Log($"Little Sister failed to toss the {toDrop.itemName}.");
-            }
-        }
-        else {
-            Debug.Log("Little sister tried to toss an item, but there were none.");
         }
     }
 
-    void SpawnItemAtFeet(ItemDefinition item)
-    {
-        // Look through the global list of pickups
-        foreach (GameObject p in spawner.pickups)
-        {
-            // Find a object that is currently hidden and matches
-            if (p != null && !p.activeSelf)
-            {
-                // Check if the item matches what we need to drop
-                if (p.name == item.itemName)
-                {
-                    // Drop it at the current location
-                    p.transform.position = transform.position; 
-                    p.SetActive(true);
-                    break;
-                }
-            }
-        }
+    void TossItem(ItemDefinition item) {
+    // Create the object, it needs to be shrunk
+    GameObject newObj = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+    newObj.transform.localScale = Vector3.one * 0.25f;
+    // Set the sprite and data to be the ones in the definition given
+    ItemIdentity id = newObj.GetComponent<ItemIdentity>();
+    if (id != null) {
+        id.itemType = item;
     }
+    SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
+    if (sr != null) sr.sprite = item.sprite;
+
+    // Actually toss the object
+    Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
+    if (rb != null) {
+        // Pick a random direction
+        Vector2 randDir = Random.insideUnitCircle.normalized;
+        // Apply the force so it slides away
+        rb.AddForce(randDir * 10f, ForceMode2D.Impulse);
+        
+        // Add "Linear Drag" in the Inspector (around 5) so the item 
+        // eventually slides to a stop instead of sliding forever!
+    }
+}
 }
