@@ -7,9 +7,6 @@ public class PlayerItemPickup : MonoBehaviour
     public Transform player;
     public GameObject[] pickups;
     public GameObject[] spawners;
-    public ItemDefinition appleItem;
-    public ItemDefinition bananaItem;
-    public ItemDefinition ketchupItem;
     public AudioSource SFX_PickUp;
     private GameObject heldItem = null;
     private PlayerInventory playerInventory;
@@ -18,11 +15,12 @@ public class PlayerItemPickup : MonoBehaviour
     {
         player = GetComponent<Transform>();
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
-        foreach (GameObject spawn in spawners){
-            spawn.SetActive(false);
-        }
+        spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
         if (GameHandler.gh != null)
             playerInventory = GameHandler.gh.PlayerInventory;
+        foreach(GameObject spawn in spawners) {
+            spawn.SetActive(false);
+        }
     }
 
     void Update()
@@ -38,25 +36,16 @@ public class PlayerItemPickup : MonoBehaviour
             {
                 closestDist = dist;
                 closest = pickup;
-                //
             }
         }
 
-        // Color only the closest one blue, rest red
+        // Add glow to the closest pickup, remove glow from all others
         foreach (GameObject pickup in pickups)
         {
             if (pickup == null) continue;
-            Renderer renderer = pickup.GetComponent<Renderer>();
-            if (pickup == closest)
-            {
-                //Debug.Log(pickup.name + " is within the radius.");
-                renderer.material.color = Color.blue;
-
-            }
-            else
-            {
-                renderer.material.color = Color.red;
-            }
+            Transform glowChild = pickup.transform.Find("Glow");
+            if (glowChild != null)
+                glowChild.gameObject.SetActive(pickup == closest);
         }
 
         if (Input.GetKeyDown(KeyCode.P) && closest != null)
@@ -71,6 +60,7 @@ public class PlayerItemPickup : MonoBehaviour
                     Debug.Log("Picked up " + closest.name);
                     SFX_PickUp.Play();
                     heldItem = closest;
+                    
                     closest.SetActive(false);
                     playerInventory.printInventory();
                 }
@@ -93,15 +83,16 @@ public class PlayerItemPickup : MonoBehaviour
             }
         }
 
- 
+
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log($"closest_spawn={closest_spawn}, heldItem={heldItem}");
+            Debug.Log($"playerInventory={playerInventory}, heldItem={heldItem}, closest_spawn={closest_spawn}");
         }
 
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
         {
-            if (playerInventory != null && appleItem != null && playerInventory.TryRemove(appleItem))//include try Drop
+            ItemIdentity heldId = heldItem.GetComponent<ItemIdentity>();
+            if (playerInventory != null && heldId != null ) //&& playerInventory.TryRemove(heldId.itemType)
             {
                 Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
                 heldItem.transform.position = closest_spawn.transform.position;
