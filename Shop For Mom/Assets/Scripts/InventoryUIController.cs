@@ -35,6 +35,7 @@ public class InventoryUIController : MonoBehaviour
     // Outputs: None.
     private void Start()
     {
+        // Keep this UI disabled in non-Level1 scenes.
         if (!IsTargetScene())
         {
             if (inventoryPanel != null) inventoryPanel.SetActive(false);
@@ -49,6 +50,7 @@ public class InventoryUIController : MonoBehaviour
             inventoryPanel.SetActive(false);
 
         if (playerInventory != null)
+            // Rebuild UI whenever backend inventory changes.
             playerInventory.Changed += RefreshInventory;
     }
 
@@ -77,6 +79,7 @@ public class InventoryUIController : MonoBehaviour
         bool nextState = !inventoryPanel.activeSelf;
         inventoryPanel.SetActive(nextState);
 
+        // Refresh on open so shown data is always current.
         if (nextState)
             RefreshInventory();
     }
@@ -154,6 +157,7 @@ public class InventoryUIController : MonoBehaviour
         if (gridLayout == null || viewportRect == null)
             return;
 
+        // Remove padding/spacing before dividing into a fixed 5x5 visible area.
         float widthInside = viewportRect.rect.width - padding.left 
                             - padding.right - spacing.x * (columns - 1);
         float heightInside = viewportRect.rect.height - padding.top 
@@ -188,6 +192,7 @@ public class InventoryUIController : MonoBehaviour
             GameObject slot = Instantiate(slotPrefab, contentRect);
             spawnedSlots.Add(slot);
 
+            // ItemDefinition owns the icon sprite used in the inventory.
             ItemDefinition item = items[i];
             Image icon = FindSlotIcon(slot);
             if (icon != null && item != null && item.sprite != null)
