@@ -52,7 +52,6 @@ public class SpawningItems : MonoBehaviour
             // More specific debug statement
             //Debug.Log($"Spawned {pickups[i].name} at {spawn.transform.position}");
             Debug.Log($"Spawning at {spawn.transform.position}");
-            spawn.SetActive(false);
             i++;
         }
         for (int j = 0; j < prefabs.Length; j++){
