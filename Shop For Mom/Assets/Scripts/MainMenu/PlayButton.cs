@@ -15,12 +15,12 @@ public class PlayButton : MonoBehaviour
 
 	//public AudioSource moveAudio;
 
-	private bool isRunning = false;
+	private bool isRunning1 = false;
 	private float timer = 0f;
 	private RectTransform rect;
 
 
-	public void StartRotating()
+	public void StartRotating1()
 	{
 		if(remainingAngle <= 0)
 		{
@@ -35,7 +35,7 @@ public class PlayButton : MonoBehaviour
 
 	void Update()
 	{
-		if (isRunning)
+		if (isRunning1)
 		{
 			if(remainingAngle > 0)
 			{
@@ -56,17 +56,18 @@ public class PlayButton : MonoBehaviour
 			//SceneManager.LoadScene(1);
 			if (timer >= moveDuration)
 			{
-				isRunning = false;
+				isRunning1 = false;
 				//moveAudio.Stop();
-				SceneManager.LoadScene(4);
+				Debug.Log("HI");
+				SceneManager.LoadScene("Level1");
 			}
 		}
 	}
 
 
-	public void GameStart()
+	public void GameStart1()
 	{
-		isRunning = true;
+		isRunning1 = true;
 		timer = 0f;
 		//moveAudio.Play();
 		

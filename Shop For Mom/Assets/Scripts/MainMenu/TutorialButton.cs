@@ -16,6 +16,7 @@ public class TutorialButton : MonoBehaviour
 	//public AudioSource moveAudio;
 
 	private bool isRunning = false;
+	private bool isRunning1 = false;
 	private float timer = 0f;
 	private RectTransform rect;
 
@@ -58,15 +59,50 @@ public class TutorialButton : MonoBehaviour
 			{
 				isRunning = false;
 				//moveAudio.Stop();
-				SceneManager.LoadScene(1);
+				SceneManager.LoadScene("Tutorial");
+			}
+		}
+		else if (isRunning1)
+		{
+			if(remainingAngle > 0)
+			{
+				float rotationThisFrame = rotateSpeed * Time.deltaTime;
+				if(rotationThisFrame > remainingAngle)
+				{
+					rotationThisFrame = remainingAngle;
+				}
+				transform.Rotate(0,0,-rotationThisFrame);
+				remainingAngle -= rotationThisFrame;
+			}
+			
+			rect.anchoredPosition += Vector2.down*speed*Time.deltaTime;
+			
+			//transform.Translate(Vector3.up * speed * Time.deltaTime);
+			timer += Time.deltaTime;
+			
+			//SceneManager.LoadScene(1);
+			if (timer >= moveDuration)
+			{
+				isRunning1 = false;
+				//moveAudio.Stop();
+				Debug.Log("HI");
+				SceneManager.LoadScene("Level1");
 			}
 		}
 	}
+	
 
 
 	public void GameStart()
 	{
 		isRunning = true;
+		timer = 0f;
+		//moveAudio.Play();
+		
+	}
+	public void GameStart1()
+	{
+		isRunning1 = true;
 		timer = 0f;
 		//moveAudio.Play();
 		

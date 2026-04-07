@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: f36882dda302d894b986f14a2650f801
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7280443735512075689
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_0
+  - first:
+      213: -3332146139823473223
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_1
+  - first:
+      213: 2858101023176136499
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_2
+  - first:
+      213: -9214094773140671864
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_3
+  - first:
+      213: -6302772259983412683
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_4
+  - first:
+      213: -6157733129181545633
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_5
+  - first:
+      213: -4706977891922932939
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_6
+  - first:
+      213: -2592140309502737425
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_7
+  - first:
+      213: 3123304557125813073
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_8
+  - first:
+      213: 7530551855293699557
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_9
+  - first:
+      213: 141454393629096529
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_10
+  - first:
+      213: -4205928741306203747
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_11
+  - first:
+      213: 6236373582311986312
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_12
+  - first:
+      213: -4419908556150941705
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_13
+  - first:
+      213: 5127986379943791875
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_14
+  - first:
+      213: 701851589593531515
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_15
+  - first:
+      213: -3264475266076068387
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_16
+  - first:
+      213: -7233821844909677580
+    second: F2537387-3845-4ABB-BFCC-426BE85E375F_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 600
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_0
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 1487
+        width: 48
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752b599fefaa6fa90800000000000000
+      internalID: -7280443735512075689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_1
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 1086
+        width: 247
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdf1248db6d1c1d0800000000000000
+      internalID: -3332146139823473223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_2
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 1547
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337189adcb30aa720800000000000000
+      internalID: 2858101023176136499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_3
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 955
+        width: 355
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882ba284f95f02080800000000000000
+      internalID: -9214094773140671864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_4
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 1044
+        width: 651
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532b087e50e0888a0800000000000000
+      internalID: -6302772259983412683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_5
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 1459
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5bba7518565b8aa0800000000000000
+      internalID: -6157733129181545633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_6
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1469
+        width: 53
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b0152cb847daeb0800000000000000
+      internalID: -4706977891922932939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_7
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 1199
+        width: 410
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe34e1c4f1ed60cd0800000000000000
+      internalID: -2592140309502737425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_8
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 436
+        width: 873
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 153c7dc52f4385b20800000000000000
+      internalID: 3123304557125813073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_9
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1125
+        width: 269
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e590798305e18860800000000000000
+      internalID: 7530551855293699557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_10
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 1156
+        width: 86
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15a3e24850c86f100800000000000000
+      internalID: 141454393629096529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_11
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 1139
+        width: 123
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9186dff71a81a5c0800000000000000
+      internalID: -4205928741306203747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_12
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 1111
+        width: 68
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884165c3bbc0c8650800000000000000
+      internalID: 6236373582311986312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_13
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 1102
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7d9eaf59459a2c0800000000000000
+      internalID: -4419908556150941705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_14
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 757
+        width: 683
+        height: 344
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d479d71744a2740800000000000000
+      internalID: 5127986379943791875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_15
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 714
+        width: 211
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7404ca5d4a7db900800000000000000
+      internalID: 701851589593531515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_16
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 529
+        width: 136
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd5bc7b9a0142b2d0800000000000000
+      internalID: -3264475266076068387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F2537387-3845-4ABB-BFCC-426BE85E375F_17
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 638
+        width: 88
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f3a2b5cb5d4c9b90800000000000000
+      internalID: -7233821844909677580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      F2537387-3845-4ABB-BFCC-426BE85E375F_0: -7280443735512075689
+      F2537387-3845-4ABB-BFCC-426BE85E375F_1: -3332146139823473223
+      F2537387-3845-4ABB-BFCC-426BE85E375F_10: 141454393629096529
+      F2537387-3845-4ABB-BFCC-426BE85E375F_11: -4205928741306203747
+      F2537387-3845-4ABB-BFCC-426BE85E375F_12: 6236373582311986312
+      F2537387-3845-4ABB-BFCC-426BE85E375F_13: -4419908556150941705
+      F2537387-3845-4ABB-BFCC-426BE85E375F_14: 5127986379943791875
+      F2537387-3845-4ABB-BFCC-426BE85E375F_15: 701851589593531515
+      F2537387-3845-4ABB-BFCC-426BE85E375F_16: -3264475266076068387
+      F2537387-3845-4ABB-BFCC-426BE85E375F_17: -7233821844909677580
+      F2537387-3845-4ABB-BFCC-426BE85E375F_2: 2858101023176136499
+      F2537387-3845-4ABB-BFCC-426BE85E375F_3: -9214094773140671864
+      F2537387-3845-4ABB-BFCC-426BE85E375F_4: -6302772259983412683
+      F2537387-3845-4ABB-BFCC-426BE85E375F_5: -6157733129181545633
+      F2537387-3845-4ABB-BFCC-426BE85E375F_6: -4706977891922932939
+      F2537387-3845-4ABB-BFCC-426BE85E375F_7: -2592140309502737425
+      F2537387-3845-4ABB-BFCC-426BE85E375F_8: 3123304557125813073
+      F2537387-3845-4ABB-BFCC-426BE85E375F_9: 7530551855293699557
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
