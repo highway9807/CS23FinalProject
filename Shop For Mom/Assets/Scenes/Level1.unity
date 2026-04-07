@@ -2008,7 +2008,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 448595345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c81df63408140399adcae5ae58bd60, type: 3}
+  m_Script: {fileID: 11500000, guid: 94b662450dea43340893053e239ca9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUIController
   targetSceneName: Level1
@@ -2025,7 +2025,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  enableDebugLogs: 1
+  enableDebugLogs: 0
 --- !u!114 &448595348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10270,8 +10270,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 778012313}
   m_HandleRect: {fileID: 778012312}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
