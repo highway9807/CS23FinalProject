@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,11 +23,25 @@ public class InventoryUIController : MonoBehaviour
     [SerializeField] private int columns = 5;
     [SerializeField] private int visibleRows = 5;
     [SerializeField] private Vector2 spacing = new Vector2(8f, 8f);
-    [SerializeField] private RectOffset padding = new RectOffset(8, 8, 8, 8);
+    [SerializeField] private RectOffset padding;
+    [Header("Debug")]
+    [SerializeField] private bool enableDebugLogs = false;
+    
 
     private PlayerInventory playerInventory;
     private GridLayoutGroup gridLayout;
+    private CanvasGroup panelCanvasGroup;
     private readonly List<GameObject> spawnedSlots = new List<GameObject>();
+
+    // Name: Awake
+    // Purpose: Initialize safe defaults that cannot be created in field initializers.
+    // Inputs: None.
+    // Outputs: None.
+    private void Awake()
+    {
+        if (padding == null)
+            padding = new RectOffset(8, 8, 8, 8);
+    }
 
     // Name: Start
     // Purpose: Initialize references, lock this feature to Level1, and hide 
@@ -35,8 +50,10 @@ public class InventoryUIController : MonoBehaviour
     // Outputs: None.
     private void Start()
     {
+        // Keep this UI disabled in non-Level1 scenes.
         if (!IsTargetScene())
         {
+            LogDebug("Disabled: active scene does not match target scene.");
             if (inventoryPanel != null) inventoryPanel.SetActive(false);
             enabled = false;
             return;
@@ -46,10 +63,17 @@ public class InventoryUIController : MonoBehaviour
         SetupLayoutComponents();
 
         if (inventoryPanel != null)
-            inventoryPanel.SetActive(false);
+            SetPanelVisible(false);
+        else
+            LogDebug("InventoryPanel is NULL.");
 
         if (playerInventory != null)
+            // Rebuild UI whenever backend inventory changes.
             playerInventory.Changed += RefreshInventory;
+        else
+            LogDebug("PlayerInventory is NULL.");
+
+        LogDebug("Controller initialized.");
     }
 
     // Name: OnDestroy
@@ -71,12 +95,19 @@ public class InventoryUIController : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.I))
             return;
 
+        LogDebug("Detected I key press.");
+
         if (inventoryPanel == null)
+        {
+            LogDebug("Toggle skipped: inventoryPanel is NULL.");
             return;
+        }
 
-        bool nextState = !inventoryPanel.activeSelf;
-        inventoryPanel.SetActive(nextState);
+        bool nextState = panelCanvasGroup == null || panelCanvasGroup.alpha <= 0.01f;
+        SetPanelVisible(nextState);
+        LogDebug("Inventory panel active state is now: " + nextState);
 
+        // Refresh on open so shown data is always current.
         if (nextState)
             RefreshInventory();
     }
@@ -89,7 +120,7 @@ public class InventoryUIController : MonoBehaviour
     private bool IsTargetScene()
     {
         string activeSceneName = SceneManager.GetActiveScene().name;
-        return string.Equals(activeSceneName, targetSceneName);
+        return string.Equals(activeSceneName, targetSceneName, StringComparison.OrdinalIgnoreCase);
     }
 
     // Name: ResolvePlayerInventory
@@ -113,6 +144,13 @@ public class InventoryUIController : MonoBehaviour
     {
         if (contentRect == null)
             return;
+
+        if (inventoryPanel != null)
+        {
+            panelCanvasGroup = inventoryPanel.GetComponent<CanvasGroup>();
+            if (panelCanvasGroup == null)
+                panelCanvasGroup = inventoryPanel.AddComponent<CanvasGroup>();
+        }
 
         gridLayout = contentRect.GetComponent<GridLayoutGroup>();
         if (gridLayout == null)
@@ -154,6 +192,7 @@ public class InventoryUIController : MonoBehaviour
         if (gridLayout == null || viewportRect == null)
             return;
 
+        // Remove padding/spacing before dividing into a fixed 5x5 visible area.
         float widthInside = viewportRect.rect.width - padding.left 
                             - padding.right - spacing.x * (columns - 1);
         float heightInside = viewportRect.rect.height - padding.top 
@@ -171,7 +210,10 @@ public class InventoryUIController : MonoBehaviour
     private void RefreshInventory()
     {
         if (playerInventory == null || contentRect == null || slotPrefab == null)
+        {
+            LogDebug("Refresh skipped due to missing refs (inventory/content/slotPrefab).");
             return;
+        }
 
         UpdateCellSize();
 
@@ -183,11 +225,13 @@ public class InventoryUIController : MonoBehaviour
         spawnedSlots.Clear();
 
         List<ItemDefinition> items = playerInventory.GetItemSlots();
+        LogDebug("Refreshing inventory. Items in backend list: " + items.Count);
         for (int i = 0; i < items.Count; i++)
         {
             GameObject slot = Instantiate(slotPrefab, contentRect);
             spawnedSlots.Add(slot);
 
+            // ItemDefinition owns the icon sprite used in the inventory.
             ItemDefinition item = items[i];
             Image icon = FindSlotIcon(slot);
             if (icon != null && item != null && item.sprite != null)
@@ -221,5 +265,31 @@ public class InventoryUIController : MonoBehaviour
         
         Debug.LogWarning("Inventory slot prefab is missing a child named 'Icon'.");
         return null;
+    }
+
+    // Name: SetPanelVisible
+    // Purpose: Show/hide panel without disabling the object that may hold this script.
+    // Inputs: visible - true to show panel, false to hide it.
+    // Outputs: None.
+    private void SetPanelVisible(bool visible)
+    {
+        if (inventoryPanel == null || panelCanvasGroup == null)
+            return;
+
+        panelCanvasGroup.alpha = visible ? 1f : 0f;
+        panelCanvasGroup.interactable = visible;
+        panelCanvasGroup.blocksRaycasts = visible;
+    }
+
+    // Name: LogDebug
+    // Purpose: Emit optional debug logs for inventory UI setup and toggling.
+    // Inputs: message - text to print.
+    // Outputs: None.
+    private void LogDebug(string message)
+    {
+        if (!enableDebugLogs)
+            return;
+
+        Debug.Log("[InventoryUIController] " + message);
     }
 }
