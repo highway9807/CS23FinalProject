@@ -39,7 +39,7 @@ public class CartSister : MonoBehaviour
 
     // Drops an item if there is one to drop
     void TryDropRandomItem() {
-        Debug.Log("The little sister strikes!");
+        //Debug.Log("The little sister strikes!");
         // Get the items in the player's inventory
         List<ItemDefinition> currentItems = playerInventory.GetItemSlots();
         // Must check that there are items to be dropped
