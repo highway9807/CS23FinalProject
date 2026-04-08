@@ -57,6 +57,7 @@ public class InventoryUIController : MonoBehaviour
             if (inventoryPanel != null) inventoryPanel.SetActive(false);
             enabled = false;
             return;
+            
         }
 
         playerInventory = ResolvePlayerInventory();
