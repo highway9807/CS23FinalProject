@@ -110,7 +110,7 @@ public class TutorialButton : MonoBehaviour
 	
 	public void Credits()
 	{
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene("Credits");
 	}
 
 	public void ExitGame()
