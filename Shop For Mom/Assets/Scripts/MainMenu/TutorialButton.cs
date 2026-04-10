@@ -85,7 +85,7 @@ public class TutorialButton : MonoBehaviour
 			{
 				isRunning1 = false;
 				//moveAudio.Stop();
-				Debug.Log("HI");
+				//Debug.Log("HI");
 				SceneManager.LoadScene("Level1");
 			}
 		}
@@ -107,6 +107,12 @@ public class TutorialButton : MonoBehaviour
 		//moveAudio.Play();
 		
 	}
+	
+	public void Credits()
+	{
+		SceneManager.LoadScene("Level1");
+	}
+
 	public void ExitGame()
 	{
 		Application.Quit();

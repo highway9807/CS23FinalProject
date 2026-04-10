@@ -24,6 +24,8 @@ public class ButtonMoniter : MonoBehaviour
 
         else if (index == 1 && Input.GetKeyDown(KeyCode.F)) Advance();
 
+        else if (index == 2 && Input.GetKeyDown(KeyCode.I)) Advance();
+
         
     }
 
