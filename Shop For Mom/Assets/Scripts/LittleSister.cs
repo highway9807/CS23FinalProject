@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class CartSister : MonoBehaviour
 {
@@ -24,10 +25,13 @@ public class CartSister : MonoBehaviour
         playerInventory = GameHandler.gh.PlayerInventory;
         // Find the spawner script in the scene
         spawner = Object.FindFirstObjectByType<SpawningItems>();
+
         // Start the random dropping
         StartCoroutine(RandomDrop());
         // Start the random pickups
         StartCoroutine(RandomPickup());
+        // Start the random cart leaving
+        StartCoroutine(RandomLeaveCart());
     }
 
     // Waits a random amount of time (between the specified min and max),
@@ -100,6 +104,10 @@ public class CartSister : MonoBehaviour
     void TryPickup() {
         PlayerItemPickup playerPickup = player.GetComponent<PlayerItemPickup>();
         GameObject closestObj = playerPickup.getClosest();
+
+        if (closestObj == null) {
+            return;
+        }
         // Get the identity script from the object we are standing near
             ItemIdentity id = closestObj.GetComponent<ItemIdentity>();
 
@@ -107,7 +115,7 @@ public class CartSister : MonoBehaviour
             {
                 // Try to add the closest item
                 if (playerInventory.TryAdd(id.itemType)) {
-                    Debug.Log("Picked up " + closestObj.name);
+                    Debug.Log("The little sister picked up " + closestObj.name + "!");
                     closestObj.SetActive(false);
                     playerInventory.printInventory();
                 }
@@ -115,6 +123,24 @@ public class CartSister : MonoBehaviour
                     Debug.Log($"There was an issue picking up an {id.itemType}");
                 }
             }
+    }
+
+    IEnumerator RandomLeaveCart() {
+        while (true) {
+            // Generates the wait time
+            float waitTime = Random.Range(minDropTime, maxDropTime);
+            yield return new WaitForSeconds(waitTime);
+            // Tries to drop an item
+            TryLeaveCart();
+        }
+    }
+
+    void TryLeaveCart() {
+        Debug.Log("The sister is leaving the cart");
+    }
+
+    void Update() {
+    
     }
     
     }

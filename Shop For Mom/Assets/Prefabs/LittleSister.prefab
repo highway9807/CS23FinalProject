@@ -136,3 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f376684200ba40bc9df2371d89fff80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LittleSister
+  minDropTime: 1
+  maxDropTime: 5
+  wanderRadius: 10
+  pickupPrefab: {fileID: 0}
