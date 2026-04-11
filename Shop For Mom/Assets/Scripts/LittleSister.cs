@@ -16,13 +16,18 @@ public class CartSister : MonoBehaviour
     private PlayerInventory playerInventory;
     private SpawningItems spawner;
 
+    private GameObject player;
+
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         playerInventory = GameHandler.gh.PlayerInventory;
         // Find the spawner script in the scene
         spawner = Object.FindFirstObjectByType<SpawningItems>();
         // Start the random dropping
         StartCoroutine(RandomDrop());
+        // Start the random pickups
+        StartCoroutine(RandomPickup());
     }
 
     // Waits a random amount of time (between the specified min and max),
@@ -58,27 +63,58 @@ public class CartSister : MonoBehaviour
     }
 
     void TossItem(ItemDefinition item) {
-    // Create the object, it needs to be shrunk
-    GameObject newObj = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
-    newObj.transform.localScale = Vector3.one * 0.25f;
-    // Set the sprite and data to be the ones in the definition given
-    ItemIdentity id = newObj.GetComponent<ItemIdentity>();
-    if (id != null) {
-        id.itemType = item;
-    }
-    SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
-    if (sr != null) sr.sprite = item.sprite;
+        // Create the object, it needs to be shrunk
+        GameObject newObj = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+        newObj.transform.localScale = Vector3.one * 0.25f;
+        // Set the sprite and data to be the ones in the definition given
+        ItemIdentity id = newObj.GetComponent<ItemIdentity>();
+        if (id != null) {
+            id.itemType = item;
+        }
+        SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
+        if (sr != null) sr.sprite = item.sprite;
 
-    // Actually toss the object
-    Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
-    if (rb != null) {
-        // Pick a random direction
-        Vector2 randDir = Random.insideUnitCircle.normalized;
-        // Apply the force so it slides away
-        rb.AddForce(randDir * 10f, ForceMode2D.Impulse);
-        
-        // Add "Linear Drag" in the Inspector (around 5) so the item 
-        // eventually slides to a stop instead of sliding forever!
+        // Actually toss the object
+        Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
+        if (rb != null) {
+            // Pick a random direction
+            Vector2 randDir = Random.insideUnitCircle.normalized;
+            // Apply the force so it slides away
+            rb.AddForce(randDir * 10f, ForceMode2D.Impulse);
+            
+            // Add "Linear Drag" in the Inspector (around 5) so the item 
+            // eventually slides to a stop instead of sliding forever!
+        }
     }
-}
-}
+
+    IEnumerator RandomPickup() {
+        while (true) {
+            // Generates the wait time
+            float waitTime = Random.Range(minDropTime, maxDropTime);
+            yield return new WaitForSeconds(waitTime);
+            // Tries to drop an item
+            TryPickup();
+        }
+    }
+
+    void TryPickup() {
+        PlayerItemPickup playerPickup = player.GetComponent<PlayerItemPickup>();
+        GameObject closestObj = playerPickup.getClosest();
+        // Get the identity script from the object we are standing near
+            ItemIdentity id = closestObj.GetComponent<ItemIdentity>();
+
+            if (id != null && playerInventory != null)
+            {
+                // Try to add the closest item
+                if (playerInventory.TryAdd(id.itemType)) {
+                    Debug.Log("Picked up " + closestObj.name);
+                    closestObj.SetActive(false);
+                    playerInventory.printInventory();
+                }
+                else {
+                    Debug.Log($"There was an issue picking up an {id.itemType}");
+                }
+            }
+    }
+    
+    }

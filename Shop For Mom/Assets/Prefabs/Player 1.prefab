@@ -1119,9 +1119,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  appleItem: {fileID: 11400000, guid: b9d40392389944ba1ab5dd25078693ef, type: 2}
-  bananaItem: {fileID: 11400000, guid: c415596d61b5e41d19eb360c8d6f1493, type: 2}
-  ketchupItem: {fileID: 11400000, guid: 815a628ffa0c2413ab704b14f813ee7b, type: 2}
   SFX_PickUp: {fileID: 5660799166831915329}
 --- !u!1001 &1888844761079195988
 PrefabInstance:

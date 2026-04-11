@@ -162,6 +162,14 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("ScoreScene");
     }
 
+    // Name: LoadMainMenu
+    // Purpose: Load the main menu scene (from the score scee)
+    // Inputs: None
+    // Oututs: None
+    public void LoadMainMenuScene() {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 
     
 }
