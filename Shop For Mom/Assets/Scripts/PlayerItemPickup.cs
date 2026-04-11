@@ -10,6 +10,7 @@ public class PlayerItemPickup : MonoBehaviour
     public AudioSource SFX_PickUp;
     private GameObject heldItem = null;
     private PlayerInventory playerInventory;
+    private GameObject closest = null;
 
     void Start()
     {
@@ -20,10 +21,15 @@ public class PlayerItemPickup : MonoBehaviour
             playerInventory = GameHandler.gh.PlayerInventory;
     }
 
+    // This gives the little sister access to the closest item so she can
+    // randomly pick it up
+    public GameObject getClosest() {
+        return closest;
+    }
+
     void Update()
     {
         // Find the closest pickup within range
-        GameObject closest = null;
         float closestDist = 1.5f;
         foreach (GameObject pickup in pickups)
         {
