@@ -37,6 +37,7 @@ public class CartSister : MonoBehaviour
 
         // Find the AI component
         ai = GetComponent<IAstarAI>();
+        ai.isStopped = true; // Since she starts in the cart, the AI is initially asleep
 
         // Start the random dropping
         StartCoroutine(RandomDrop());
@@ -140,8 +141,10 @@ public class CartSister : MonoBehaviour
     IEnumerator RandomLeaveCart() {
         while (true) {
             // Generates the wait time
-            float waitTime = Random.Range(minDropTime, maxDropTime);
+            float waitTime = Random.Range(minDropTime * 3, maxDropTime * 3);
             yield return new WaitForSeconds(waitTime);
+            // Start the AI
+            ai.isStopped = false;
             // Tries to drop an item
             TryLeaveCart();
         }
@@ -153,6 +156,7 @@ public class CartSister : MonoBehaviour
         if (leftCart) {
             return;
         }
+        leftCart = true;
         // She is no longer a child of player 1
         transform.SetParent(null);
         
@@ -165,6 +169,8 @@ public class CartSister : MonoBehaviour
             // Debug.Log("The sister is going to: " + randomPoint);
             StartCoroutine(wander());
         }
+        // Go back to the cart if she is close enough
+        StartCoroutine(TryReturnToCart());
     }
 
     IEnumerator wander() {
@@ -208,8 +214,75 @@ public class CartSister : MonoBehaviour
         return Vector3.zero;
     }
 
-    void Update() {
+    public void returnToCart() {
+        // Only return if she has left
+        if (!leftCart) {
+            return;
+        }
+        Debug.Log("Little sister returning to the cart...");
+        
+        // Stop the wandering loop
+        StopAllCoroutines(); 
+        
+        // Start the journey back to the player
+        StartCoroutine(ReturnToPlayerRoutine());
+    }
     
+    IEnumerator ReturnToPlayerRoutine() {
+        // Enable AI so she can walk back
+        ai.isStopped = false;
+        // Walk until she is close to the player
+        while (Vector3.Distance(transform.position, player.transform.position) > 0.3f) {
+            ai.destination = player.transform.position;
+            yield return new WaitForSeconds(0.1f); 
+        }
+
+        // Become a child of the player again
+        transform.SetParent(player.transform);
+
+        // Wait for the end of frame to update her position
+        yield return new WaitForEndOfFrame();
+        
+        // Go back into the cart
+        transform.localPosition = new Vector3(1.446f, 0.343f, 0);
+        transform.localRotation = Quaternion.identity;
+        
+        // Disable AI so she doesn't fight the player's movement
+        ai.isStopped = true;
+        leftCart = false;
+
+        // Resume routines
+        StartCoroutine(RandomDrop());
+        StartCoroutine(RandomPickup());
+        StartCoroutine(RandomLeaveCart());
+    }
+
+    IEnumerator TryReturnToCart() {
+        // Cannot go back within 2 secs so that the sister has time to run a bit
+        yield return new WaitForSeconds(2f); 
+        // How close the player needs to be to pickup the sister
+        float recallDistance = 2f; 
+
+        while (leftCart) {
+            if (player != null) {
+                float dist = Vector3.Distance(transform.position, player.transform.position);
+                
+                if (dist < recallDistance) {
+                    Debug.Log("Player got close! Sister is hopping back in.");
+                    returnToCart(); // Return to the cart
+                    yield break;    // Stop this check since she's returning
+                }
+            }
+            // Check 10 times a second
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.J)) {
+            Debug.Log("Sister returning to cart");
+            returnToCart();
+        }
     }
     
     }
