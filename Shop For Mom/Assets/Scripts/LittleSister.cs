@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
+using Pathfinding;
 
 public class CartSister : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class CartSister : MonoBehaviour
     private PlayerInventory playerInventory;
     private SpawningItems spawner;
 
+    private bool leftCart = false;
+    // How far she can wander
+    public float wanderRadius = 10f;
+
+    // For AI naviagation
+    public Transform target;
+    IAstarAI ai;
+
     private GameObject player;
 
     void Start()
@@ -25,6 +34,9 @@ public class CartSister : MonoBehaviour
         playerInventory = GameHandler.gh.PlayerInventory;
         // Find the spawner script in the scene
         spawner = Object.FindFirstObjectByType<SpawningItems>();
+
+        // Find the AI component
+        ai = GetComponent<IAstarAI>();
 
         // Start the random dropping
         StartCoroutine(RandomDrop());
@@ -137,6 +149,63 @@ public class CartSister : MonoBehaviour
 
     void TryLeaveCart() {
         Debug.Log("The sister is leaving the cart");
+        // She is already wandering so we don't need to wander her again
+        if (leftCart) {
+            return;
+        }
+        // She is no longer a child of player 1
+        transform.SetParent(null);
+        
+        // Stop all other random actions
+        StopAllCoroutines();
+        
+        Vector3 randomPoint = getWanderPoint(transform.position, wanderRadius);
+
+        if (randomPoint != Vector3.zero) {
+            // Debug.Log("The sister is going to: " + randomPoint);
+            StartCoroutine(wander());
+        }
+    }
+
+    IEnumerator wander() {
+        while (true) {
+            // Find a point to wander to
+            Vector3 randomPoint = getWanderPoint(transform.position, wanderRadius);
+            // Make sure the point is actually going somewhere
+            if (randomPoint != Vector3.zero) {
+                // Set the destination
+                ai.destination = randomPoint;
+                // Find the path
+                ai.SearchPath();
+
+                // Wait until gets there
+                while (!ai.reachedDestination || ai.pathPending) {
+                    yield return null;
+                }
+
+                // Stay at the new spot for a while before going to the next one
+                yield return new WaitForSeconds(Random.Range(2f, 5f));
+            }
+            yield return null;
+        }
+    }
+
+
+    Vector3 getWanderPoint(Vector3 center, float radius) {
+        // Gets a random point in the randius
+        Vector2 randomCircle = Random.insideUnitCircle * radius;
+        // Gets the actual spot
+        Vector3 targetPos = center + new Vector3(randomCircle.x, randomCircle.y, 0);
+        
+        // Find closest valid point on the Pathfinder grid
+        var info = AstarPath.active.GetNearest(targetPos, NNConstraint.Default);
+        // Make sure we can actually get to the point
+        if (info.node != null && info.node.Walkable) {
+            // return a Vector3 for movement
+            return (Vector3)info.node.position;
+        }
+        // Return 0 by default so we can try again
+        return Vector3.zero;
     }
 
     void Update() {
