@@ -11,12 +11,16 @@ public class PlayerItemPickup : MonoBehaviour
     private GameObject heldItem = null;
     private PlayerInventory playerInventory;
     private GameObject closest = null;
+    private Animator anim;
+
 
     void Start()
     {
         player = GetComponent<Transform>();
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
         spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
+        anim= GetComponentInChildren<Animator>();
+
         if (GameHandler.gh != null)
             playerInventory = GameHandler.gh.PlayerInventory;
     }
@@ -62,6 +66,9 @@ public class PlayerItemPickup : MonoBehaviour
                 if (playerInventory.TryAdd(id.itemType)) {
                     Debug.Log("Picked up " + closest.name);
                     SFX_PickUp.Play();
+                if (anim != null)
+                    anim.SetTrigger("pickup");
+
                     heldItem = closest;
                     
                     closest.SetActive(false);
