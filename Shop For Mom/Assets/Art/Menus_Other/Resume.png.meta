@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 48cebf321df84429bac52f6aeedd9d5f
+guid: 6fe044222ee2f4eadadb02f6811afcc3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5000927251509650613
-    second: Back_0
+      213: 4507146844360440850
+    second: Resume_0
   - first:
-      213: 564042922023100985
-    second: Back_1
+      213: -3251955434481990506
+    second: Resume_1
   - first:
-      213: -6931248352422374901
-    second: Back_2
+      213: -7194707172113063207
+    second: Resume_2
   - first:
-      213: 4990789188432626572
-    second: Back_3
-  - first:
-      213: -2435556808807701032
-    second: Back_4
+      213: 1794665619869151825
+    second: Resume_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,104 +105,29 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Back_0
+      name: Resume_0
       rect:
         serializedVersion: 2
-        x: 480
-        y: 1487
-        width: 22
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b4adc5d6dcd66540800000000000000
-      internalID: 5000927251509650613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_1
-      rect:
-        serializedVersion: 2
-        x: 634
-        y: 1450
-        width: 30
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 932a2459c02e3d700800000000000000
-      internalID: 564042922023100985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_2
-      rect:
-        serializedVersion: 2
-        x: 1177
-        y: 1450
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b025ad7c8524fcf90800000000000000
-      internalID: -6931248352422374901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_3
-      rect:
-        serializedVersion: 2
-        x: 465
-        y: 712
-        width: 1242
-        height: 726
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8303651358d24540800000000000000
-      internalID: 4990789188432626572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_4
-      rect:
-        serializedVersion: 2
-        x: 743
-        y: 1425
-        width: 56
+        x: 202
+        y: 1464
+        width: 25
         height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -215,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d5abbc8cf9233ed0800000000000000
-      internalID: -2435556808807701032
+      spriteID: 21c70a0dc2a9c8e30800000000000000
+      internalID: 4507146844360440850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resume_1
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1424
+        width: 98
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694cc4e03cbbed2d0800000000000000
+      internalID: -3251955434481990506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resume_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1372
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2ee3732f3472c90800000000000000
+      internalID: -7194707172113063207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Resume_3
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 770
+        width: 1729
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15238ea6fdee7e810800000000000000
+      internalID: 1794665619869151825
       vertices: []
       indices: 
       edges: []
@@ -235,11 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Back_0: 5000927251509650613
-      Back_1: 564042922023100985
-      Back_2: -6931248352422374901
-      Back_3: 4990789188432626572
-      Back_4: -2435556808807701032
+      Resume_0: 4507146844360440850
+      Resume_1: -3251955434481990506
+      Resume_2: -7194707172113063207
+      Resume_3: 1794665619869151825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

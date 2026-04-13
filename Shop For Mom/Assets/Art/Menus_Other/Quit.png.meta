@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 6fe044222ee2f4eadadb02f6811afcc3
+guid: ff6bc6a562afd48dcbe11bd47d522c15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4507146844360440850
-    second: Resume_0
+      213: -121550713077426955
+    second: Quit_0
   - first:
-      213: -3251955434481990506
-    second: Resume_1
+      213: 223920669891790421
+    second: Quit_1
   - first:
-      213: -7194707172113063207
-    second: Resume_2
+      213: 8043252216654102714
+    second: Quit_2
   - first:
-      213: 1794665619869151825
-    second: Resume_3
+      213: -6785389222039301044
+    second: Quit_3
+  - first:
+      213: 1526085760574542656
+    second: Quit_4
+  - first:
+      213: -5875845347016656407
+    second: Quit_5
+  - first:
+      213: 5076748471295259437
+    second: Quit_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,17 +114,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Resume_0
+      name: Quit_0
       rect:
         serializedVersion: 2
-        x: 202
-        y: 1464
-        width: 25
-        height: 17
+        x: 224
+        y: 1610
+        width: 24
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +146,86 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21c70a0dc2a9c8e30800000000000000
-      internalID: 4507146844360440850
+      spriteID: 5f413dc354a205ef0800000000000000
+      internalID: -121550713077426955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_1
+      name: Quit_1
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1558
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55684c2b9a68b1300800000000000000
+      internalID: 223920669891790421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quit_2
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 1563
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab08a8ca64f5f9f60800000000000000
+      internalID: 8043252216654102714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quit_3
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1533
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c44559df37475d1a0800000000000000
+      internalID: -6785389222039301044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quit_4
       rect:
         serializedVersion: 2
         x: 556
-        y: 1424
-        width: 98
-        height: 14
+        y: 1525
+        width: 76
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 694cc4e03cbbed2d0800000000000000
-      internalID: -3251955434481990506
+      spriteID: 043d3d7e9eebd2510800000000000000
+      internalID: 1526085760574542656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_2
+      name: Quit_5
       rect:
         serializedVersion: 2
-        x: 176
-        y: 1372
-        width: 31
-        height: 25
+        x: 210
+        y: 1453
+        width: 30
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d2ee3732f3472c90800000000000000
-      internalID: -7194707172113063207
+      spriteID: 9e9b0f7d9cdc47ea0800000000000000
+      internalID: -5875845347016656407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resume_3
+      name: Quit_6
       rect:
         serializedVersion: 2
-        x: 179
-        y: 770
-        width: 1729
-        height: 628
+        x: 214
+        y: 558
+        width: 1582
+        height: 884
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15238ea6fdee7e810800000000000000
-      internalID: 1794665619869151825
+      spriteID: d23bf8d36db347640800000000000000
+      internalID: 5076748471295259437
       vertices: []
       indices: 
       edges: []
@@ -210,10 +298,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Resume_0: 4507146844360440850
-      Resume_1: -3251955434481990506
-      Resume_2: -7194707172113063207
-      Resume_3: 1794665619869151825
+      Quit_0: -121550713077426955
+      Quit_1: 223920669891790421
+      Quit_2: 8043252216654102714
+      Quit_3: -6785389222039301044
+      Quit_4: 1526085760574542656
+      Quit_5: -5875845347016656407
+      Quit_6: 5076748471295259437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
