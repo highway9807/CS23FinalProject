@@ -54,9 +54,9 @@ public class SpawningItems : MonoBehaviour
             Debug.Log($"Spawning at {spawn.transform.position}");
             i++;
         }
-        for (int j = 0; j < prefabs.Length; j++){
+        /*for (int j = 0; j < prefabs.Length; j++){
             prefabs[j].SetActive(false);
-        }
+        }*/
     }
 
     
