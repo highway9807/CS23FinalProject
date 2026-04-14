@@ -63,7 +63,8 @@ public class SpawningItems : MonoBehaviour
     void Update()
     {
         foreach(GameObject spawn in spawnPoints) {
-            spawn.SetActive(false);
+            SpriteRenderer sr = spawn.GetComponent<SpriteRenderer>();
+            sr.enabled = false;
         }
 
     }
