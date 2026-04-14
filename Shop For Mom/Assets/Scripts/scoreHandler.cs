@@ -30,6 +30,8 @@ public class ScoreHandler : MonoBehaviour
         // Update the text displays
         UpdateText(totalScoreText,
         $"Total Score: {correctCount} x {correctPoints} - {incorrectCount} x {incorrectPoints} = {totalScore}");
+        if (totalScore > 100) UpdateText(totalScoreText, $"You Win!");
+        else UpdateText(totalScoreText, $"You Lose!");
         UpdateText(correctItemsText, $"Correct Items: {correctCount}");
         UpdateText(incorrectItemsText, $"Incorrect Items: {incorrectCount}");
     }

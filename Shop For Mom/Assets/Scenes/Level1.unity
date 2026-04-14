@@ -4422,6 +4422,8 @@ MonoBehaviour:
   shopping_list:
   - {fileID: 11400000, guid: b9d40392389944ba1ab5dd25078693ef, type: 2}
   - {fileID: 11400000, guid: c415596d61b5e41d19eb360c8d6f1493, type: 2}
+  - {fileID: 11400000, guid: 245cce9d15a274176b69c72d3188a100, type: 2}
+  - {fileID: 11400000, guid: 74d6f0b47a4b348b7bdb7ac2bb8b9cd7, type: 2}
   panel: {fileID: 296800786}
   itemContainer: {fileID: 642549397}
   rowPrefab: {fileID: 9090683850537475850, guid: 847bb226ca239495fa5393e5bf6db03b, type: 3}
@@ -35078,7 +35080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5bec4a84dd243dcb3311af3489fbbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  timeLeft: 120
+  timeLeft: 30
   timerText: {fileID: 2019769850}
 --- !u!1 &1084138333
 GameObject:

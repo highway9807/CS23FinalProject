@@ -703,6 +703,8 @@ MonoBehaviour:
   shoppingList:
   - {fileID: 11400000, guid: b9d40392389944ba1ab5dd25078693ef, type: 2}
   - {fileID: 11400000, guid: c415596d61b5e41d19eb360c8d6f1493, type: 2}
+  - {fileID: 11400000, guid: 245cce9d15a274176b69c72d3188a100, type: 2}
+  - {fileID: 11400000, guid: 74d6f0b47a4b348b7bdb7ac2bb8b9cd7, type: 2}
 --- !u!4 &1303256911
 Transform:
   m_ObjectHideFlags: 0
