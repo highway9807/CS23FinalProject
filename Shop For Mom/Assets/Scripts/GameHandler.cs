@@ -21,7 +21,7 @@ public class GameHandler : MonoBehaviour
     [SerializeField]
     private string how2PlaySceneName;
 
-    [Header("Buttons")]
+    [Header("Main Menu Buttons")]
     [SerializeField]
     private Button startBtn; 
     [SerializeField]
@@ -32,14 +32,25 @@ public class GameHandler : MonoBehaviour
     private Button credsBtn;
     [SerializeField]
     private Button how2PlayBtn;
-    //TODO: drag button prefabs 
+
+    [Header("In-game Buttons")]
+    [SerializeField]
+    private Button pauseInGame;
+
+    [Header("Pause Menu Buttons")]
+    [SerializeField]
+    private GameObject pauseMenuPanel;
+    [SerializeField]
+    private Button resumeFromPause;
+    [SerializeField]
+    private Button quitFromPause;
 
     // add scene names to easily switch using scene manager (private, serialize)
-
+    [Header("Inventory")]
     [SerializeField]
     private PlayerInventory playerInv;
 
-    /// Inventory API for UI and gameplay systems. </summary>
+    /// Inventory API for UI and gameplay systems.
     public PlayerInventory PlayerInventory => playerInv;
 
     void Awake()
@@ -67,6 +78,9 @@ public class GameHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (pauseMenuPanel != null)
+            pauseMenuPanel.SetActive(false);
+
         // assign the click events
         if(startBtn != null) 
             startBtn.onClick.AddListener(loadStartScene);
@@ -78,18 +92,13 @@ public class GameHandler : MonoBehaviour
             credsBtn.onClick.AddListener(loadCredsScene);
         if(how2PlayBtn != null) 
             credsBtn.onClick.AddListener(loadH2PScene);
+        if(pauseInGame != null) 
+            pauseInGame.onClick.AddListener(PauseFromButton);
+        if(resumeFromPause != null)
+            resumeFromPause.onClick.AddListener(ResumeFromButton);
+        if(quitFromPause != null)
+            quitFromPause.onClick.AddListener(LoadMainMenuScene);
     }
-
-    // Name: Update
-    // Purpose: Provide quick keyboard pause toggle using Escape.
-    // Inputs:  Escape key press.
-    // Outputs: None.
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            TogglePauseMenu();
-    }
-
     // click events
     private void loadStartScene()
     {
@@ -123,18 +132,6 @@ public class GameHandler : MonoBehaviour
         
     }
 
-    // Name: TogglePauseMenu
-    // Purpose: Toggle pause state using PauseManager with PauseMenu reason.
-    // Inputs:  None.
-    // Outputs: None.
-    public void TogglePauseMenu()
-    {
-        if (PauseManager.isPaused)
-            PauseManager.ReleasePause(PauseReason.PauseMenu);
-        else
-            PauseManager.RequestPause(PauseReason.PauseMenu);
-    }
-
     // Name: PauseFromButton
     // Purpose: Pause gameplay when called from a UI button.
     // Inputs:  None.
@@ -142,6 +139,8 @@ public class GameHandler : MonoBehaviour
     public void PauseFromButton()
     {
         PauseManager.RequestPause(PauseReason.PauseMenu);
+        if (pauseMenuPanel != null)
+            pauseMenuPanel.SetActive(true);
     }
 
     // Name: ResumeFromButton
@@ -151,6 +150,8 @@ public class GameHandler : MonoBehaviour
     public void ResumeFromButton()
     {
         PauseManager.ReleasePause(PauseReason.PauseMenu);
+        if (pauseMenuPanel != null)
+            pauseMenuPanel.SetActive(false);
     }
 
     // Name: LoadScoreScene
@@ -168,6 +169,9 @@ public class GameHandler : MonoBehaviour
     // Oututs: None
     public void LoadMainMenuScene() {
         SceneManager.LoadScene("MainMenu");
+
+        playerInv.ClearAll();
+		//needs reset of all stats!!!
     }
 
 

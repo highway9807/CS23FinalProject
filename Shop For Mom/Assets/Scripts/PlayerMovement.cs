@@ -5,6 +5,7 @@ public class PlayerController_TopDown : MonoBehaviour {
     [Header("Movement settings")]
 	private Animator anim;
     public float movementSpeed = 1.0f;
+	public float movementBaseSpeed = 1f;
     public float acceleration = 5.0f; // How fast the player reaches max speed
     public float deacceleration = 3.0f; // How fast the player stops
     public float maxSpeed = 10; 
@@ -26,7 +27,14 @@ public class PlayerController_TopDown : MonoBehaviour {
     }
 
     void Update() {
-        // Capture input
+		// Capture input (Dash needs a cooldown)
+		if (Input.GetButtonDown("Dash")){
+			movementSpeed *= 3f;
+		}
+		if (Input.GetButtonUp("Dash")){
+			movementSpeed = movementBaseSpeed;
+		}
+
         inputVector.x = Input.GetAxisRaw("Horizontal");
         inputVector.y = Input.GetAxisRaw("Vertical");
 

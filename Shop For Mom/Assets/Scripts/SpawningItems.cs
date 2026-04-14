@@ -54,19 +54,12 @@ public class SpawningItems : MonoBehaviour
             Debug.Log($"Spawning at {spawn.transform.position}");
             i++;
         }
-        for (int j = 0; j < prefabs.Length; j++){
+        /*for (int j = 0; j < prefabs.Length; j++){
             prefabs[j].SetActive(false);
-        }
+        }*/
     }
 
     
-    void Update()
-    {
-        foreach(GameObject spawn in spawnPoints) {
-            spawn.SetActive(false);
-        }
-
-    }
     public void SpawnItem(GameObject prefab, Transform point)
     {
         Instantiate(prefab, point.position, point.rotation);

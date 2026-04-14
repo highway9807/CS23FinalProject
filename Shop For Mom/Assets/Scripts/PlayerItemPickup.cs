@@ -8,15 +8,21 @@ public class PlayerItemPickup : MonoBehaviour
     public GameObject[] pickups;
     public GameObject[] spawners;
     public AudioSource SFX_PickUp;
-    private GameObject heldItem = null;
+    public SpawningItems spawner;
+    private ItemDefinition heldItemDef = null;
     private PlayerInventory playerInventory;
     private GameObject closest = null;
+    private Animator anim;
+    public GameObject[] prefabs;
+
 
     void Start()
     {
         player = GetComponent<Transform>();
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
         spawners = GameObject.FindGameObjectsWithTag("SpawnPoints");
+        anim= GetComponentInChildren<Animator>();
+
         if (GameHandler.gh != null)
             playerInventory = GameHandler.gh.PlayerInventory;
     }
@@ -46,7 +52,7 @@ public class PlayerItemPickup : MonoBehaviour
         foreach (GameObject pickup in pickups)
         {
             if (pickup == null) continue;
-            Transform glowChild = pickup.transform.Find("Glow");
+                Transform glowChild = pickup.transform.Find("Glow");
             if (glowChild != null)
                 glowChild.gameObject.SetActive(pickup == closest);
         }
@@ -62,9 +68,12 @@ public class PlayerItemPickup : MonoBehaviour
                 if (playerInventory.TryAdd(id.itemType)) {
                     Debug.Log("Picked up " + closest.name);
                     SFX_PickUp.Play();
-                    heldItem = closest;
-                    
-                    closest.SetActive(false);
+                    if (anim != null)
+                        anim.SetTrigger("pickup");
+
+                    heldItemDef = id.itemType;
+                    Destroy(closest);
+                    closest = null;
                     playerInventory.printInventory();
                 }
                 else {
@@ -86,23 +95,33 @@ public class PlayerItemPickup : MonoBehaviour
             }
         }
 
-
-        if (Input.GetKeyDown(KeyCode.F))
+        foreach (GameObject spawn in spawners)
         {
-            Debug.Log($"playerInventory={playerInventory}, heldItem={heldItem}, closest_spawn={closest_spawn}");
+            if (spawn == null) continue;
+            SpriteRenderer sr = spawn.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.enabled = (spawn == closest_spawn && heldItemDef != null);
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItem != null)
+        
+        if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItemDef != null)
         {
-            ItemIdentity heldId = heldItem.GetComponent<ItemIdentity>();
-            if (playerInventory != null && heldId != null && playerInventory.TryRemove(heldId.itemType)) 
-            {
-                Debug.Log("Dropped " + heldItem.name + " at " + closest_spawn.name);
-                heldItem.transform.position = closest_spawn.transform.position;
-                heldItem.SetActive(true);
-                heldItem = null;
+            if (playerInventory != null && playerInventory.TryRemove(heldItemDef)) 
+            {   
+                foreach (GameObject prefab in prefabs)
+                {
+                    ItemIdentity prefabId = prefab.GetComponent<ItemIdentity>();
+                    if (prefabId != null && prefabId.itemType == heldItemDef)
+                    {
+                        spawner.SpawnItem(prefab, closest_spawn.transform);
+                        Debug.Log("Dropped " + heldItemDef.itemName + " at " + closest_spawn.name);
+                        break;
+                    }
+                }
+                heldItemDef = null;
             }
         }
+        
         pickups = GameObject.FindGameObjectsWithTag("Pickups");
     }
 }

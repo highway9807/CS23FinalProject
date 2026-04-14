@@ -6,46 +6,76 @@ public class ScoreHandler : MonoBehaviour
 {
     // Score texts
     public TMP_Text totalScoreText;
-    public TMP_Text correctItemsText;
-    public TMP_Text incorrectItemsText;
+    public TMP_Text messageText;
+    public TMP_Text starsText;
 
     // Settings
     public int correctPoints = 100;
     public int incorrectPoints = 50;
 
-    // Temporarily public
-    public List<ItemDefinition> shoppingList = new List<ItemDefinition>();
+    // shopping list and game handler
+    public GameObject gameHandler;
+    public ShoppingList shoppingList;
+
 
     // Private counters
     private int correctCount = 0;
     private int incorrectCount = 0;
     private int totalScore = 0;
 
-    void Start()
-    {
+    void Start() {
+        // find the game handler
+        gameHandler = GameObject.FindWithTag("GameHandler");
+        if (gameHandler != null) {
+            // get the shopping list
+            shoppingList = FindObjectOfType<ShoppingList>();
+        }
+        else {
+            Debug.LogError("Can't find game handler!");
+            return;
+        }
+
         // Calculate the total score
         calculateScore();
+
         // Display the updated score
         int totalScore = correctCount*correctPoints - incorrectCount*incorrectPoints;
+        
         // Update the text displays
-        UpdateText(totalScoreText,
-        $"Total Score: {correctCount} x {correctPoints} - {incorrectCount} x {incorrectPoints} = {totalScore}");
-        UpdateText(correctItemsText, $"Correct Items: {correctCount}");
-        UpdateText(incorrectItemsText, $"Incorrect Items: {incorrectCount}");
+        UpdateText(totalScoreText, $"Total Score: ${totalScore}");
+        
+        if (totalScore > 1000) {
+            UpdateText(starsText, "3 Stars!");
+            UpdateText(messageText, $"Congratuations! You've made your mom proud.");
+        }
+        else if (totalScore > 500) {
+            UpdateText(starsText, "2 Stars!");
+            UpdateText(messageText, $"Your mom could have done it better.");
+        }
+        else if (totalScore > 0) {
+            UpdateText(starsText, "1 Star!");
+            UpdateText(messageText, "Your mom says she's be better off without you. Prove her wrong!");
+        }
+        else {
+            UpdateText(starsText, "0 Stars!");
+            UpdateText(messageText, "You lose! Try again.");
+        }
     }
 
     public void calculateScore() {
+        Debug.Log("Calculating score!");
+        Debug.Log($"shoppingList={shoppingList}, shopping_list={shoppingList?.shopping_list}");
         correctCount = 0;
         incorrectCount = 0;
 
         // Get the list of all items currently in the inventory
-        List<ItemDefinition> inventory = GameHandler.gh.PlayerInventory.GetItemSlots();
+        List<ItemDefinition> inventory = gameHandler.GetComponent<PlayerInventory>().GetItemSlots();
 
         // Loop through all items
         foreach (ItemDefinition inventoryItem in inventory) {
             bool isCorrect = false;
             // Check if the item is in the list
-            foreach (ItemDefinition listItem in shoppingList) {
+            foreach (ItemDefinition listItem in shoppingList.shopping_list) {
                 if (inventoryItem == listItem) {
                     isCorrect = true;
                     correctCount++; // Count correct items
