@@ -568,13 +568,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreHandler
   totalScoreText: {fileID: 0}
-  correctItemsText: {fileID: 0}
-  incorrectItemsText: {fileID: 0}
+  messageText: {fileID: 0}
+  starsText: {fileID: 0}
   correctPoints: 100
   incorrectPoints: 50
-  shoppingList:
-  - {fileID: 11400000, guid: b9d40392389944ba1ab5dd25078693ef, type: 2}
-  - {fileID: 11400000, guid: c415596d61b5e41d19eb360c8d6f1493, type: 2}
+  gameHandler: {fileID: 0}
+  shoppingList: {fileID: 0}
 --- !u!4 &1303256911
 Transform:
   m_ObjectHideFlags: 0
@@ -967,7 +966,7 @@ MonoBehaviour:
 
     Nicole Hernandez
 
-    HUber Pan
+    Huber Pan
 
 
     MUSIC:

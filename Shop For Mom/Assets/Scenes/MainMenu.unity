@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
   offsetMultiplier: 30
-  smoothTime: 0.4
+  smoothTime: 0.3
 --- !u!114 &1003329857
 MonoBehaviour:
   m_ObjectHideFlags: 0
