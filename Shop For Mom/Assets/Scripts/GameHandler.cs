@@ -168,6 +168,8 @@ public class GameHandler : MonoBehaviour
     // Oututs: None
     public void LoadMainMenuScene() {
         SceneManager.LoadScene("MainMenu");
+
+        playerInv.ClearAll();
 		//needs reset of all stats!!!
     }
 
