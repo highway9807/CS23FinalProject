@@ -51,3 +51,4 @@ public class GameTimer : MonoBehaviour
         timerText.text = string.Format("Time left: {0:00}:{1:00}", mins, secs);
     }
 }
+
