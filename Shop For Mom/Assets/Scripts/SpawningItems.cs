@@ -60,14 +60,6 @@ public class SpawningItems : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        foreach(GameObject spawn in spawnPoints) {
-            SpriteRenderer sr = spawn.GetComponent<SpriteRenderer>();
-            sr.enabled = false;
-        }
-
-    }
     public void SpawnItem(GameObject prefab, Transform point)
     {
         Instantiate(prefab, point.position, point.rotation);

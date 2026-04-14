@@ -28,7 +28,7 @@ public class ScoreHandler : MonoBehaviour
         gameHandler = GameObject.FindWithTag("GameHandler");
         if (gameHandler != null) {
             // get the shopping list
-            shoppingList = gameHandler.GetComponent<ShoppingList>();
+            shoppingList = FindObjectOfType<ShoppingList>();
         }
         else {
             Debug.LogError("Can't find game handler!");
@@ -64,6 +64,7 @@ public class ScoreHandler : MonoBehaviour
 
     public void calculateScore() {
         Debug.Log("Calculating score!");
+        Debug.Log($"shoppingList={shoppingList}, shopping_list={shoppingList?.shopping_list}");
         correctCount = 0;
         incorrectCount = 0;
 

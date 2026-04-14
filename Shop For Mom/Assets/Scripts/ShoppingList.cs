@@ -17,6 +17,16 @@ public class ShoppingList : MonoBehaviour
 
     void Start()
     {
+        if (FindObjectOfType<ShoppingList>() != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+
+        panel = GameObject.FindWithTag("List");
+        itemContainer = GameObject.Find("ItemContainer").transform;
+
         if (GameHandler.gh != null)
         {
             playerInventory = GameHandler.gh.PlayerInventory;
@@ -29,7 +39,25 @@ public class ShoppingList : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (panel == null)
+        {
+            panel = GameObject.FindWithTag("List");
+            GameObject container = GameObject.Find("ItemContainer");
+            if (container != null) itemContainer = container.transform;
+
+            // Re-subscribe to the new inventory when scene reloads
+            if (GameHandler.gh != null && GameHandler.gh.PlayerInventory != playerInventory)
+            {
+                if (playerInventory != null) playerInventory.Changed -= RefreshUI;
+                playerInventory = GameHandler.gh.PlayerInventory;
+                playerInventory.Changed += RefreshUI;
+            }
+
+            visible = false;
+            if (panel != null) panel.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L) && panel != null)
         {
             visible = !visible;
             panel.SetActive(visible);
@@ -39,6 +67,8 @@ public class ShoppingList : MonoBehaviour
 
     void RefreshUI()
     {
+        if (itemContainer == null) return;
+
         // Clear old rows
         foreach (Transform child in itemContainer)
             Destroy(child.gameObject);

@@ -103,8 +103,6 @@ public class PlayerItemPickup : MonoBehaviour
                 sr.enabled = (spawn == closest_spawn && heldItemDef != null);
         }
 
-
-
         
         if (Input.GetKeyDown(KeyCode.F) && closest_spawn != null && heldItemDef != null)
         {
