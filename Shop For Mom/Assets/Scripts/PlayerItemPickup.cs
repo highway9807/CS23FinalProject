@@ -52,7 +52,7 @@ public class PlayerItemPickup : MonoBehaviour
         foreach (GameObject pickup in pickups)
         {
             if (pickup == null) continue;
-            Transform glowChild = pickup.transform.Find("Glow");
+                Transform glowChild = pickup.transform.Find("Glow");
             if (glowChild != null)
                 glowChild.gameObject.SetActive(pickup == closest);
         }
