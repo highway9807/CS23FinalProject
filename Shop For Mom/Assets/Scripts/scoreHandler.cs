@@ -42,7 +42,7 @@ public class ScoreHandler : MonoBehaviour
         int totalScore = correctCount*correctPoints - incorrectCount*incorrectPoints;
         
         // Update the text displays
-        UpdateText(totalScoreText, $"Total Score: ${totalScore}");
+        UpdateText(totalScoreText, $"Total Score: {totalScore}");
         
         if (totalScore > 1000) {
             UpdateText(starsText, "3 Stars!");

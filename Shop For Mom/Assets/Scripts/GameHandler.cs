@@ -160,7 +160,15 @@ public class GameHandler : MonoBehaviour
     // Oututs: None
     public void LoadScoreScene()
     {
+        // Find the timer and shut it down so it doesn't loop the scene
+        GameTimer timer = GetComponentInChildren<GameTimer>();
+        if (timer != null) {
+            timer.enabled = false; 
+        }
+        
+        PauseManager.ClearAllPauses();
         SceneManager.LoadScene("ScoreScene");
+        
     }
 
     // Name: LoadMainMenu
@@ -171,7 +179,7 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
 
         playerInv.ClearAll();
-		//needs reset of all stats!!!
+		// needs reset of all stats!!!
     }
 
 
