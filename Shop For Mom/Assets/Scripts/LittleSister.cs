@@ -27,10 +27,14 @@ public class CartSister : MonoBehaviour
     IAstarAI ai;
 
     private GameObject player;
+    private Animator anim;
+    private SpriteRenderer sr;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        anim=GetComponentInChildren<Animator>();
+        sr=GetComponentInChildren<SpriteRenderer>();
         playerInventory = GameHandler.gh.PlayerInventory;
         // Find the spawner script in the scene
         spawner = Object.FindFirstObjectByType<SpawningItems>();
@@ -129,6 +133,7 @@ public class CartSister : MonoBehaviour
                 // Try to add the closest item
                 if (playerInventory.TryAdd(id.itemType)) {
                     Debug.Log("The little sister picked up " + closestObj.name + "!");
+                    anim.SetTrigger("ispickingup");
                     closestObj.SetActive(false);
                     playerInventory.printInventory();
                 }
@@ -278,11 +283,12 @@ public class CartSister : MonoBehaviour
         }
     }
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.J)) {
-            Debug.Log("Sister returning to cart");
-            returnToCart();
+        void Update() {
+            if (Input.GetKeyDown(KeyCode.J)) {
+                Debug.Log("Sister returning to cart");
+                returnToCart();
+            }
         }
     }
     
-    }
+    
