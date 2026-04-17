@@ -201,7 +201,7 @@ public class CartSister : MonoBehaviour
                 yield return new WaitForSeconds(Random.Range(2f, 5f));
                 makeMess(closestMess);
                 // The mess is already messed up so she shoundn't navigate to it again
-                closestMess.tag = "Untagged";
+                closestMess.tag = "DestroyedMess";
             }
             yield return null;
         }
@@ -233,23 +233,6 @@ public class CartSister : MonoBehaviour
         SpriteRenderer[] sprites = mess.GetComponentsInChildren<SpriteRenderer>(true);
         sprites[0].gameObject.SetActive(true); // The first one is the tidy mess
         sprites[1].gameObject.SetActive(false); // The second one is the messed up mess
-    }
-
-    Vector3 getWanderPoint(Vector3 center, float radius) {
-        // Gets a random point in the randius
-        Vector2 randomCircle = Random.insideUnitCircle * radius;
-        // Gets the actual spot
-        Vector3 targetPos = center + new Vector3(randomCircle.x, randomCircle.y, 0);
-        
-        // Find closest valid point on the Pathfinder grid
-        var info = AstarPath.active.GetNearest(targetPos, NNConstraint.Default);
-        // Make sure we can actually get to the point
-        if (info.node != null && info.node.Walkable) {
-            // return a Vector3 for movement
-            return (Vector3)info.node.position;
-        }
-        // Return 0 by default so we can try again
-        return Vector3.zero;
     }
 
     public void returnToCart() {
