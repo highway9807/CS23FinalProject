@@ -12,6 +12,7 @@ public class CartSister : MonoBehaviour
 
     // The pickup prefab for spawing items
     public GameObject pickupPrefab;
+    public CameraShake cameraShake;
     
     // The little sister needs access to the inventory to drop items and the
     // spawners to respawn them
@@ -40,7 +41,8 @@ public class CartSister : MonoBehaviour
         // Find the spawner script in the scene
         spawner = Object.FindFirstObjectByType<SpawningItems>();
         messList = GameObject.FindGameObjectsWithTag("Mess");
-        Debug.Log(messList.Length + " messes found");
+        cameraShake = GameObject.FindWithTag("MainCamera").GetComponent<CameraShake>();
+        // Debug.Log(messList.Length + " messes found");
 
         // Find the AI component
         ai = GetComponent<IAstarAI>();
@@ -135,13 +137,13 @@ public class CartSister : MonoBehaviour
             {
                 // Try to add the closest item
                 if (playerInventory.TryAdd(id.itemType)) {
-                    Debug.Log("The little sister picked up " + closestObj.name + "!");
+                    // Debug.Log("The little sister picked up " + closestObj.name + "!");
                     anim.SetTrigger("ispickingup");
                     closestObj.SetActive(false);
                     playerInventory.printInventory();
                 }
                 else {
-                    Debug.Log($"There was an issue picking up an {id.itemType}");
+                    // Debug.Log($"There was an issue picking up an {id.itemType}");
                 }
             }
     }
@@ -159,7 +161,7 @@ public class CartSister : MonoBehaviour
     }
 
     void TryLeaveCart() {
-        Debug.Log("The sister is leaving the cart");
+        // Debug.Log("The sister is leaving the cart");
         // She is already wandering so we don't need to wander her again
         if (leftCart) {
             return;
@@ -211,7 +213,7 @@ public class CartSister : MonoBehaviour
         messList = GameObject.FindGameObjectsWithTag("Mess");
         // If there are no messes, none of them are closest
         if (messList == null || messList.Length == 0) {
-            Debug.Log("No messes found");
+            // Debug.Log("No messes found");
             return null;
         }
         // Find the closest mess
@@ -224,13 +226,14 @@ public class CartSister : MonoBehaviour
                 closestMess = currMess;
             }
         }
-        Debug.Log("Sister going to closest mess: " + closestMess.transform.position);
+        // Debug.Log("Sister going to closest mess: " + closestMess.transform.position);
         return closestMess;
     }
 
     void makeMess(GameObject mess) {
         // Get the sprite renderers for the two sprites
         SpriteRenderer[] sprites = mess.GetComponentsInChildren<SpriteRenderer>(true);
+        cameraShake.ShakeCamera(0.15f, 0.3f);
         sprites[0].gameObject.SetActive(true); // The first one is the tidy mess
         sprites[1].gameObject.SetActive(false); // The second one is the messed up mess
     }
@@ -240,7 +243,7 @@ public class CartSister : MonoBehaviour
         if (!leftCart) {
             return;
         }
-        Debug.Log("Little sister returning to the cart...");
+        // Debug.Log("Little sister returning to the cart...");
         
         // Stop the wandering loop
         StopAllCoroutines(); 
@@ -289,7 +292,7 @@ public class CartSister : MonoBehaviour
                 float dist = Vector3.Distance(transform.position, player.transform.position);
                 
                 if (dist < recallDistance) {
-                    Debug.Log("Player got close! Sister is hopping back in.");
+                    // Debug.Log("Player got close! Sister is hopping back in.");
                     returnToCart(); // Return to the cart
                     yield break;    // Stop this check since she's returning
                 }
@@ -299,12 +302,13 @@ public class CartSister : MonoBehaviour
         }
     }
 
-        void Update() {
-            if (Input.GetKeyDown(KeyCode.J)) {
-                Debug.Log("Sister returning to cart");
-                returnToCart();
-            }
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.J)) {
+            // Debug.Log("Sister returning to cart");
+            returnToCart();
         }
+    }
+    
     }
     
     

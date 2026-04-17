@@ -27,7 +27,7 @@ public class Employee : MonoBehaviour
         // If we aren't following yet, check if a mess was destroyed
         if (!isFollowing) {
             if (GameObject.FindWithTag("DestroyedMess") != null) {
-                Debug.Log("Employee saw the mess! Starting chase.");
+                // Debug.Log("Employee saw the mess! Starting chase.");
                 isFollowing = true;
                 StartCoroutine(FollowSister());
             }
@@ -39,7 +39,7 @@ public class Employee : MonoBehaviour
 
         while (isFollowing) {
             if (littleSister != null) {
-                Debug.Log("Following sister");
+                // Debug.Log("Following sister");
                 // Constantly update the destination to her current position
                 ai.destination = littleSister.transform.position;
                 ai.SearchPath();
