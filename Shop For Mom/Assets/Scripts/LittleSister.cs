@@ -171,9 +171,9 @@ public class CartSister : MonoBehaviour
         // Stop all other random actions
         StopAllCoroutines();
         
-        Vector3 randomPoint = getWanderPoint(transform.position, wanderRadius);
+        GameObject closestMess = getClosestMess();
 
-        if (randomPoint != Vector3.zero) {
+        if (closestMess != null) {
             // Debug.Log("The sister is going to: " + randomPoint);
             StartCoroutine(wander());
         }
