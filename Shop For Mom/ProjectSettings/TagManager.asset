@@ -9,6 +9,7 @@ TagManager:
   - SpawnPoints
   - Wall
   - List
+  - Mess
   layers:
   - Default
   - TransparentFX

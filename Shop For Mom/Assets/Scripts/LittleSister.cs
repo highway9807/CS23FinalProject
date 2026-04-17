@@ -29,6 +29,7 @@ public class CartSister : MonoBehaviour
     private GameObject player;
     private Animator anim;
     private SpriteRenderer sr;
+    private GameObject[] messList;
 
     void Start()
     {
@@ -38,6 +39,8 @@ public class CartSister : MonoBehaviour
         playerInventory = GameHandler.gh.PlayerInventory;
         // Find the spawner script in the scene
         spawner = Object.FindFirstObjectByType<SpawningItems>();
+        messList = GameObject.FindGameObjectsWithTag("Mess");
+        Debug.Log(messList.Length + " messes found");
 
         // Find the AI component
         ai = GetComponent<IAstarAI>();
@@ -181,11 +184,11 @@ public class CartSister : MonoBehaviour
     IEnumerator wander() {
         while (true) {
             // Find a point to wander to
-            Vector3 randomPoint = getWanderPoint(transform.position, wanderRadius);
+            GameObject closestMess = getClosestMess();
             // Make sure the point is actually going somewhere
-            if (randomPoint != Vector3.zero) {
+            if (closestMess != null) {
                 // Set the destination
-                ai.destination = randomPoint;
+                ai.destination = closestMess.transform.position;
                 // Find the path
                 ai.SearchPath();
 
@@ -194,13 +197,43 @@ public class CartSister : MonoBehaviour
                     yield return null;
                 }
 
-                // Stay at the new spot for a while before going to the next one
+                // Stay at the new spot for a while before making a mess
                 yield return new WaitForSeconds(Random.Range(2f, 5f));
+                makeMess(closestMess);
+                // The mess is already messed up so she shoundn't navigate to it again
+                closestMess.tag = "Untagged";
             }
             yield return null;
         }
     }
 
+    GameObject getClosestMess() {
+        messList = GameObject.FindGameObjectsWithTag("Mess");
+        // If there are no messes, none of them are closest
+        if (messList == null || messList.Length == 0) {
+            Debug.Log("No messes found");
+            return null;
+        }
+        // Find the closest mess
+        GameObject closestMess = messList[0];
+        foreach (GameObject currMess in messList) {
+            float closestDistance = Vector3.Distance(transform.position, closestMess.transform.position);
+            float currDistance = Vector3.Distance(transform.position, currMess.transform.position);
+
+            if (currDistance < closestDistance) {
+                closestMess = currMess;
+            }
+        }
+        Debug.Log("Sister going to closest mess: " + closestMess.transform.position);
+        return closestMess;
+    }
+
+    void makeMess(GameObject mess) {
+        // Get the sprite renderers for the two sprites
+        SpriteRenderer[] sprites = mess.GetComponentsInChildren<SpriteRenderer>(true);
+        sprites[0].gameObject.SetActive(true); // The first one is the tidy mess
+        sprites[1].gameObject.SetActive(false); // The second one is the messed up mess
+    }
 
     Vector3 getWanderPoint(Vector3 center, float radius) {
         // Gets a random point in the randius
