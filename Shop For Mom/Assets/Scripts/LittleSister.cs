@@ -41,7 +41,7 @@ public class CartSister : MonoBehaviour
         // Find the spawner script in the scene
         spawner = Object.FindFirstObjectByType<SpawningItems>();
         messList = GameObject.FindGameObjectsWithTag("Mess");
-        cameraShake = GameObject.FindWithTag("MainCamera").GetComponent<CameraShake>();
+        cameraShake = Object.FindFirstObjectByType<CameraShake>();
         // Debug.Log(messList.Length + " messes found");
 
         // Find the AI component
@@ -233,7 +233,7 @@ public class CartSister : MonoBehaviour
     void makeMess(GameObject mess) {
         // Get the sprite renderers for the two sprites
         SpriteRenderer[] sprites = mess.GetComponentsInChildren<SpriteRenderer>(true);
-        cameraShake.ShakeCamera(0.15f, 0.3f);
+        cameraShake.ShakeCamera(1f, 0.2f);
         sprites[0].gameObject.SetActive(true); // The first one is the tidy mess
         sprites[1].gameObject.SetActive(false); // The second one is the messed up mess
     }
