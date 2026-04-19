@@ -16,4 +16,9 @@ public class Button_SceneChanges : MonoBehaviour
     {
         GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>().LoadMainMenuScene();
     }
+
+    public void LoadNextLevel()
+    {
+        GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>().LoadNextLevel();
+    }
 }

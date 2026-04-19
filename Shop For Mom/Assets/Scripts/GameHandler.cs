@@ -50,6 +50,10 @@ public class GameHandler : MonoBehaviour
     [SerializeField]
     private PlayerInventory playerInv;
 
+    [Header("Level Management")]
+    [SerializeField] private List<string> levelSceneNames = new List<string> {"Level1", "Level2", "Level4", "Level1_OLD"}; // List of scenes in order
+    private int currentLevelIndex = 0; // The current scene we are on
+
     /// Inventory API for UI and gameplay systems.
     public PlayerInventory PlayerInventory => playerInv;
 
@@ -91,7 +95,7 @@ public class GameHandler : MonoBehaviour
         if(credsBtn != null) 
             credsBtn.onClick.AddListener(loadCredsScene);
         if(how2PlayBtn != null) 
-            credsBtn.onClick.AddListener(loadH2PScene);
+            how2PlayBtn.onClick.AddListener(loadH2PScene);
         if(pauseInGame != null) 
             pauseInGame.onClick.AddListener(PauseFromButton);
         if(resumeFromPause != null)
@@ -180,6 +184,31 @@ public class GameHandler : MonoBehaviour
 
         playerInv.ClearAll();
 		// needs reset of all stats!!!
+    }
+
+    // Name: LoadNextLevel
+    // Purpose: Load the next level (from the score scee)
+    // Inputs: None
+    // Oututs: None
+    public void LoadNextLevel() 
+    {
+        currentLevelIndex++;
+
+        if (currentLevelIndex < levelSceneNames.Count) 
+        {
+            // Clear specific temporary stats but maybe keep inventory? 
+            // If you want a fresh start every level, keep playerInv.ClearAll();
+            
+            PauseManager.ClearAllPauses();
+            Debug.Log("Loading next level: " + currentLevelIndex);
+            SceneManager.LoadScene(levelSceneNames[currentLevelIndex]);
+        } 
+        else 
+        {
+            // No more levels? Send them to the Credits or Main Menu
+            Debug.Log("End of game reached!");
+            LoadMainMenuScene();
+        }
     }
 
 
