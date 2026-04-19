@@ -196,16 +196,15 @@ public class GameHandler : MonoBehaviour
 
         if (currentLevelIndex < levelSceneNames.Count) 
         {
-            // Clear specific temporary stats but maybe keep inventory? 
-            // If you want a fresh start every level, keep playerInv.ClearAll();
-            
+            // Clear inventory?
+            // Resent pauses?
             PauseManager.ClearAllPauses();
             Debug.Log("Loading next level: " + currentLevelIndex);
             SceneManager.LoadScene(levelSceneNames[currentLevelIndex]);
         } 
         else 
         {
-            // No more levels? Send them to the Credits or Main Menu
+            // Send to the main menu when there are no more scenes
             Debug.Log("End of game reached!");
             LoadMainMenuScene();
         }
