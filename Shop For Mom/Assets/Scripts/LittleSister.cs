@@ -7,12 +7,12 @@ using Pathfinding;
 public class CartSister : MonoBehaviour
 {
     [Header("Dropping Settings")]
-    public float minDropTime = 1f;
+    public float minDropTime = 2f;
     public float maxDropTime = 5f;
 
     // The pickup prefab for spawing items
     public GameObject pickupPrefab;
-    public CameraShake cameraShake;
+    private CameraShake cameraShake;
     
     // The little sister needs access to the inventory to drop items and the
     // spawners to respawn them
@@ -47,6 +47,7 @@ public class CartSister : MonoBehaviour
         // Find the AI component
         ai = GetComponent<IAstarAI>();
         ai.isStopped = true; // Since she starts in the cart, the AI is initially asleep
+		anim.SetBool("Walk", false);
 
         // Start the random dropping
         StartCoroutine(RandomDrop());
@@ -101,6 +102,7 @@ public class CartSister : MonoBehaviour
         if (sr != null) sr.sprite = item.sprite;
 
         // Actually toss the object
+		anim.SetTrigger("Pickup");
         Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
         if (rb != null) {
             // Pick a random direction
@@ -138,7 +140,7 @@ public class CartSister : MonoBehaviour
                 // Try to add the closest item
                 if (playerInventory.TryAdd(id.itemType)) {
                     // Debug.Log("The little sister picked up " + closestObj.name + "!");
-                    anim.SetTrigger("ispickingup");
+                    anim.SetTrigger("Pickup");
                     closestObj.SetActive(false);
                     playerInventory.printInventory();
                 }
@@ -155,6 +157,7 @@ public class CartSister : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             // Start the AI
             ai.isStopped = false;
+			anim.SetBool("Walk", true);
             // Tries to drop an item
             TryLeaveCart();
         }
@@ -183,8 +186,11 @@ public class CartSister : MonoBehaviour
         StartCoroutine(TryReturnToCart());
     }
 
+//little sister wanders off
+//little sister approaches a display
     IEnumerator wander() {
         while (true) {
+			anim.SetBool("Walk", true);
             // Find a point to wander to
             GameObject closestMess = getClosestMess();
             // Make sure the point is actually going somewhere
@@ -200,6 +206,8 @@ public class CartSister : MonoBehaviour
                 }
 
                 // Stay at the new spot for a while before making a mess
+				anim.SetBool("Walk", false);
+				//add animation of her jumping up and down!
                 yield return new WaitForSeconds(Random.Range(2f, 5f));
                 makeMess(closestMess);
                 // The mess is already messed up so she shoundn't navigate to it again
@@ -208,6 +216,7 @@ public class CartSister : MonoBehaviour
             yield return null;
         }
     }
+
 
     GameObject getClosestMess() {
         messList = GameObject.FindGameObjectsWithTag("Mess");
@@ -230,6 +239,7 @@ public class CartSister : MonoBehaviour
         return closestMess;
     }
 
+//Little sister attacks a display
     void makeMess(GameObject mess) {
         // Get the sprite renderers for the two sprites
         SpriteRenderer[] sprites = mess.GetComponentsInChildren<SpriteRenderer>(true);
@@ -255,6 +265,7 @@ public class CartSister : MonoBehaviour
     IEnumerator ReturnToPlayerRoutine() {
         // Enable AI so she can walk back
         ai.isStopped = false;
+		anim.SetBool("Walk", true);
         // Walk until she is close to the player
         while (Vector3.Distance(transform.position, player.transform.position) > 0.3f) {
             ai.destination = player.transform.position;
@@ -274,6 +285,7 @@ public class CartSister : MonoBehaviour
         // Disable AI so she doesn't fight the player's movement
         ai.isStopped = true;
         leftCart = false;
+		anim.SetBool("Walk", false);
 
         // Resume routines
         StartCoroutine(RandomDrop());
@@ -308,7 +320,9 @@ public class CartSister : MonoBehaviour
             returnToCart();
         }
     }
+
+
     
-    }
+}
     
     
