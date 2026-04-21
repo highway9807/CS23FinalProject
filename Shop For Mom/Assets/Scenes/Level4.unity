@@ -8348,7 +8348,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1299892530}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99994856
+  m_Size: 0.9999967
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9209,7 +9209,7 @@ PrefabInstance:
     - target: {fileID: 5666377381038093696, guid: e1b33629b188a495f8524c65d09a8b3a, type: 3}
       propertyPath: 'prefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 5738804188455109380, guid: 9489482fa07a347669f7d2a761a7c820, type: 3}
+      objectReference: {fileID: 3725598757863222044, guid: 77886b030884c41d8bcfde5c92742608, type: 3}
     - target: {fileID: 5666377381038093696, guid: e1b33629b188a495f8524c65d09a8b3a, type: 3}
       propertyPath: 'prefabs.Array.data[1]'
       value: 
@@ -33409,7 +33409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00018983468}
+  m_AnchoredPosition: {x: 0, y: 0.00014863796}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &961390489
