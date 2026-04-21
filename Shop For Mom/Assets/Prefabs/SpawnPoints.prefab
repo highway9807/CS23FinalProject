@@ -335,7 +335,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  prefabs: []
+  prefabs:
+  - {fileID: 3725598757863222044, guid: 77886b030884c41d8bcfde5c92742608, type: 3}
+  - {fileID: 3725598757863222044, guid: fd6b490a7f2074e9584db1cb4cfee2fd, type: 3}
+  - {fileID: 4379305252257643111, guid: 66fb3d6cc56f441e4a301602b701015e, type: 3}
+  - {fileID: 4379305252257643111, guid: c7be287fd5d544c88bade57306c1b387, type: 3}
+  - {fileID: 4379305252257643111, guid: 395cefb93dc9f480eba36c71e4a9d961, type: 3}
+  - {fileID: 4379305252257643111, guid: 6a988c131d2e54542a83ac017d76fe0c, type: 3}
+  - {fileID: 8835842917990525690, guid: 42831a54167f1484b90126afde52790f, type: 3}
+  - {fileID: 4379305252257643111, guid: 79e139e2fd4334eba9447f4e5bc95830, type: 3}
+  - {fileID: 4379305252257643111, guid: 9cd0dad069e074acca5fdad8bba16613, type: 3}
+  - {fileID: 4379305252257643111, guid: 51c22cc148c38488b87c6fc44e32d7c0, type: 3}
   spawnPoints: []
 --- !u!1001 &1156314038817631030
 PrefabInstance:
