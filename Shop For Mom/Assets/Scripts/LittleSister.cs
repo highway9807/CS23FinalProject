@@ -108,7 +108,7 @@ public class CartSister : MonoBehaviour
             // Pick a random direction
             Vector2 randDir = Random.insideUnitCircle.normalized;
             // Apply the force so it slides away
-            rb.AddForce(randDir * 10f, ForceMode2D.Impulse);
+            rb.AddForce(randDir * 1f, ForceMode2D.Impulse);
             
             // Add "Linear Drag" in the Inspector (around 5) so the item 
             // eventually slides to a stop instead of sliding forever!
