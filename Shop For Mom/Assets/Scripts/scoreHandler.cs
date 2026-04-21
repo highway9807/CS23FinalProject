@@ -44,15 +44,15 @@ public class ScoreHandler : MonoBehaviour
         // Update the text displays
         UpdateText(totalScoreText, $"Total Score: {totalScore}");
         
-        if (totalScore > 1000) {
+        if (totalScore > GameHandler.gh.star3) {
             UpdateText(starsText, "3 Stars!");
             UpdateText(messageText, $"Congratuations! You've made your mom proud.");
         }
-        else if (totalScore > 500) {
+        else if (totalScore > GameHandler.gh.star2) {
             UpdateText(starsText, "2 Stars!");
             UpdateText(messageText, $"Your mom could have done it better.");
         }
-        else if (totalScore > 0) {
+        else if (totalScore > GameHandler.gh.star1) {
             UpdateText(starsText, "1 Star!");
             UpdateText(messageText, "Your mom says she's be better off without you. Prove her wrong!");
         }

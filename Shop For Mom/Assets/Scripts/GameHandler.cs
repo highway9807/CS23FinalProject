@@ -54,6 +54,16 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private List<string> levelSceneNames = new List<string> {"Level1", "Level2", "Level4", "Level1_OLD"}; // List of scenes in order
     private int currentLevelIndex = 0; // The current scene we are on
 
+    [Header("Stars")]
+    public int star1, star2, star3;
+    private List<List<int>> starPoints = new List<List<int>> {
+        new List<int> {300, 200, 100},
+        new List<int> {500, 300, 100},
+        new List<int> {700, 400, 100},
+        new List<int> {800, 400, 100},
+        new List<int> {1000, 500, 100}
+    };
+
     /// Inventory API for UI and gameplay systems.
     public PlayerInventory PlayerInventory => playerInv;
 
@@ -110,7 +120,10 @@ public class GameHandler : MonoBehaviour
 
     private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (gh != this) return;
+        if (gh != this)
+            return;
+        if (scene.name != "ScoreScene")
+            playerInv.ClearAll();
         InitializePauseUiForScene(scene);
     }
 
@@ -243,6 +256,9 @@ public class GameHandler : MonoBehaviour
     // Oututs: None
     public void LoadScoreScene()
     {
+        star1 = starPoints[currentLevelIndex][2];
+        star2 = starPoints[currentLevelIndex][1];
+        star3 = starPoints[currentLevelIndex][0];
         // Find the timer and shut it down so it doesn't loop the scene
         GameTimer timer = GetComponentInChildren<GameTimer>();
         if (timer != null) {
@@ -251,7 +267,6 @@ public class GameHandler : MonoBehaviour
         
         PauseManager.ClearAllPauses();
         SceneManager.LoadScene("ScoreScene");
-        
     }
 
     // Name: LoadMainMenu
