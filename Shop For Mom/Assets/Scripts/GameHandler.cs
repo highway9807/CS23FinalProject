@@ -120,7 +120,10 @@ public class GameHandler : MonoBehaviour
 
     private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (gh != this) return;
+        if (gh != this)
+            return;
+        if (scene.name != "ScoreScene")
+            playerInv.ClearAll();
         InitializePauseUiForScene(scene);
     }
 
