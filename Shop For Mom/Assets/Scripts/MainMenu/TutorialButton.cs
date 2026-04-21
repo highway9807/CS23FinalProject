@@ -86,7 +86,7 @@ public class TutorialButton : MonoBehaviour
 				isRunning1 = false;
 				//moveAudio.Stop();
 				//Debug.Log("HI");
-				SceneManager.LoadScene("Level1");
+				SceneManager.LoadScene("LevelSelect");
 			}
 		}
 	}
