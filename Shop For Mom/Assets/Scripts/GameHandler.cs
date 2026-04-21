@@ -57,6 +57,16 @@ public class GameHandler : MonoBehaviour
     /// Inventory API for UI and gameplay systems.
     public PlayerInventory PlayerInventory => playerInv;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += HandleSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= HandleSceneLoaded;
+    }
+
     void Awake()
     {
         // ensure no game object duplicates
@@ -82,8 +92,7 @@ public class GameHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (pauseMenuPanel != null)
-            pauseMenuPanel.SetActive(false);
+        InitializePauseUiForScene(SceneManager.GetActiveScene());
 
         // assign the click events
         if(startBtn != null) 
@@ -96,12 +105,82 @@ public class GameHandler : MonoBehaviour
             credsBtn.onClick.AddListener(loadCredsScene);
         if(how2PlayBtn != null) 
             how2PlayBtn.onClick.AddListener(loadH2PScene);
-        if(pauseInGame != null) 
+        BindPauseButtons();
+    }
+
+    private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (gh != this) return;
+        InitializePauseUiForScene(scene);
+    }
+
+    private void InitializePauseUiForScene(Scene scene)
+    {
+        RebindPauseReferences(scene);
+        PauseManager.ClearAllPauses();
+        if (pauseMenuPanel != null)
+            pauseMenuPanel.SetActive(false);
+        BindPauseButtons();
+    }
+
+    private void BindPauseButtons()
+    {
+        if (pauseInGame != null)
+        {
+            pauseInGame.onClick.RemoveListener(PauseFromButton);
             pauseInGame.onClick.AddListener(PauseFromButton);
-        if(resumeFromPause != null)
+        }
+        if (resumeFromPause != null)
+        {
+            resumeFromPause.onClick.RemoveListener(ResumeFromButton);
             resumeFromPause.onClick.AddListener(ResumeFromButton);
-        if(quitFromPause != null)
+        }
+        if (quitFromPause != null)
+        {
+            quitFromPause.onClick.RemoveListener(LoadMainMenuScene);
             quitFromPause.onClick.AddListener(LoadMainMenuScene);
+        }
+    }
+
+    private void RebindPauseReferences(Scene scene)
+    {
+        pauseMenuPanel = FindInSceneByName(scene, "PauseMenuPanel");
+        pauseInGame = GetButtonByName(scene, "Button_PAUSE");
+        resumeFromPause = GetButtonByName(scene, "ResumeButton");
+        quitFromPause = GetButtonByName(scene, "QuitButton");
+    }
+
+    private Button GetButtonByName(Scene scene, string objectName)
+    {
+        GameObject go = FindInSceneByName(scene, objectName);
+        if (go == null) return null;
+        return go.GetComponent<Button>();
+    }
+
+    private GameObject FindInSceneByName(Scene scene, string objectName)
+    {
+        if (!scene.IsValid() || !scene.isLoaded) return null;
+
+        foreach (GameObject root in scene.GetRootGameObjects())
+        {
+            Transform match = FindChildByName(root.transform, objectName);
+            if (match != null) return match.gameObject;
+        }
+
+        return null;
+    }
+
+    private Transform FindChildByName(Transform parent, string objectName)
+    {
+        if (parent.name == objectName) return parent;
+
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            Transform match = FindChildByName(parent.GetChild(i), objectName);
+            if (match != null) return match;
+        }
+
+        return null;
     }
     // click events
     private void loadStartScene()
@@ -180,6 +259,7 @@ public class GameHandler : MonoBehaviour
     // Inputs: None
     // Oututs: None
     public void LoadMainMenuScene() {
+        PauseManager.ClearAllPauses();
         SceneManager.LoadScene("MainMenu");
 
         playerInv.ClearAll();
