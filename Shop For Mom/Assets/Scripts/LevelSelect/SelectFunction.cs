@@ -45,4 +45,9 @@ public class SelectFunction : MonoBehaviour
         SceneManager.LoadScene("Level6");
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
