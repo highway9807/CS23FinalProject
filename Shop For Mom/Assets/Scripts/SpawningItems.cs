@@ -1,65 +1,65 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 
 public class SpawningItems : MonoBehaviour
 {
-    public GameObject[] pickups;
-    public GameObject[] prefabs;  // prefab with ItemIdentity set to apple asset
+    public GameObject[] prefabs;  // all possible item prefabs, each with ItemIdentity assigned
     public GameObject[] spawnPoints;
-    //public ItemDefinition[] itemList;
-   
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoints");
-        int i = 0;
-        foreach(GameObject spawn in spawnPoints) {
-            // Make sure we don't go past the end of either list
 
-            //if (i >= pickups.Length) break;
-            //if (i >= itemList.Length) break;
+        ShoppingList shoppingList = FindObjectOfType<ShoppingList>();
 
-            //pickups[i].transform.position = spawn.transform.position;
-
-            int rand_index = Random.Range(0, prefabs.Length);
-
-            SpawnItem(prefabs[rand_index], spawn.transform);
-
-            /*
-            // Get the current item
-            ItemDefinition currentItem = itemList[i];
-
-            // Use ItemDefinition data for spawned world objects (apple for now).
-            if (currentItem != null)
-            {
-                // 1. Get or add item identity slot if its missing
-                ItemIdentity identity = pickups[i].GetComponent<ItemIdentity>();
-                if (identity == null) {
-                    identity = pickups[i].gameObject.AddComponent<ItemIdentity>();
-                }
-
-                // Assign the identity
-                identity.itemType = currentItem;
-
-                SpriteRenderer sr = pickups[i].GetComponent<SpriteRenderer>();
-                if (sr != null && currentItem.sprite != null)
-                    sr.sprite = currentItem.sprite;
-                pickups[i].name = currentItem.itemName;
-            }
-            */
-
-            //spawn.SetActive(false);
-            // More specific debug statement
-            //Debug.Log($"Spawned {pickups[i].name} at {spawn.transform.position}");
-            Debug.Log($"Spawning at {spawn.transform.position}");
-            i++;
+        // Shuffle spawn points so list items don't always appear in the same spots
+        List<GameObject> shuffledSpawns = new List<GameObject>(spawnPoints);
+        for (int i = shuffledSpawns.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (shuffledSpawns[i], shuffledSpawns[j]) = (shuffledSpawns[j], shuffledSpawns[i]);
         }
-        /*for (int j = 0; j < prefabs.Length; j++){
-            prefabs[j].SetActive(false);
-        }*/
+
+        int spawnIndex = 0;
+
+        // First: guarantee one spawn per shopping list item
+        if (shoppingList != null)
+        {
+            foreach (ItemDefinition requiredItem in shoppingList.shopping_list)
+            {
+                if (spawnIndex >= shuffledSpawns.Count) break;
+
+                GameObject matchingPrefab = FindPrefabForItem(requiredItem);
+                if (matchingPrefab != null)
+                {
+                    SpawnItem(matchingPrefab, shuffledSpawns[spawnIndex].transform);
+                    Debug.Log($"Spawned list item {requiredItem.itemName} at {shuffledSpawns[spawnIndex].transform.position}");
+                    spawnIndex++;
+                }
+            }
+        }
+
+        // Fill remaining spawn points randomly
+        while (spawnIndex < shuffledSpawns.Count)
+        {
+            int randIndex = Random.Range(0, prefabs.Length);
+            SpawnItem(prefabs[randIndex], shuffledSpawns[spawnIndex].transform);
+            Debug.Log($"Spawning random item at {shuffledSpawns[spawnIndex].transform.position}");
+            spawnIndex++;
+        }
     }
 
-    
+    GameObject FindPrefabForItem(ItemDefinition item)
+    {
+        foreach (GameObject prefab in prefabs)
+        {
+            ItemIdentity identity = prefab.GetComponent<ItemIdentity>();
+            if (identity != null && identity.itemType == item)
+                return prefab;
+        }
+        return null;
+    }
+
     public void SpawnItem(GameObject prefab, Transform point)
     {
         Instantiate(prefab, point.position, point.rotation);
