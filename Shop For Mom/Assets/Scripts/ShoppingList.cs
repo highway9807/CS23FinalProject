@@ -83,7 +83,8 @@ public class ShoppingList : MonoBehaviour
             TextMeshProUGUI label = row.GetComponent<TextMeshProUGUI>();
 
             label.text = (got ? "<s>" : "") + item.itemName + (got ? "</s>" : "");
-            label.color = got ? Color.green : Color.white;
+			// first color = holding this item. second color = need this item:
+            label.color = got ? Color.green : Color.black;
         }
     }
 
