@@ -12,6 +12,7 @@ TagManager:
   - Mess
   - DestroyedMess
   - LittleSister
+  - Checkout
   layers:
   - Default
   - TransparentFX

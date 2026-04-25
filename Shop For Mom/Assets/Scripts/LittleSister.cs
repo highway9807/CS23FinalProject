@@ -166,6 +166,10 @@ public class CartSister : MonoBehaviour
     void TryLeaveCart() {
         // Debug.Log("The sister is leaving the cart");
         // She is already wandering so we don't need to wander her again
+        if (getDistanceToClosestCheckout() < 10f) {
+            Debug.Log("Sister too close to checkout, won't get out");
+            return;
+        }
         if (leftCart) {
             return;
         }
@@ -215,6 +219,25 @@ public class CartSister : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    float getDistanceToClosestCheckout() {
+
+        GameObject[] checkoutList = GameObject.FindGameObjectsWithTag("Checkout");
+        
+        // Return a very large number if none
+        if (checkoutList == null || checkoutList.Length == 0) return Mathf.Infinity;
+
+        float closestDistance = Mathf.Infinity;
+
+        // Find the distance to the closest checkout
+        foreach (GameObject currCheckout in checkoutList) {
+            float currDistance = Vector3.Distance(transform.position, currCheckout.transform.position);
+            if (currDistance < closestDistance) {
+                closestDistance = currDistance;
+            }
+        }
+        return closestDistance;
     }
 
 
