@@ -131,8 +131,10 @@ public class GameHandler : MonoBehaviour
         {
             currentLevelIndex = index;
         }
-        if (scene.name != "ScoreScene")
+        if (scene.name != "ScoreScene") {
+            Debug.Log("Clearing inventory");
             playerInv.ClearAll();
+        }
         InitializePauseUiForScene(scene);
     }
 
@@ -307,7 +309,6 @@ public class GameHandler : MonoBehaviour
         else 
         {
             // Send to the main menu when there are no more scenes
-            Debug.Log("End of game reached!");
             LoadMainMenuScene();
         }
     }

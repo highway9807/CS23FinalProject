@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5401610654288597081, guid: 5cbea7bc0e71e432d83a9958d01e5eaa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000034125613
+      value: 0.00069151766
       objectReference: {fileID: 0}
     - target: {fileID: 5494450947658759743, guid: 5cbea7bc0e71e432d83a9958d01e5eaa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -404,6 +404,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShoppingListHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 5097111711708703341}
+    - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
+      propertyPath: itemContainer
+      value: 
+      objectReference: {fileID: 1155780242207644205, guid: 3fe7995dbee7b429491b3cb7d6dcf7d8, type: 3}
     - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
       propertyPath: shopping_list.Array.size
       value: 1
@@ -800,6 +808,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 129528179}
+    - target: {fileID: 7154181817996545503, guid: e1b33629b188a495f8524c65d09a8b3a, type: 3}
+      propertyPath: shoutsText
+      value: 
+      objectReference: {fileID: 1564796293}
     - target: {fileID: 7154181817996545503, guid: e1b33629b188a495f8524c65d09a8b3a, type: 3}
       propertyPath: cameraShake
       value: 
@@ -11162,6 +11174,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe4cab7965594c159be211475cfce51, type: 3}
+--- !u!114 &1564796293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7332844848660397935, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+  m_PrefabInstance: {fileID: 5097111711708703340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1568177404
 GameObject:
   m_ObjectHideFlags: 0
@@ -13579,6 +13602,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4204850871217990100, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4204850871217990100, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4204850871217990100, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7168101141769572127, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13586,6 +13621,18 @@ PrefabInstance:
     - target: {fileID: 7608314338564233644, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214031646149140512, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00069151766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595203455585160774, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595203455585160774, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13595,6 +13642,11 @@ PrefabInstance:
       addedObject: {fileID: 1914016348}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+--- !u!1 &5097111711708703341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7512074332495395034, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+  m_PrefabInstance: {fileID: 5097111711708703340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

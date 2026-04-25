@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AI;
 using Pathfinding;
+using TMPro;
 
 public class CartSister : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class CartSister : MonoBehaviour
     private SpriteRenderer sr;
     private GameObject[] messList;
 
+    // The player only gets 3 shouts
+    public int numShouts = 0;
+    public TMP_Text shoutsText;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -42,7 +47,9 @@ public class CartSister : MonoBehaviour
         spawner = Object.FindFirstObjectByType<SpawningItems>();
         messList = GameObject.FindGameObjectsWithTag("Mess");
         cameraShake = Object.FindFirstObjectByType<CameraShake>();
-        // Debug.Log(messList.Length + " messes found");
+        
+        // The player starts with 3 shouts to use
+        shoutsText.text = "Shouts Left: 3";
 
         // Find the AI component
         ai = GetComponent<IAstarAI>();
@@ -163,11 +170,12 @@ public class CartSister : MonoBehaviour
     }
 
     void TryLeaveCart() {
-        // Debug.Log("The sister is leaving the cart");
-        // She is already wandering so we don't need to wander her again
-        if (getDistanceToClosestCheckout() < 10f) {
+        // Don't leave if too close to the checkout
+        if (getDistanceToClosestCheckout() < 5f) {
+            // Debug.Log("Sister wanted to leave, but you were too close to checkout!");
             return;
         }
+        // She is already wandering so we don't need to wander her again
         if (leftCart) {
             return;
         }
@@ -192,32 +200,30 @@ public class CartSister : MonoBehaviour
 //little sister wanders off
 //little sister approaches a display
     IEnumerator wander() {
-        while (true) {
-			anim.SetBool("Walk", true);
-            // Find a point to wander to
-            GameObject closestMess = getClosestMess();
-            // Make sure the point is actually going somewhere
-            if (closestMess != null) {
-                // Set the destination
-                ai.destination = closestMess.transform.position;
-                // Find the path
-                ai.SearchPath();
+        anim.SetBool("Walk", true);
+        // Find a point to wander to
+        GameObject closestMess = getClosestMess();
+        // Make sure the point is actually going somewhere
+        if (closestMess != null) {
+            // Set the destination
+            ai.destination = closestMess.transform.position;
+            // Find the path
+            ai.SearchPath();
 
-                // Wait until gets there
-                while (!ai.reachedDestination || ai.pathPending) {
-                    yield return null;
-                }
-
-                // Stay at the new spot for a while before making a mess
-				anim.SetBool("Walk", false);
-				//add animation of her jumping up and down!
-                yield return new WaitForSeconds(Random.Range(2f, 5f));
-                makeMess(closestMess);
-                // The mess is already messed up so she shoundn't navigate to it again
-                closestMess.tag = "DestroyedMess";
+            // Wait until gets there
+            while (!ai.reachedDestination || ai.pathPending) {
+                yield return null;
             }
-            yield return null;
+
+            // Stay at the new spot for a while before making a mess
+            anim.SetBool("Walk", false);
+            //add animation of her jumping up and down!
+            yield return new WaitForSeconds(Random.Range(2f, 5f));
+            makeMess(closestMess);
+            // The mess is already messed up so she shoundn't navigate to it again
+            closestMess.tag = "DestroyedMess";
         }
+        yield return null;
     }
 
     float getDistanceToClosestCheckout() {
@@ -275,7 +281,8 @@ public class CartSister : MonoBehaviour
         if (!leftCart) {
             return;
         }
-        // Debug.Log("Little sister returning to the cart...");
+        // Keep track of the number of shouts
+        numShouts++;
         
         // Stop the wandering loop
         StopAllCoroutines(); 
@@ -337,8 +344,9 @@ public class CartSister : MonoBehaviour
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.J)) {
-            // Debug.Log("Sister returning to cart");
+        if (Input.GetKeyDown(KeyCode.J) && numShouts < 3 && leftCart) {
+            numShouts++;
+            shoutsText.text = "Shouts Left: " + (3 - numShouts);
             returnToCart();
         }
     }
