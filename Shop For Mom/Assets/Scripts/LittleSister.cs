@@ -37,6 +37,12 @@ public class CartSister : MonoBehaviour
     public int numShouts = 0;
     public TMP_Text shoutsText;
 
+    // Sound effects
+    public AudioSource throwGiggleSFX;
+    public AudioSource pickupOohSFX;
+    public AudioSource leaveCartGiggleSFX;
+    public AudioSource callbackAwSFX;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -91,6 +97,7 @@ public class CartSister : MonoBehaviour
                 // // Testing debug statement
                 // Debug.Log($"Little Sister tossed the {toDrop.itemName} out of the cart!");
                 // Put the physical object back in the world at her feet
+                throwGiggleSFX.Play();
                 TossItem(toDrop);
             }
         }
@@ -146,7 +153,7 @@ public class CartSister : MonoBehaviour
             {
                 // Try to add the closest item
                 if (playerInventory.TryAdd(id.itemType)) {
-                    // Debug.Log("The little sister picked up " + closestObj.name + "!");
+                    pickupOohSFX.Play();
                     anim.SetTrigger("Pickup");
                     closestObj.SetActive(false);
                     playerInventory.printInventory();
@@ -179,6 +186,7 @@ public class CartSister : MonoBehaviour
         if (leftCart) {
             return;
         }
+        leaveCartGiggleSFX.Play();
         leftCart = true;
         anim.SetBool("Walk", true);
         // She is no longer a child of player 1
@@ -283,6 +291,7 @@ public class CartSister : MonoBehaviour
         }
         // Keep track of the number of shouts
         numShouts++;
+        callbackAwSFX.Play();
         
         // Stop the wandering loop
         StopAllCoroutines(); 
