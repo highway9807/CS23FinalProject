@@ -5111,8 +5111,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 360447603}
   m_HandleRect: {fileID: 360447602}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.99987924
+  m_Value: 1
+  m_Size: 0.9999911
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5259,21 +5259,73 @@ PrefabInstance:
       value: GameHandler
       objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: playerInv
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: pauseInGame
       value: 
-      objectReference: {fileID: 1311012323}
+      objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: quitFromPause
       value: 
-      objectReference: {fileID: 2099207217}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: credsSceneName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: pauseMenuPanel
       value: 
-      objectReference: {fileID: 2099207220}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: startSceneName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: resumeFromPause
       value: 
-      objectReference: {fileID: 2099207219}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: how2PlaySceneName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: levelSceneNames.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[0]'
+      value: Level0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[1]'
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[2]'
+      value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[3]'
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[4]'
+      value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[5]'
+      value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[6]'
+      value: Level6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[7]'
+      value: Level1_OLD
+      objectReference: {fileID: 0}
     - target: {fileID: 8506204287188202438, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -84.71609
@@ -5657,7 +5709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00015327116}
+  m_AnchoredPosition: {x: 0, y: -0.00008959849}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &534362207
@@ -25585,17 +25637,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8286108454168471948, guid: d9eceea5986c74c95a1681988ab81f22, type: 3}
   m_PrefabInstance: {fileID: 1311012321}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1311012323 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5456880204831463494, guid: d9eceea5986c74c95a1681988ab81f22, type: 3}
-  m_PrefabInstance: {fileID: 1311012321}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1328533889
 GameObject:
   m_ObjectHideFlags: 0
@@ -26266,7 +26307,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1256969266}
   m_HandleRect: {fileID: 1256969265}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -56716,36 +56757,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ff7bdc2548e54a45afacdb769963a74, type: 3}
---- !u!114 &2099207217 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4216517560589922575, guid: 3ff7bdc2548e54a45afacdb769963a74, type: 3}
-  m_PrefabInstance: {fileID: 2099207216}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &2099207218 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4454555689094177510, guid: 3ff7bdc2548e54a45afacdb769963a74, type: 3}
-  m_PrefabInstance: {fileID: 2099207216}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2099207219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1780774944450384969, guid: 3ff7bdc2548e54a45afacdb769963a74, type: 3}
-  m_PrefabInstance: {fileID: 2099207216}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!1 &2099207220 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3798230732652295146, guid: 3ff7bdc2548e54a45afacdb769963a74, type: 3}
   m_PrefabInstance: {fileID: 2099207216}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2118515883
@@ -57370,7 +57384,9 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1156776182}
   - {fileID: 77616820}
+  - {fileID: 490092001}
   - {fileID: 134864944}
   - {fileID: 537054679}
   - {fileID: 1399795507}
@@ -57381,12 +57397,10 @@ SceneRoots:
   - {fileID: 1288973790}
   - {fileID: 1723553815}
   - {fileID: 2118515887}
-  - {fileID: 1156776182}
   - {fileID: 534362208}
   - {fileID: 1031802630}
   - {fileID: 1181007586}
   - {fileID: 1026866899}
-  - {fileID: 490092001}
   - {fileID: 989026878}
   - {fileID: 2121516893}
   - {fileID: 1561186477}

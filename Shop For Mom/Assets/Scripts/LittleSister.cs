@@ -244,8 +244,8 @@ public class CartSister : MonoBehaviour
         // Get the sprite renderers for the two sprites
         SpriteRenderer[] sprites = mess.GetComponentsInChildren<SpriteRenderer>(true);
         cameraShake.ShakeCamera(1f, 0.2f);
-        sprites[0].gameObject.SetActive(true); // The first one is the tidy mess
-        sprites[1].gameObject.SetActive(false); // The second one is the messed up mess
+        sprites[0].gameObject.SetActive(false); // The first one is the tidy mess
+        sprites[1].gameObject.SetActive(true); // The second one is the messed up mess
     }
 
     public void returnToCart() {

@@ -372,49 +372,11 @@ PrefabInstance:
       addedObject: {fileID: 459333207}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
---- !u!114 &314572911 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1516906937272644558, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
-  m_PrefabInstance: {fileID: 314572910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &314572912 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3683807969523940817, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
   m_PrefabInstance: {fileID: 314572910}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &314572913 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3981080724563236488, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
-  m_PrefabInstance: {fileID: 314572910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!1 &314572914 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1963340778707661099, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
-  m_PrefabInstance: {fileID: 314572910}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &314572915 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1342719723155837487, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
-  m_PrefabInstance: {fileID: 314572910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &459333206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -525,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5401610654288597081, guid: 5cbea7bc0e71e432d83a9958d01e5eaa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00016650766
+      value: 0.00081326754
       objectReference: {fileID: 0}
     - target: {fileID: 5494450947658759743, guid: 5cbea7bc0e71e432d83a9958d01e5eaa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8688,21 +8650,73 @@ PrefabInstance:
       value: GameHandler
       objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: playerInv
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: pauseInGame
       value: 
-      objectReference: {fileID: 314572915}
+      objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: quitFromPause
       value: 
-      objectReference: {fileID: 314572911}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: credsSceneName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: pauseMenuPanel
       value: 
-      objectReference: {fileID: 314572914}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: startSceneName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: resumeFromPause
       value: 
-      objectReference: {fileID: 314572913}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: how2PlaySceneName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: levelSceneNames.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[0]'
+      value: Level0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[1]'
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[2]'
+      value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[3]'
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[4]'
+      value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[5]'
+      value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[6]'
+      value: Level6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[7]'
+      value: Level1_OLD
+      objectReference: {fileID: 0}
     - target: {fileID: 8506204287188202438, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
