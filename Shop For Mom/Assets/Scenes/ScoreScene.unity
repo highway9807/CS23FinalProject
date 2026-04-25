@@ -131,6 +131,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: levelSceneNames.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[0]'
+      value: Level0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[1]'
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[2]'
+      value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[3]'
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[4]'
+      value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[5]'
+      value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[6]'
+      value: Level6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
+      propertyPath: 'levelSceneNames.Array.data[7]'
+      value: Level1_OLD
+      objectReference: {fileID: 0}
     - target: {fileID: 8506204287188202438, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.85138

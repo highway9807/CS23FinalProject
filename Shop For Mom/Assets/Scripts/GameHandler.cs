@@ -51,16 +51,19 @@ public class GameHandler : MonoBehaviour
     private PlayerInventory playerInv;
 
     [Header("Level Management")]
-    [SerializeField] private List<string> levelSceneNames = new List<string> {"Level1", "Level2", "Level4", "Level1_OLD"}; // List of scenes in order
+    [SerializeField] private List<string> levelSceneNames = new List<string> {"Level0", "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "Level1_OLD"}; // List of scenes in order
     private int currentLevelIndex = 0; // The current scene we are on
 
     [Header("Stars")]
     public int star1, star2, star3;
     private List<List<int>> starPoints = new List<List<int>> {
         new List<int> {300, 200, 100},
+        new List<int> {300, 200, 100},
         new List<int> {500, 300, 100},
         new List<int> {700, 400, 100},
         new List<int> {800, 400, 100},
+        new List<int> {1000, 500, 100},
+        new List<int> {1000, 500, 100},
         new List<int> {1000, 500, 100}
     };
 
@@ -122,6 +125,12 @@ public class GameHandler : MonoBehaviour
     {
         if (gh != this)
             return;
+        // Find which level we are on
+        int index = levelSceneNames.IndexOf(scene.name);
+        if (index != -1) 
+        {
+            currentLevelIndex = index;
+        }
         if (scene.name != "ScoreScene")
             playerInv.ClearAll();
         InitializePauseUiForScene(scene);
@@ -278,6 +287,7 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
 
         playerInv.ClearAll();
+        currentLevelIndex = 0;
 		// needs reset of all stats!!!
     }
 
@@ -291,10 +301,7 @@ public class GameHandler : MonoBehaviour
 
         if (currentLevelIndex < levelSceneNames.Count) 
         {
-            // Clear inventory?
-            // Resent pauses?
             PauseManager.ClearAllPauses();
-            Debug.Log("Loading next level: " + currentLevelIndex);
             SceneManager.LoadScene(levelSceneNames[currentLevelIndex]);
         } 
         else 

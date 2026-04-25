@@ -15,6 +15,11 @@ public class SelectFunction : MonoBehaviour
         
     }
 
+    public void SLevel0()
+    {
+        SceneManager.LoadScene("Level0");
+    }
+
     public void SLevel1()
     {
         SceneManager.LoadScene("Level1");
