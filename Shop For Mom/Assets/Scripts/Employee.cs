@@ -27,7 +27,6 @@ public class Employee : MonoBehaviour
         // If we aren't following yet, check if a mess was destroyed
         if (!isFollowing) {
             if (GameObject.FindWithTag("DestroyedMess") != null) {
-                // Debug.Log("Employee saw the mess! Starting chase.");
                 isFollowing = true;
                 StartCoroutine(FollowSister());
             }
@@ -38,8 +37,7 @@ public class Employee : MonoBehaviour
         ai.isStopped = false;
 
         while (isFollowing) {
-            if (littleSister != null) {
-                // Debug.Log("Following sister");
+            if (littleSister != null && littleSister.GetComponent<CartSister>().leftCart) {
                 // Constantly update the destination to her current position
                 ai.destination = littleSister.transform.position;
                 ai.SearchPath();
@@ -49,6 +47,11 @@ public class Employee : MonoBehaviour
                 if (dist < 0.5f) {
                     GameHandler.gh.LoadScoreScene();
                 }
+            }
+            else {
+                isFollowing = false;
+                ai.isStopped = true;
+                ai.destination = transform.position;
             }
             
             // Wait for a short time so we don't calculate path every single frame

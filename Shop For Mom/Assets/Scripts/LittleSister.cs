@@ -20,7 +20,7 @@ public class CartSister : MonoBehaviour
     private PlayerInventory playerInventory;
     private SpawningItems spawner;
 
-    private bool leftCart = false;
+    public bool leftCart = false;
     // How far she can wander
     public float wanderRadius = 10f;
 
