@@ -21,7 +21,7 @@ public class CameraShake : MonoBehaviour {
 
 
     IEnumerator ShakeMe(float duration, float magnitude) {
-        Vector3 startLocalPos = Vector3.zero; 
+        Vector3 startLocalPos = new Vector3(0f, 0f, -10f); 
         float elapsed = 0.0f;
 
         while (elapsed < duration) {
@@ -31,10 +31,10 @@ public class CameraShake : MonoBehaviour {
             
             // Apply to the camera trasnform
             if (cameraTransform != null) {
-                cameraTransform.localPosition = new Vector3(x, y, startLocalPos.z);
+                cameraTransform.localPosition = new Vector3(x, y, -10f);
             } else {
                 // Fallback to this object if no child is assigned
-                transform.localPosition = new Vector3(x, y, startLocalPos.z);
+                transform.localPosition = new Vector3(x, y, -10f);
             }
 
             elapsed += Time.deltaTime;
