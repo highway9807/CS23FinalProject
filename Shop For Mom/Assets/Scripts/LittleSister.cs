@@ -157,7 +157,6 @@ public class CartSister : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             // Start the AI
             ai.isStopped = false;
-			anim.SetBool("Walk", true);
             // Tries to drop an item
             TryLeaveCart();
         }
@@ -167,13 +166,13 @@ public class CartSister : MonoBehaviour
         // Debug.Log("The sister is leaving the cart");
         // She is already wandering so we don't need to wander her again
         if (getDistanceToClosestCheckout() < 10f) {
-            Debug.Log("Sister too close to checkout, won't get out");
             return;
         }
         if (leftCart) {
             return;
         }
         leftCart = true;
+        anim.SetBool("Walk", true);
         // She is no longer a child of player 1
         transform.SetParent(null);
         

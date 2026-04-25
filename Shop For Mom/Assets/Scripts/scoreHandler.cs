@@ -8,6 +8,11 @@ public class ScoreHandler : MonoBehaviour
     public TMP_Text totalScoreText;
     public TMP_Text messageText;
     public TMP_Text starsText;
+    public TMP_Text correctText;
+    public TMP_Text incorrectText;
+    public TMP_Text correctScoreText;
+    public TMP_Text incorrectScoreText;
+
 
     // Settings
     public int correctPoints = 100;
@@ -42,7 +47,11 @@ public class ScoreHandler : MonoBehaviour
         int totalScore = correctCount*correctPoints - incorrectCount*incorrectPoints;
         
         // Update the text displays
-        UpdateText(totalScoreText, $"Total Score: {totalScore}");
+        UpdateText(correctText, $"Correct items: {correctCount}");
+        UpdateText(incorrectText, $"Incorrect items: {incorrectCount}");
+        UpdateText(correctScoreText, $"+{correctCount * correctPoints}");
+        UpdateText(incorrectScoreText, $"-{incorrectCount * incorrectPoints}");
+        UpdateText(totalScoreText, $"{totalScore}");
         
         if (totalScore > GameHandler.gh.star3) {
             UpdateText(starsText, "3 Stars!");
