@@ -13,7 +13,6 @@ public class ShoppingList : MonoBehaviour
     public GameObject rowPrefab;      // a prefab with a TextMeshProUGUI component
 
     private PlayerInventory playerInventory;
-    private bool visible = false;
 
     void Start()
     {
@@ -33,7 +32,7 @@ public class ShoppingList : MonoBehaviour
             playerInventory.Changed += RefreshUI;
         }
 
-        panel.SetActive(false);
+        panel.SetActive(true);
         RefreshUI();
     }
 
@@ -53,15 +52,7 @@ public class ShoppingList : MonoBehaviour
                 playerInventory.Changed += RefreshUI;
             }
 
-            visible = false;
-            if (panel != null) panel.SetActive(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L) && panel != null)
-        {
-            visible = !visible;
-            panel.SetActive(visible);
-            if (visible) RefreshUI();
+            if (panel != null) panel.SetActive(true);
         }
     }
 
