@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 8bbc70cb0d4b442b788a3131cee62222
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4878489756343968671
+    second: Customer-BlueHair_0
+  - first:
+      213: -5690773683755040484
+    second: Customer-BlueHair_1
+  - first:
+      213: 7030499203120613832
+    second: Customer-BlueHair_2
+  - first:
+      213: 5459175858046332999
+    second: Customer-BlueHair_3
+  - first:
+      213: -622489658834206471
+    second: Customer-BlueHair_4
+  - first:
+      213: -2715448168941359158
+    second: Customer-BlueHair_5
+  - first:
+      213: 2580392384637322409
+    second: Customer-BlueHair_6
+  - first:
+      213: 3339514211737105112
+    second: Customer-BlueHair_7
+  - first:
+      213: -6896164438020004925
+    second: Customer-BlueHair_8
+  - first:
+      213: 2715312744132234256
+    second: Customer-BlueHair_9
+  - first:
+      213: -1241685273016806887
+    second: Customer-BlueHair_10
+  - first:
+      213: -9214145500544013147
+    second: Customer-BlueHair_11
+  - first:
+      213: -7082916766099373667
+    second: Customer-BlueHair_12
+  - first:
+      213: 4467322400397194016
+    second: Customer-BlueHair_13
+  - first:
+      213: 3572999496025610833
+    second: Customer-BlueHair_14
+  - first:
+      213: 6717996321351426505
+    second: Customer-BlueHair_15
+  - first:
+      213: -5264755627131846732
+    second: Customer-BlueHair_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 220
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Customer-BlueHair_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93a3470690e3b340800000000000000
+      internalID: 4878489756343968671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_1
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 826
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11c3a25c7f4601b0800000000000000
+      internalID: -5690773683755040484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c9cbaba6c9519160800000000000000
+      internalID: 7030499203120613832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7407d39d483e2cb40800000000000000
+      internalID: 5459175858046332999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f045d014f87c57f0800000000000000
+      internalID: -622489658834206471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acfe344074ac05ad0800000000000000
+      internalID: -2715448168941359158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_6
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 614
+        width: 56
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a44e6bc3356fc320800000000000000
+      internalID: 2580392384637322409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_7
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 614
+        width: 53
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d275f86b76585e20800000000000000
+      internalID: 3339514211737105112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_8
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 614
+        width: 51
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3e2272bf6eb40a0800000000000000
+      internalID: -6896164438020004925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_9
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 342
+        width: 52
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01cc710fd8abea520800000000000000
+      internalID: 2715312744132234256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_10
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 346
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 912dffaa2d5a4cee0800000000000000
+      internalID: -1241685273016806887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_11
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 354
+        width: 52
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac6f436c77c02080800000000000000
+      internalID: -9214145500544013147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_12
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 349
+        width: 65
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d910df66abc64bd90800000000000000
+      internalID: -7082916766099373667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 101
+        width: 51
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023f1d4ed0e1ffd30800000000000000
+      internalID: 4467322400397194016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_14
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 89
+        width: 57
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15a914f6c18d59130800000000000000
+      internalID: 3572999496025610833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_15
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 76
+        width: 58
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c168809f0e1b3d50800000000000000
+      internalID: 6717996321351426505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer-BlueHair_16
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 76
+        width: 62
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf3197a6a4dfe6b0800000000000000
+      internalID: -5264755627131846732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b92d0e9ab01db422da0012bb17bd448b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Customer-BlueHair_0: 4878489756343968671
+      Customer-BlueHair_1: -5690773683755040484
+      Customer-BlueHair_10: -1241685273016806887
+      Customer-BlueHair_11: -9214145500544013147
+      Customer-BlueHair_12: -7082916766099373667
+      Customer-BlueHair_13: 4467322400397194016
+      Customer-BlueHair_14: 3572999496025610833
+      Customer-BlueHair_15: 6717996321351426505
+      Customer-BlueHair_16: -5264755627131846732
+      Customer-BlueHair_2: 7030499203120613832
+      Customer-BlueHair_3: 5459175858046332999
+      Customer-BlueHair_4: -622489658834206471
+      Customer-BlueHair_5: -2715448168941359158
+      Customer-BlueHair_6: 2580392384637322409
+      Customer-BlueHair_7: 3339514211737105112
+      Customer-BlueHair_8: -6896164438020004925
+      Customer-BlueHair_9: 2715312744132234256
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
