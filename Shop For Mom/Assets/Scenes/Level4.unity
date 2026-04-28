@@ -4486,7 +4486,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 851342736578029269, guid: 2fe4cab7965594c159be211475cfce51, type: 3}
       propertyPath: m_Name
-      value: Mess (1)
+      value: MessDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 4967095368634225461, guid: 2fe4cab7965594c159be211475cfce51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31815,7 +31815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 851342736578029269, guid: 2fe4cab7965594c159be211475cfce51, type: 3}
       propertyPath: m_Name
-      value: Mess (2)
+      value: MessDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 4967095368634225461, guid: 2fe4cab7965594c159be211475cfce51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34334,7 +34334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5bec4a84dd243dcb3311af3489fbbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  timeLeft: 30
+  timeLeft: 180
   timerText: {fileID: 503540089}
 --- !u!1 &1085823192
 GameObject:
@@ -37981,7 +37981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8214031646149140512, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00030418654
+      value: 0.00000616969
       objectReference: {fileID: 0}
     - target: {fileID: 8595203455585160774, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
       propertyPath: m_AnchorMax.x
@@ -56169,7 +56169,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 851342736578029269, guid: 2fe4cab7965594c159be211475cfce51, type: 3}
       propertyPath: m_Name
-      value: Mess
+      value: MessDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 4967095368634225461, guid: 2fe4cab7965594c159be211475cfce51, type: 3}
       propertyPath: m_LocalPosition.x
