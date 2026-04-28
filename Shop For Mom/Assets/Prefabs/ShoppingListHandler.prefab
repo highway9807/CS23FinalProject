@@ -52,3 +52,5 @@ MonoBehaviour:
   panel: {fileID: 0}
   itemContainer: {fileID: 0}
   rowPrefab: {fileID: 9090683850537475850, guid: 847bb226ca239495fa5393e5bf6db03b, type: 3}
+  rowHeight: 30
+  verticalOffset: 80
