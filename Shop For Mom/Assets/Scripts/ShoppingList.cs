@@ -23,8 +23,14 @@ public class ShoppingList : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        panel = GameObject.FindWithTag("List");
-        itemContainer = GameObject.Find("ItemContainer").transform;
+        if (panel == null)
+            panel = GameObject.FindWithTag("List");
+
+        if (itemContainer == null)
+        {
+            GameObject container = GameObject.Find("ItemContainer");
+            if (container != null) itemContainer = container.transform;
+        }
 
         if (GameHandler.gh != null)
         {

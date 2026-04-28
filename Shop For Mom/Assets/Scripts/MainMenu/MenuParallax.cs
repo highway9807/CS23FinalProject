@@ -6,7 +6,7 @@ public class MenuParallax : MonoBehaviour
 {
     //varaibles for parallax effect
     public float offsetMultiplier = 1f;
-	float offsetStartMultiplyer;
+	float offsetStartMultiplier;
     public float smoothTime = .3f;
     private Vector2 startPosition;
     private Vector3 velocity;
@@ -20,7 +20,7 @@ public class MenuParallax : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-		offsetStartMultiplyer = offsetMultiplier;
+		offsetStartMultiplier = offsetMultiplier;
         
 		//screen resize reset:
 		lastWidth = Screen.width;
@@ -45,13 +45,13 @@ public class MenuParallax : MonoBehaviour
 //screen resize reset:
 	void OnScreenResized() {
 		startPosition = new Vector2 (Screen.width / 2,  Screen.height / 2);
-		float resizeMuliplyer = (float)Screen.width / 1280f;
-		offsetMultiplier = offsetStartMultiplyer * resizeMuliplyer;
-		if (offsetMultiplier < offsetStartMultiplyer)
+		float resizeMultiplier = (float)Screen.width / 1280f;
+		offsetMultiplier = offsetStartMultiplier * resizeMultiplier;
+		if (offsetMultiplier < offsetStartMultiplier)
 		{
-			offsetMultiplier = offsetStartMultiplyer;
+			offsetMultiplier = offsetStartMultiplier;
 		}
-		Debug.Log(" offsetMultiplyer = " + offsetMultiplier + ", " + offsetStartMultiplyer + ", " + Screen.width + " " + resizeMuliplyer);
+		Debug.Log(" offsetMultiplyer = " + offsetMultiplier + ", " + offsetStartMultiplier + ", " + Screen.width + " " + resizeMultiplier);
     }
 
 }

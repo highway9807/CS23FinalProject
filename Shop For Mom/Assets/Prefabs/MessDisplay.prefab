@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4967095368634225461}
+  - component: {fileID: 4471541926785747979}
   m_Layer: 0
-  m_Name: Mess
+  m_Name: MessDisplay
   m_TagString: Mess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,6 +34,21 @@ Transform:
   - {fileID: 3412599495555047074}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4471541926785747979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851342736578029269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e000c8651a9a6844983ffc1025722397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MessDisplay
+  displayArt_tidy: {fileID: 5416771688008506264}
+  displayArt_mess: {fileID: 8864073053907734286}
+  isMessedUp: 0
 --- !u!1 &5416771688008506264
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +60,7 @@ GameObject:
   - component: {fileID: 1453400601939020398}
   - component: {fileID: 578103526614442907}
   m_Layer: 0
-  m_Name: TidyMessArt
+  m_Name: display_art_tidy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,9 +75,9 @@ Transform:
   m_GameObject: {fileID: 5416771688008506264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.248, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4967095368634225461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +151,7 @@ GameObject:
   - component: {fileID: 3412599495555047074}
   - component: {fileID: 8233450024625247829}
   m_Layer: 0
-  m_Name: MessArt
+  m_Name: display_art_mess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,9 +166,9 @@ Transform:
   m_GameObject: {fileID: 8864073053907734286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.248, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4967095368634225461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
