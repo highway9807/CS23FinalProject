@@ -247,11 +247,11 @@ public class CartSister : MonoBehaviour
                 yield return null;
             }
 
-
             // Stay at the new spot for a while before making a mess
-            anim.SetBool("Walk", false);
-            //add animation of her jumping up and down!
-            anim.SetTrigger("Jump");
+           ai.isStopped = true;
+           anim.SetBool("Walk", false);
+           Debug.Log("Little Sister Jump Animation");
+            anim.SetTrigger("Jump"); 
             yield return new WaitForSeconds(Random.Range(2f, 5f));
             makeMess(closestMess);
             // The mess is already messed up so she shoundn't navigate to it again
