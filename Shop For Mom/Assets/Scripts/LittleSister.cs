@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,43 +6,51 @@ using UnityEngine.AI;
 using Pathfinding;
 using TMPro;
 
+
 public class CartSister : MonoBehaviour
 {
     [Header("Dropping Settings")]
     public float minDropTime = 2f;
     public float maxDropTime = 5f;
 
+
     // The pickup prefab for spawing items
     public GameObject pickupPrefab;
     private CameraShake cameraShake;
-    
+   
     // The little sister needs access to the inventory to drop items and the
     // spawners to respawn them
     private PlayerInventory playerInventory;
     private SpawningItems spawner;
 
+
     public bool leftCart = false;
     // How far she can wander
     public float wanderRadius = 10f;
 
+
     // For AI naviagation
     public Transform target;
     IAstarAI ai;
+
 
     private GameObject player;
     private Animator anim;
     private SpriteRenderer sr;
     private GameObject[] messList;
 
+
     // The player only gets 3 shouts
     public int numShouts = 0;
     public TMP_Text shoutsText;
+
 
     // Sound effects
     public AudioSource throwGiggleSFX;
     public AudioSource pickupOohSFX;
     public AudioSource leaveCartGiggleSFX;
     public AudioSource callbackAwSFX;
+
 
     void Start()
     {
@@ -53,14 +62,16 @@ public class CartSister : MonoBehaviour
         spawner = Object.FindFirstObjectByType<SpawningItems>();
         messList = GameObject.FindGameObjectsWithTag("Mess");
         cameraShake = Object.FindFirstObjectByType<CameraShake>();
-        
+       
         // The player starts with 3 shouts to use
         shoutsText.text = "Shouts Left: 3";
+
 
         // Find the AI component
         ai = GetComponent<IAstarAI>();
         ai.isStopped = true; // Since she starts in the cart, the AI is initially asleep
-		anim.SetBool("Walk", false);
+        anim.SetBool("Walk", false);
+
 
         // Start the random dropping
         StartCoroutine(RandomDrop());
@@ -69,6 +80,7 @@ public class CartSister : MonoBehaviour
         // Start the random cart leaving
         StartCoroutine(RandomLeaveCart());
     }
+
 
     // Waits a random amount of time (between the specified min and max),
     // and then drops an item
@@ -81,6 +93,7 @@ public class CartSister : MonoBehaviour
             TryDropRandomItem();
         }
     }
+
 
     // Drops an item if there is one to drop
     void TryDropRandomItem() {
@@ -103,6 +116,7 @@ public class CartSister : MonoBehaviour
         }
     }
 
+
     void TossItem(ItemDefinition item) {
         // Create the object, it needs to be shrunk
         GameObject newObj = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
@@ -115,19 +129,21 @@ public class CartSister : MonoBehaviour
         SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
         if (sr != null) sr.sprite = item.sprite;
 
+
         // Actually toss the object
-		anim.SetTrigger("Pickup");
+        anim.SetTrigger("Pickup");
         Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
         if (rb != null) {
             // Pick a random direction
             Vector2 randDir = Random.insideUnitCircle.normalized;
             // Apply the force so it slides away
             rb.AddForce(randDir * 1f, ForceMode2D.Impulse);
-            
-            // Add "Linear Drag" in the Inspector (around 5) so the item 
+           
+            // Add "Linear Drag" in the Inspector (around 5) so the item
             // eventually slides to a stop instead of sliding forever!
         }
     }
+
 
     IEnumerator RandomPickup() {
         while (true) {
@@ -139,15 +155,18 @@ public class CartSister : MonoBehaviour
         }
     }
 
+
     void TryPickup() {
         PlayerItemPickup playerPickup = player.GetComponent<PlayerItemPickup>();
         GameObject closestObj = playerPickup.getClosest();
+
 
         if (closestObj == null) {
             return;
         }
         // Get the identity script from the object we are standing near
             ItemIdentity id = closestObj.GetComponent<ItemIdentity>();
+
 
             if (id != null && playerInventory != null)
             {
@@ -164,6 +183,7 @@ public class CartSister : MonoBehaviour
             }
     }
 
+
     IEnumerator RandomLeaveCart() {
         while (true) {
             // Generates the wait time
@@ -175,6 +195,7 @@ public class CartSister : MonoBehaviour
             TryLeaveCart();
         }
     }
+
 
     void TryLeaveCart() {
         // Don't leave if too close to the checkout
@@ -191,11 +212,12 @@ public class CartSister : MonoBehaviour
         anim.SetBool("Walk", true);
         // She is no longer a child of player 1
         transform.SetParent(null);
-        
+       
         // Stop all other random actions
         StopAllCoroutines();
-        
+       
         GameObject closestMess = getClosestMess();
+
 
         if (closestMess != null) {
             // Debug.Log("The sister is going to: " + randomPoint);
@@ -204,6 +226,7 @@ public class CartSister : MonoBehaviour
         // Go back to the cart if she is close enough
         StartCoroutine(TryReturnToCart());
     }
+
 
 //little sister wanders off
 //little sister approaches a display
@@ -218,14 +241,17 @@ public class CartSister : MonoBehaviour
             // Find the path
             ai.SearchPath();
 
+
             // Wait until gets there
             while (!ai.reachedDestination || ai.pathPending) {
                 yield return null;
             }
 
+
             // Stay at the new spot for a while before making a mess
             anim.SetBool("Walk", false);
             //add animation of her jumping up and down!
+            anim.SetTrigger("Jump");
             yield return new WaitForSeconds(Random.Range(2f, 5f));
             makeMess(closestMess);
             // The mess is already messed up so she shoundn't navigate to it again
@@ -234,14 +260,18 @@ public class CartSister : MonoBehaviour
         yield return null;
     }
 
+
     float getDistanceToClosestCheckout() {
 
+
         GameObject[] checkoutList = GameObject.FindGameObjectsWithTag("Checkout");
-        
+       
         // Return a very large number if none
         if (checkoutList == null || checkoutList.Length == 0) return Mathf.Infinity;
 
+
         float closestDistance = Mathf.Infinity;
+
 
         // Find the distance to the closest checkout
         foreach (GameObject currCheckout in checkoutList) {
@@ -252,6 +282,8 @@ public class CartSister : MonoBehaviour
         }
         return closestDistance;
     }
+
+
 
 
     GameObject getClosestMess() {
@@ -267,6 +299,7 @@ public class CartSister : MonoBehaviour
             float closestDistance = Vector3.Distance(transform.position, closestMess.transform.position);
             float currDistance = Vector3.Distance(transform.position, currMess.transform.position);
 
+
             if (currDistance < closestDistance) {
                 closestMess = currMess;
             }
@@ -274,6 +307,7 @@ public class CartSister : MonoBehaviour
         // Debug.Log("Sister going to closest mess: " + closestMess.transform.position);
         return closestMess;
     }
+
 
 //Little sister attacks a display
     void makeMess(GameObject mess) {
@@ -284,6 +318,7 @@ public class CartSister : MonoBehaviour
         sprites[1].gameObject.SetActive(true); // The second one is the messed up mess
     }
 
+
     public void returnToCart() {
         // Only return if she has left
         if (!leftCart) {
@@ -292,38 +327,41 @@ public class CartSister : MonoBehaviour
         // Keep track of the number of shouts
         numShouts++;
         callbackAwSFX.Play();
-        
+       
         // Stop the wandering loop
-        StopAllCoroutines(); 
-        
+        StopAllCoroutines();
+       
         // Start the journey back to the player
         StartCoroutine(ReturnToPlayerRoutine());
     }
-    
+   
     IEnumerator ReturnToPlayerRoutine() {
         // Enable AI so she can walk back
         ai.isStopped = false;
-		anim.SetBool("Walk", true);
+        anim.SetBool("Walk", true);
         // Walk until she is close to the player
         while (Vector3.Distance(transform.position, player.transform.position) > 0.3f) {
             ai.destination = player.transform.position;
-            yield return new WaitForSeconds(0.1f); 
+            yield return new WaitForSeconds(0.1f);
         }
+
 
         // Become a child of the player again
         transform.SetParent(player.transform);
 
+
         // Wait for the end of frame to update her position
         yield return new WaitForEndOfFrame();
-        
+       
         // Go back into the cart
         transform.localPosition = new Vector3(1.446f, 0.343f, 0);
         transform.localRotation = Quaternion.identity;
-        
+       
         // Disable AI so she doesn't fight the player's movement
         ai.isStopped = true;
         leftCart = false;
-		anim.SetBool("Walk", false);
+        anim.SetBool("Walk", false);
+
 
         // Resume routines
         StartCoroutine(RandomDrop());
@@ -331,16 +369,18 @@ public class CartSister : MonoBehaviour
         StartCoroutine(RandomLeaveCart());
     }
 
+
     IEnumerator TryReturnToCart() {
         // Cannot go back within 2 secs so that the sister has time to run a bit
-        yield return new WaitForSeconds(2f); 
+        yield return new WaitForSeconds(2f);
         // How close the player needs to be to pickup the sister
-        float recallDistance = 2f; 
+        float recallDistance = 2f;
+
 
         while (leftCart) {
             if (player != null) {
                 float dist = Vector3.Distance(transform.position, player.transform.position);
-                
+               
                 if (dist < recallDistance) {
                     // Debug.Log("Player got close! Sister is hopping back in.");
                     returnToCart(); // Return to the cart
@@ -352,6 +392,7 @@ public class CartSister : MonoBehaviour
         }
     }
 
+
     void Update() {
         if (Input.GetKeyDown(KeyCode.J) && numShouts < 3 && leftCart) {
             numShouts++;
@@ -361,7 +402,9 @@ public class CartSister : MonoBehaviour
     }
 
 
-    
+
+
+   
 }
-    
-    
+   
+   
