@@ -10,15 +10,19 @@ public class Employee : MonoBehaviour
     
     // For ai navigation
     IAstarAI ai;
-
+     private Animator anim; // ADDED
     void Start()
     {
         // Get the AI component
         ai = GetComponent<IAstarAI>();
-        
+        anim = GetComponentInChildren<Animator>(); // ADDED
         // Find the sister if not assigned in Inspector
         if (littleSister == null) {
             littleSister = GameObject.FindWithTag("Sister"); 
+        }
+        ai.isStopped = true;
+        if (anim != null) {
+            anim.SetBool("Run", false); 
         }
     }
 
@@ -35,6 +39,9 @@ public class Employee : MonoBehaviour
 
     IEnumerator FollowSister() {
         ai.isStopped = false;
+        if (anim != null) {
+            anim.SetBool("Run", true); // ADDED
+        }
 
         while (isFollowing) {
             if (littleSister != null && littleSister.GetComponent<CartSister>().leftCart) {
@@ -52,8 +59,11 @@ public class Employee : MonoBehaviour
                 isFollowing = false;
                 ai.isStopped = true;
                 ai.destination = transform.position;
+                if (anim != null) {
+                    anim.SetBool("Run", false); // ADDED
+                }
             }
-            
+
             // Wait for a short time so we don't calculate path every single frame
             yield return new WaitForSeconds(0.2f);
         }
