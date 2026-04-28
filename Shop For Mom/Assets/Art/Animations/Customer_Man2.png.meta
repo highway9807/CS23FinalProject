@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 65009fb0d668947679936513e9066066
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5457302751021996542
+    second: Customer_Man2_0
+  - first:
+      213: 2587383115296520177
+    second: Customer_Man2_1
+  - first:
+      213: 7696345955874808338
+    second: Customer_Man2_2
+  - first:
+      213: 7085826806451641163
+    second: Customer_Man2_3
+  - first:
+      213: 8972943125729064574
+    second: Customer_Man2_4
+  - first:
+      213: 997141453632327658
+    second: Customer_Man2_5
+  - first:
+      213: -3734394056203465874
+    second: Customer_Man2_6
+  - first:
+      213: 1034815085750511687
+    second: Customer_Man2_7
+  - first:
+      213: 1677839879926232957
+    second: Customer_Man2_8
+  - first:
+      213: -4659512489600959940
+    second: Customer_Man2_9
+  - first:
+      213: -5611470976190432803
+    second: Customer_Man2_10
+  - first:
+      213: 6967405625208555888
+    second: Customer_Man2_11
+  - first:
+      213: -1961366352090182136
+    second: Customer_Man2_12
+  - first:
+      213: -5760960678302789985
+    second: Customer_Man2_13
+  - first:
+      213: -3954242113238133425
+    second: Customer_Man2_14
+  - first:
+      213: 1952538833060718800
+    second: Customer_Man2_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 220
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Customer_Man2_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 767
+        width: 81
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef99d6220fb3cbb40800000000000000
+      internalID: 5457302751021996542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_1
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 766
+        width: 80
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7b71d1c3b38e320800000000000000
+      internalID: 2587383115296520177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_2
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 765
+        width: 115
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 212ae60bed9eeca60800000000000000
+      internalID: 7696345955874808338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_3
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 763
+        width: 137
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b9d7a20f9e55260800000000000000
+      internalID: 7085826806451641163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e763dde6b3c468c70800000000000000
+      internalID: 8972943125729064574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 579
+        width: 174
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef42967ede86dd00800000000000000
+      internalID: 997141453632327658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_6
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 572
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b89ac3464cc2cc0800000000000000
+      internalID: -3734394056203465874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_7
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 576
+        width: 136
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748ef5a76d66c5e00800000000000000
+      internalID: 1034815085750511687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 314
+        width: 137
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77bcf03b72e84710800000000000000
+      internalID: 1677839879926232957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_9
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 310
+        width: 132
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ab6dee316165fb0800000000000000
+      internalID: -4659512489600959940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_10
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 321
+        width: 134
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd931c4c0ec0022b0800000000000000
+      internalID: -5611470976190432803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_11
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 338
+        width: 138
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0794d90508231b060800000000000000
+      internalID: 6967405625208555888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_12
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 80
+        width: 135
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ec24dc1b3d7c4e0800000000000000
+      internalID: -1961366352090182136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_13
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 75
+        width: 133
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ec4c439c4fc00b0800000000000000
+      internalID: -5760960678302789985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_14
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 68
+        width: 139
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f451d8c9fb5bf19c0800000000000000
+      internalID: -3954242113238133425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Customer_Man2_15
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 74
+        width: 142
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d86db249bfc81b10800000000000000
+      internalID: 1952538833060718800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ea254704aef714e4fab4923ffd1f4d7d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Customer_Man2_0: 5457302751021996542
+      Customer_Man2_1: 2587383115296520177
+      Customer_Man2_10: -5611470976190432803
+      Customer_Man2_11: 6967405625208555888
+      Customer_Man2_12: -1961366352090182136
+      Customer_Man2_13: -5760960678302789985
+      Customer_Man2_14: -3954242113238133425
+      Customer_Man2_15: 1952538833060718800
+      Customer_Man2_2: 7696345955874808338
+      Customer_Man2_3: 7085826806451641163
+      Customer_Man2_4: 8972943125729064574
+      Customer_Man2_5: 997141453632327658
+      Customer_Man2_6: -3734394056203465874
+      Customer_Man2_7: 1034815085750511687
+      Customer_Man2_8: 1677839879926232957
+      Customer_Man2_9: -4659512489600959940
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
