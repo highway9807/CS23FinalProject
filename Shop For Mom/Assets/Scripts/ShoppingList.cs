@@ -8,58 +8,43 @@ public class ShoppingList : MonoBehaviour
     public ItemDefinition[] shopping_list;
 
     [Header("UI References")]
-    public GameObject panel;          // the panel that shows/hides on L
-    public Transform itemContainer;   // parent object holding the row prefabs
-    public GameObject rowPrefab;      // a prefab with a TextMeshProUGUI component
-    public float rowHeight = 30f;     // height of each row in pixels
-    public float verticalOffset = 20f; // extra downward offset in pixels
+    public GameObject panel;
+    public Transform itemContainer;
+    public GameObject rowPrefab;
+    public float rowHeight = 30f;
+    public float verticalOffset = 20f;
 
     private PlayerInventory playerInventory;
 
     void Start()
     {
-        if (FindObjectOfType<ShoppingList>() != this)
+        if (FindObjectOfType<ShoppingList>() != this && FindObjectOfType<ShoppingList>() != null)
         {
             Destroy(gameObject);
             return;
         }
         DontDestroyOnLoad(gameObject);
-
-        if (panel == null)
-        {
-            panel = GameObject.FindWithTag("List");
-        }
-
-        if (itemContainer == null)
-        {
-            GameObject container = GameObject.Find("ItemContainer");
-            if (container != null) itemContainer = container.transform;
-        }
-
-        if (GameHandler.gh != null)
-        {
-            playerInventory = GameHandler.gh.PlayerInventory;
-            playerInventory.Changed += RefreshUI;
-        }
-
-        if (panel != null){
-            panel.SetActive(true);
-
-        }
-
-        RefreshUI();
+        FindUIReferences();
     }
 
     void Update()
     {
-        if (panel == null)
-        {
-            panel = GameObject.FindWithTag("List");
-            GameObject container = GameObject.Find("ItemContainer");
-            if (container != null) itemContainer = container.transform;
+        // Find UI references if the container was destroyed
+        if (itemContainer == null || !itemContainer.gameObject.scene.IsValid()) {
+            FindUIReferences();
+        }
+    }
 
-            // Re-subscribe to the new inventory when scene reloads
-            if (GameHandler.gh != null && GameHandler.gh.PlayerInventory != playerInventory)
+    void FindUIReferences()
+    {
+        panel = GameObject.FindWithTag("List");
+        GameObject container = GameObject.Find("ItemContainer");
+
+        if (container != null)
+        {
+            itemContainer = container.transform;
+            
+            if (GameHandler.gh != null)
             {
                 if (playerInventory != null) playerInventory.Changed -= RefreshUI;
                 playerInventory = GameHandler.gh.PlayerInventory;
@@ -67,44 +52,51 @@ public class ShoppingList : MonoBehaviour
             }
 
             if (panel != null) panel.SetActive(true);
+            
+            RefreshUI();
         }
     }
 
-    void RefreshUI()
+    public void RefreshUI()
     {
-        if (itemContainer == null) return;
+        // If we don't have the container or prefab, we can't go on
+        if (itemContainer == null || rowPrefab == null) return;
 
         // Clear old rows
-        foreach (Transform child in itemContainer)
-            Destroy(child.gameObject);
+        foreach (Transform child in itemContainer) {
+            child.SetParent(null); // Move out of container
+            Destroy(child.gameObject); // Mark for deletion
+        }
 
-        // Build one row per shopping list item
+        // Built list
         foreach (ItemDefinition item in shopping_list)
         {
             int have = playerInventory != null ? playerInventory.GetTotalItems(item) : 0;
-            bool got  = have > 0;
+            bool got = have > 0;
 
             GameObject row = Instantiate(rowPrefab, itemContainer);
+            
+            row.transform.localScale = Vector3.one; 
+            
             TextMeshProUGUI label = row.GetComponent<TextMeshProUGUI>();
-
-            label.text = (got ? "<s>" : "") + item.itemName + (got ? "</s>" : "");
-			// first color = holding this item. second color = need this item:
-            label.color = got ? Color.green : Color.black;
+            if (label != null) {
+                label.text = (got ? "<s>" : "") + item.itemName + (got ? "</s>" : "");
+                label.color = got ? Color.green : Color.black;
+            }
         }
 
-        // Shift panel up so it doesn't go off screen
-        RectTransform rt = panel.GetComponent<RectTransform>();
-        if (rt != null)
-        {
-            Vector2 pos = rt.anchoredPosition;
-            pos.y = (shopping_list.Length * rowHeight) / 2f - verticalOffset;
-            rt.anchoredPosition = pos;
+        // Adjust panel
+        if (panel != null) {
+            RectTransform rt = panel.GetComponent<RectTransform>();
+            if (rt != null) {
+                Vector2 pos = rt.anchoredPosition;
+                pos.y = (shopping_list.Length * rowHeight) / 2f - verticalOffset;
+                rt.anchoredPosition = pos;
+            }
         }
     }
 
-    void OnDestroy()
-    {
-        if (playerInventory != null)
-            playerInventory.Changed -= RefreshUI;
+    void OnDestroy() {
+        if (playerInventory != null) playerInventory.Changed -= RefreshUI;
     }
 }

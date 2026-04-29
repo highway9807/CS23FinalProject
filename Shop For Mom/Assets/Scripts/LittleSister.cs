@@ -25,6 +25,7 @@ public class CartSister : MonoBehaviour
 
 
     public bool leftCart = false;
+    public bool returningToCart = false;
     // How far she can wander
     public float wanderRadius = 10f;
 
@@ -164,6 +165,11 @@ public class CartSister : MonoBehaviour
         if (closestObj == null) {
             return;
         }
+
+        // Check that the sister is actually close enough to pickup
+        if (Vector3.Distance(transform.position, closestObj.transform.position) > 2f)
+            return;
+
         // Get the identity script from the object we are standing near
             ItemIdentity id = closestObj.GetComponent<ItemIdentity>();
 
@@ -263,12 +269,10 @@ public class CartSister : MonoBehaviour
 
     float getDistanceToClosestCheckout() {
 
-
         GameObject[] checkoutList = GameObject.FindGameObjectsWithTag("Checkout");
        
         // Return a very large number if none
         if (checkoutList == null || checkoutList.Length == 0) return Mathf.Infinity;
-
 
         float closestDistance = Mathf.Infinity;
 
@@ -321,11 +325,15 @@ public class CartSister : MonoBehaviour
 
     public void returnToCart() {
         // Only return if she has left
-        if (!leftCart) {
+        if (!leftCart || returningToCart) {
             return;
         }
+
         // Keep track of the number of shouts
         numShouts++;
+        shoutsText.text = "Shouts Left: " + (3 - numShouts);
+
+        // Play the sound effect
         callbackAwSFX.Play();
        
         // Stop the wandering loop
@@ -338,6 +346,7 @@ public class CartSister : MonoBehaviour
     IEnumerator ReturnToPlayerRoutine() {
         // Enable AI so she can walk back
         ai.isStopped = false;
+        returningToCart = true;
         anim.SetBool("Walk", true);
         // Walk until she is close to the player
         while (Vector3.Distance(transform.position, player.transform.position) > 0.3f) {
@@ -345,10 +354,8 @@ public class CartSister : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-
         // Become a child of the player again
         transform.SetParent(player.transform);
-
 
         // Wait for the end of frame to update her position
         yield return new WaitForEndOfFrame();
@@ -360,8 +367,8 @@ public class CartSister : MonoBehaviour
         // Disable AI so she doesn't fight the player's movement
         ai.isStopped = true;
         leftCart = false;
+        returningToCart = false;
         anim.SetBool("Walk", false);
-
 
         // Resume routines
         StartCoroutine(RandomDrop());
@@ -395,8 +402,6 @@ public class CartSister : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.J) && numShouts < 3 && leftCart) {
-            numShouts++;
-            shoutsText.text = "Shouts Left: " + (3 - numShouts);
             returnToCart();
         }
     }
