@@ -13,6 +13,8 @@ public class TutorialButton : MonoBehaviour
 
 	private float remainingAngle = 0f;
 
+	public AudioClip paperAudio;
+
 	//public AudioSource moveAudio;
 
 	private bool isRunning = false;
@@ -38,6 +40,7 @@ public class TutorialButton : MonoBehaviour
 	{
 		if (isRunning)
 		{
+			GetComponent<AudioSource>().PlayOneShot(paperAudio);
 			if(remainingAngle > 0)
 			{
 				float rotationThisFrame = rotateSpeed * Time.deltaTime;
@@ -64,6 +67,7 @@ public class TutorialButton : MonoBehaviour
 		}
 		else if (isRunning1)
 		{
+			GetComponent<AudioSource>().PlayOneShot(paperAudio);
 			if(remainingAngle > 0)
 			{
 				float rotationThisFrame = rotateSpeed * Time.deltaTime;
@@ -97,14 +101,14 @@ public class TutorialButton : MonoBehaviour
 	{
 		isRunning = true;
 		timer = 0f;
-		//moveAudio.Play();
+		
 		
 	}
 	public void GameStart1()
 	{
 		isRunning1 = true;
 		timer = 0f;
-		//moveAudio.Play();
+		
 		
 	}
 	

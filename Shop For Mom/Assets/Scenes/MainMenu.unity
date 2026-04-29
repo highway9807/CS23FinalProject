@@ -423,6 +423,7 @@ MonoBehaviour:
   moveDuration: 1.6
   rotateSpeed: 50
   targetAngle: 30
+  paperAudio: {fileID: 0}
 --- !u!114 &347674468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2554,9 +2555,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1470681470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7e7b46c3556f24b850ee19bc957207, type: 3}
+  m_Script: {fileID: 11500000, guid: 4012cac20b04dca488ff8788c0eec4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayButton
+  speed: 5
+  targetY: 12
+  moveDuration: 2
+  rotateSpeed: 100
+  targetAngle: 90
+  paperAudio: {fileID: 8300000, guid: a79280d189c45b1408d53b8f2499cbee, type: 3}
 --- !u!1 &1504298731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,6 +2956,7 @@ MonoBehaviour:
   moveDuration: 2
   rotateSpeed: 100
   targetAngle: 30
+  paperAudio: {fileID: 8300000, guid: a79280d189c45b1408d53b8f2499cbee, type: 3}
 --- !u!1 &1561395052
 GameObject:
   m_ObjectHideFlags: 0

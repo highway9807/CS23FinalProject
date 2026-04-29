@@ -31,11 +31,9 @@ public class ScoreHandler : MonoBehaviour
     void Start() {
         // find the game handler
         gameHandler = GameObject.FindWithTag("GameHandler");
-        if (gameHandler != null) {
-            // get the shopping list
-            shoppingList = FindObjectOfType<ShoppingList>();
-        }
-        else {
+        shoppingList = FindObjectOfType<ShoppingList>();
+
+        if (gameHandler == null) {
             Debug.LogError("Can't find game handler!");
             return;
         }

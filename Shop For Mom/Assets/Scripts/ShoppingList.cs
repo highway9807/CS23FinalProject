@@ -11,6 +11,8 @@ public class ShoppingList : MonoBehaviour
     public GameObject panel;          // the panel that shows/hides on L
     public Transform itemContainer;   // parent object holding the row prefabs
     public GameObject rowPrefab;      // a prefab with a TextMeshProUGUI component
+    public float rowHeight = 30f;     // height of each row in pixels
+    public float verticalOffset = 20f; // extra downward offset in pixels
 
     private PlayerInventory playerInventory;
 
@@ -24,7 +26,9 @@ public class ShoppingList : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         if (panel == null)
+        {
             panel = GameObject.FindWithTag("List");
+        }
 
         if (itemContainer == null)
         {
@@ -38,7 +42,11 @@ public class ShoppingList : MonoBehaviour
             playerInventory.Changed += RefreshUI;
         }
 
-        panel.SetActive(true);
+        if (panel != null){
+            panel.SetActive(true);
+
+        }
+
         RefreshUI();
     }
 
@@ -82,6 +90,15 @@ public class ShoppingList : MonoBehaviour
             label.text = (got ? "<s>" : "") + item.itemName + (got ? "</s>" : "");
 			// first color = holding this item. second color = need this item:
             label.color = got ? Color.green : Color.black;
+        }
+
+        // Shift panel up so it doesn't go off screen
+        RectTransform rt = panel.GetComponent<RectTransform>();
+        if (rt != null)
+        {
+            Vector2 pos = rt.anchoredPosition;
+            pos.y = (shopping_list.Length * rowHeight) / 2f - verticalOffset;
+            rt.anchoredPosition = pos;
         }
     }
 
