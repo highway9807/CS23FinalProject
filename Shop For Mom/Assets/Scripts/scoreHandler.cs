@@ -9,14 +9,17 @@ public class ScoreHandler : MonoBehaviour
     public TMP_Text messageText;
     public TMP_Text starsText;
     public TMP_Text correctText;
+    public TMP_Text missingText;
     public TMP_Text incorrectText;
     public TMP_Text correctScoreText;
     public TMP_Text incorrectScoreText;
+    public TMP_Text missingScoreText;
 
 
     // Settings
-    public int correctPoints = 100;
-    public int incorrectPoints = 50;
+    private int correctPoints = 100;
+    private int incorrectPoints = 75;
+    private int missingPoints = 50;
 
     // shopping list and game handler
     public GameObject gameHandler;
@@ -26,6 +29,7 @@ public class ScoreHandler : MonoBehaviour
     // Private counters
     private int correctCount = 0;
     private int incorrectCount = 0;
+    private int missingCount = 0;
     private int totalScore = 0;
 
     void Start() {
@@ -42,13 +46,17 @@ public class ScoreHandler : MonoBehaviour
         calculateScore();
 
         // Display the updated score
-        int totalScore = correctCount*correctPoints - incorrectCount*incorrectPoints;
+        int totalScore = correctCount*correctPoints
+            - incorrectCount*incorrectPoints
+            - missingCount*missingPoints;
         
         // Update the text displays
         UpdateText(correctText, $"Correct items: {correctCount}");
         UpdateText(incorrectText, $"Incorrect items: {incorrectCount}");
+        UpdateText(missingText, $"Missing items: {missingCount}");
         UpdateText(correctScoreText, $"+{correctCount * correctPoints}");
         UpdateText(incorrectScoreText, $"-{incorrectCount * incorrectPoints}");
+        UpdateText(missingScoreText, $"-{missingCount * missingPoints}");
         UpdateText(totalScoreText, $"{totalScore}");
         
         if (totalScore > GameHandler.gh.star3) {
@@ -74,24 +82,30 @@ public class ScoreHandler : MonoBehaviour
         Debug.Log($"shoppingList={shoppingList}, shopping_list={shoppingList?.shopping_list}");
         correctCount = 0;
         incorrectCount = 0;
+        missingCount = 0;
 
         // Get the list of all items currently in the inventory
-        List<ItemDefinition> inventory = gameHandler.GetComponent<PlayerInventory>().GetItemSlots();
+        PlayerInventory inventory = gameHandler.GetComponent<PlayerInventory>();
 
-        // Loop through all items
-        foreach (ItemDefinition inventoryItem in inventory) {
-            bool isCorrect = false;
-            // Check if the item is in the list
-            foreach (ItemDefinition listItem in shoppingList.shopping_list) {
-                if (inventoryItem == listItem) {
-                    isCorrect = true;
-                    correctCount++; // Count correct items
-                    break;
+        ItemDefinition[] requiredItems = shoppingList?.shopping_list;
+        
+        if (requiredItems != null) {
+            foreach (ItemDefinition listItem in requiredItems) {
+                // Case 1: the item is in the shopping list, so it is correct
+                if (inventory.hasItem(listItem)) {
+                    correctCount++;
+                    // Remove all instances correct items as we go
+                    while (inventory.hasItem(listItem)) {
+                        inventory.TryRemove(listItem);
+                    }
+                }
+                // Case 2: the item should be here but is missing
+                else {
+                    missingCount++;
                 }
             }
-            if (!isCorrect) {
-                incorrectCount++; // Count incorrect items
-            }
+            // Case 3: the item is here and should not be
+            incorrectCount += inventory.GetItemSlots().Count;
         }
     }
 
