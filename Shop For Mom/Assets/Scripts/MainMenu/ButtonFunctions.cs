@@ -36,11 +36,17 @@ public class TutorialButton : MonoBehaviour
 		rect = GetComponent<RectTransform>();
 	}
 
+	
+	void PlayPaperSound() {
+		if (paperAudio != null) {
+			GetComponent<AudioSource>().PlayOneShot(paperAudio);
+		}
+	}
+
 	void Update()
 	{
 		if (isRunning)
 		{
-			GetComponent<AudioSource>().PlayOneShot(paperAudio);
 			if(remainingAngle > 0)
 			{
 				float rotationThisFrame = rotateSpeed * Time.deltaTime;
@@ -101,15 +107,14 @@ public class TutorialButton : MonoBehaviour
 	{
 		isRunning = true;
 		timer = 0f;
-		
-		
+		PlayPaperSound();
 	}
+
 	public void GameStart1()
 	{
 		isRunning1 = true;
 		timer = 0f;
-		
-		
+		PlayPaperSound();
 	}
 	
 	public void Credits()

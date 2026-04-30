@@ -50,6 +50,10 @@ public class GameHandler : MonoBehaviour
     [SerializeField]
     private PlayerInventory playerInv;
 
+    [Header("Music")]
+    public AudioSource gameplayMusic;
+    public AudioSource chillMusic;
+
     [Header("Level Management")]
     [SerializeField] private List<string> levelSceneNames = new List<string> {"Level0", "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "Level1_OLD"}; // List of scenes in order
     private int currentLevelIndex = 0; // The current scene we are on
@@ -103,10 +107,10 @@ public class GameHandler : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    void Start() {
+        Debug.Log("Game Handler waking up!");
+        PlayMusic(SceneManager.GetActiveScene());
         InitializePauseUiForScene(SceneManager.GetActiveScene());
-
         // assign the click events
         if(startBtn != null) 
             startBtn.onClick.AddListener(loadStartScene);
@@ -121,14 +125,37 @@ public class GameHandler : MonoBehaviour
         BindPauseButtons();
     }
 
+    public void PlayMusic(Scene scene) {
+        int index = levelSceneNames.IndexOf(scene.name);
+
+        Debug.Log("Index: " + index);
+        
+        if (index != -1) {
+            // We are in a gameplay level
+            if (!gameplayMusic.isPlaying) {
+                chillMusic.Stop();
+                gameplayMusic.Play();
+                Debug.Log("Playing gameplay music!");
+            }
+        }
+        else {
+            // We are in a Menu, Score, or Tutorial scene
+            if (!chillMusic.isPlaying) {
+                gameplayMusic.Stop();
+                chillMusic.Play();
+                Debug.Log("Playing chill music");
+            }
+        }
+    }
+
     private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (gh != this)
             return;
+        PlayMusic(scene);
         // Find which level we are on
         int index = levelSceneNames.IndexOf(scene.name);
-        if (index != -1) 
-        {
+        if (index != -1) {
             currentLevelIndex = index;
         }
         if (scene.name != "ScoreScene") {
