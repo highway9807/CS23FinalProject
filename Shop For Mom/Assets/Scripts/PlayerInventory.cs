@@ -26,8 +26,10 @@ public class PlayerInventory : MonoBehaviour
     // create a list of slots (dynamic). serialize the field so we can change it in the editor.
     [SerializeField]
     private List<ItemDefinition> slots = new List<ItemDefinition>();
+    [SerializeField]
+    private int maxSlots = 10;
 
-    // Name: GetItemSlots
+    // Name:    GetItemSlots
     // Purpose: Expose the current inventory slot list for read-only inspection
     //          (UI, scoring, etc.).
     // Inputs:  None.
@@ -37,7 +39,7 @@ public class PlayerInventory : MonoBehaviour
         return slots;
     }
 
-    // Name: GetTotalItems
+    // Name:    GetTotalItems
     // Purpose: Count how many slots reference the given item (total copies of 
     //          that item).
     // Inputs:  item — the ItemDefinition to count; null is treated as zero 
@@ -62,6 +64,10 @@ public class PlayerInventory : MonoBehaviour
         return itemTotal;
     }
 
+    // Name:    hasItem
+    // Purpose: Check whether at least one slot contains the given item.
+    // Inputs:  item - the ItemDefinition to search for.
+    // Outputs: True if found at least once; otherwise false.
     public bool hasItem(ItemDefinition item)
     {
 
@@ -80,7 +86,7 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
-    // Name: ClearAll
+    // Name:    ClearAll
     // Purpose: Remove every entry from the inventory and notify listeners.
     // Inputs:  None.
     // Outputs: None (side effect: slots empty, Changed invoked if subscribed).
@@ -90,14 +96,16 @@ public class PlayerInventory : MonoBehaviour
         NotifyChanged();
     }
 
-    // Name: TryAdd
+    // Name:    TryAdd
     // Purpose: Append one instance of an item to the inventory and notify 
     //          listeners on success.
-    // Inputs: item — the ItemDefinition to add; null is rejected.
+    // Inputs:  item — the ItemDefinition to add; null is rejected.
     // Outputs: True if the item was added; false if item was null.
     public bool TryAdd(ItemDefinition item)
     {
         if (item == null)
+            return false;
+        if (slots.Count >= maxSlots)
             return false;
 
         slots.Add(item);
@@ -105,7 +113,16 @@ public class PlayerInventory : MonoBehaviour
         return true;
     }
 
-    // Name: TryRemove
+    // Name:    IsFull
+    // Purpose: Report whether inventory has reached max slot capacity.
+    // Inputs:  None.
+    // Outputs: True when no additional item can be added.
+    public bool IsFull()
+    {
+        return slots.Count >= maxSlots;
+    }
+
+    // Name:    TryRemove
     // Purpose: Remove one slot that matches the given item (searches from the
     //          end of the list) and notify listeners if a slot was removed.
     // Inputs:  item — the ItemDefinition to remove one copy of; null or absent
@@ -133,7 +150,7 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
-    // Name: NotifyChanged
+    // Name:    NotifyChanged
     // Purpose: Raise the Changed event so subscribers (e.g. UI) can refresh.
     // Inputs:  None.
     // Outputs: None.
@@ -142,7 +159,7 @@ public class PlayerInventory : MonoBehaviour
         Changed?.Invoke();
     }
 
-    // Name: PrintInventory
+    // Name:    PrintInventory
     // Purpose: Print the inventory to console while we work on UI
     // Inputs:  None.
     // Outputs: Prints the contents of the current playerinventory to console.

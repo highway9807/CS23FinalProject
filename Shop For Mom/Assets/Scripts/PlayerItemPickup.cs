@@ -11,6 +11,7 @@ public class PlayerItemPickup : MonoBehaviour
     public SpawningItems spawner;
     private ItemDefinition heldItemDef = null;
     private PlayerInventory playerInventory;
+    [SerializeField] private InventoryUIController inventoryUIController;
     private GameObject closest = null;
     private Animator anim;
     public GameObject[] prefabs;
@@ -25,6 +26,8 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (GameHandler.gh != null)
             playerInventory = GameHandler.gh.PlayerInventory;
+        if (inventoryUIController == null)
+            inventoryUIController = FindFirstObjectByType<InventoryUIController>();
     }
 
     // This gives the little sister access to the closest item so she can
@@ -64,6 +67,11 @@ public class PlayerItemPickup : MonoBehaviour
 
             if (id != null && playerInventory != null)
             {
+                if (playerInventory.IsFull())
+                {
+                    inventoryUIController?.PlayFullInventoryFeedback();
+                    return;
+                }
                 // Try to add specific item type
                 if (playerInventory.TryAdd(id.itemType)) {
                     Debug.Log("Picked up " + closest.name);
@@ -77,6 +85,8 @@ public class PlayerItemPickup : MonoBehaviour
                     playerInventory.printInventory();
                 }
                 else {
+                    if (playerInventory.IsFull())
+                        inventoryUIController?.PlayFullInventoryFeedback();
                     Debug.Log($"There was an issue picking up an {id.itemType}");
                 }
             }
