@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class GameTimer : MonoBehaviour
 {
@@ -9,12 +10,57 @@ public class GameTimer : MonoBehaviour
 
     // Timer display
     public TMP_Text timerText;
+    public GameObject countdownArt;
 
-    private void Start()
-    {
-        // Start the timer when the scene begins
+    private GameObject three;
+    private GameObject two;
+    private GameObject one;
+
+    private void Start() {
+
+        DisplayTime(timeLeft);
+
+        if (countdownArt != null) {
+            // Find arts
+            three = countdownArt.transform.Find("ThreeArt")?.gameObject;
+            two = countdownArt.transform.Find("TwoArt")?.gameObject;
+            one = countdownArt.transform.Find("OneArt")?.gameObject;
+
+            // Hide them
+            if (three) three.SetActive(false);
+            if (two)   two.SetActive(false);
+            if (one)   one.SetActive(false);
+        }
+
+        // Start the countdown
+        if (three != null && two != null && one != null)
+        {
+            StartCoroutine(StartCountdown());
+        }
+    }
+
+    IEnumerator StartCountdown()
+    {        
+        // Three
+        three.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        three.SetActive(false);
+
+        // Two
+        two.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        two.SetActive(false);
+
+        // One
+        one.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        one.SetActive(false);
+
+        // Start the timer after the countdown ends
         timerStarted = true;
     }
+
+
 
     void Update()
     {

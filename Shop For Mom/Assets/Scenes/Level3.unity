@@ -11536,52 +11536,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &863088770
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 863088772}
-  - component: {fileID: 863088771}
-  m_Layer: 0
-  m_Name: GameTimer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &863088771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863088770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5bec4a84dd243dcb3311af3489fbbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  timeLeft: 30
-  timerText: {fileID: 2020381443}
---- !u!4 &863088772
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863088770}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000061035156, y: 0.19998169, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864452159
 GameObject:
   m_ObjectHideFlags: 0
@@ -28546,8 +28500,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1256969266}
   m_HandleRect: {fileID: 1256969265}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -49590,6 +49544,8 @@ MonoBehaviour:
   panel: {fileID: 0}
   itemContainer: {fileID: 0}
   rowPrefab: {fileID: 9090683850537475850, guid: 847bb226ca239495fa5393e5bf6db03b, type: 3}
+  rowHeight: 30
+  verticalOffset: 20
 --- !u!4 &1723553815
 Transform:
   m_ObjectHideFlags: 0
@@ -59352,17 +59308,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2020381443 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3179509800184476867, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
-  m_PrefabInstance: {fileID: 1383225064}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &2040826657
 GameObject:
   m_ObjectHideFlags: 0
@@ -61470,7 +61415,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1383225064}
   - {fileID: 1156776182}
-  - {fileID: 863088772}
   - {fileID: 490092001}
   - {fileID: 134864944}
   - {fileID: 537054679}
