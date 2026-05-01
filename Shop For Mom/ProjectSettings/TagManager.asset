@@ -13,6 +13,7 @@ TagManager:
   - DestroyedMess
   - LittleSister
   - Checkout
+  - Inventory
   layers:
   - Default
   - TransparentFX
