@@ -211,8 +211,8 @@ Transform:
   m_GameObject: {fileID: 1753608223663026412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.769, y: 1.076, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.395, y: 0.767, z: 0}
+  m_LocalScale: {x: 0.707, y: 0.759, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7990244213398356672}
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20000
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bad42bfc2f0aeb34690863001959fa2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1214,6 +1214,7 @@ MonoBehaviour:
   - {fileID: 0}
   SFX_PickUp: {fileID: 5660799166831915329}
   spawner: {fileID: 0}
+  inventoryUIController: {fileID: 0}
   prefabs:
   - {fileID: 3725598757863222044, guid: 77886b030884c41d8bcfde5c92742608, type: 3}
   - {fileID: 3725598757863222044, guid: fd6b490a7f2074e9584db1cb4cfee2fd, type: 3}
