@@ -8,10 +8,13 @@ public class InventoryUIController : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private List<Image> slotIcons = new List<Image>();
-    [SerializeField] private List<Image> slotFrames = new List<Image>();
+    [SerializeField] private List<Button> slotButtons = new List<Button>();
     [Header("Feedback")]
     [SerializeField] private Color normalSlotColor = Color.white;
-    [SerializeField] private Color fullFlashColor = Color.red;
+    [SerializeField] private Color hoverSlotColor = Color.yellow;
+    [SerializeField] private Color pressedSlotColor = Color.white;
+    [SerializeField] private Color selectedSlotColor = Color.yellow;
+    [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private float flashSecs = 0.2f;
     private PlayerInventory playerInventory;
     private Coroutine flashing;
@@ -30,6 +33,7 @@ public class InventoryUIController : MonoBehaviour
         playerInventory = FindPlayerInventory();
         if (playerInventory != null)
             playerInventory.Changed += RefreshInventory;
+        SetupButtonColors();
         RefreshInventory();
     }
     
@@ -94,29 +98,53 @@ public class InventoryUIController : MonoBehaviour
             StopCoroutine(flashing);
         flashing = StartCoroutine(FlashSlotsRed());
     }
-    
+
     // Name: FlashSlotsRed
     // Purpose: Temporarily tint slot frames red, then restore old colors.
     // Inputs: None.
     // Outputs: IEnumerator used by coroutine scheduler.
     private IEnumerator FlashSlotsRed()
     {
-        SetAllSlotFrameColors(fullFlashColor);
+        SetAllSlotFrameColors(flashColor);
         yield return new WaitForSeconds(flashSecs);
         SetAllSlotFrameColors(normalSlotColor);
         flashing = null;
     }
 
     // Name: SetAllSlotFrameColors
-    // Purpose: Apply one color to every slot frame in the HUD.
-    // Inputs: color - the tint to apply to each slot frame image.
+    // Purpose: Apply one normal-state color to every inventory slot button.
+    // Inputs: color - the normal tint to apply to each slot button.
     // Outputs: None.
     private void SetAllSlotFrameColors(Color color)
     {
-        for (int i = 0; i < slotFrames.Count; i++)
+        for (int i = 0; i < slotButtons.Count; i++)
         {
-            if (slotFrames[i] != null)
-                slotFrames[i].color = color;
+            if (slotButtons[i] == null)
+                continue;
+
+            ColorBlock cb = slotButtons[i].colors;
+            cb.normalColor = color;
+            slotButtons[i].colors = cb;
+        }
+    }
+
+    // Name: SetupButtonColors
+    // Purpose: Configure button hover/pressed/selected colors once on startup.
+    // Inputs: None.
+    // Outputs: None.
+    private void SetupButtonColors()
+    {
+        for (int i = 0; i < slotButtons.Count; i++)
+        {
+            if (slotButtons[i] == null)
+                continue;
+
+            ColorBlock cb = slotButtons[i].colors;
+            cb.normalColor = normalSlotColor;
+            cb.highlightedColor = hoverSlotColor;
+            cb.pressedColor = pressedSlotColor;
+            cb.selectedColor = normalSlotColor;
+            slotButtons[i].colors = cb;
         }
     }
 }
