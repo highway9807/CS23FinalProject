@@ -150,6 +150,20 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
+    // Name:    TryRemoveAt
+    // Purpose: Remove the entry at a specific slot index (list order).
+    // Inputs:  index — must be in [0, slots.Count).
+    // Outputs: True if that slot existed and was removed; false if index out of range.
+    public bool TryRemoveAt(int index)
+    {
+        if (index < 0 || index >= slots.Count)
+            return false;
+
+        slots.RemoveAt(index);
+        NotifyChanged();
+        return true;
+    }
+
     // Name:    NotifyChanged
     // Purpose: Raise the Changed event so subscribers (e.g. UI) can refresh.
     // Inputs:  None.
