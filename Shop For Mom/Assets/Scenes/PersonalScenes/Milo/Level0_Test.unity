@@ -13573,10 +13573,6 @@ PrefabInstance:
       value: GameHandler
       objectReference: {fileID: 0}
     - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
-      propertyPath: playerInv
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6915456341713179878, guid: cc370e33196c94a71907185a5fd6ca13, type: 3}
       propertyPath: pauseInGame
       value: 
       objectReference: {fileID: 0}

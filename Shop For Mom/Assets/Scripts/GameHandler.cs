@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-200)]
 public class GameHandler : MonoBehaviour
 {
     public static GameHandler gh;
@@ -100,7 +101,7 @@ public class GameHandler : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         // create the 
         playerInv = GetComponent<PlayerInventory>();
-        if(!playerInv)
+        if(playerInv == null)
         {
             playerInv = gameObject.AddComponent<PlayerInventory>();
         }

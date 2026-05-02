@@ -19,22 +19,34 @@ public class InventoryUIController : MonoBehaviour
     private PlayerInventory playerInventory;
     private Coroutine flashing;
 
-    // Name: Start
-    // Purpose: Initialize inventory source and render current slot icons.
+    private bool debugFlag = true;
+
+    // Name: OnEnable
+    // Purpose: Bind to the active PlayerInventory whenever this UI is enabled.
+    //          Using OnEnable (not only Start) avoids missing GameHandler.gh or
+    //          sceneLoaded timing where Changed fired before we subscribed.
     // Inputs: None.
     // Outputs: None.
-    private void Start()
+    private void OnEnable()
     {
         if (inventoryPanel == null)
             inventoryPanel = gameObject;
         if (inventoryPanel != null)
             inventoryPanel.SetActive(true);
 
+        if (playerInventory != null)
+            playerInventory.Changed -= RefreshInventory;
         playerInventory = FindPlayerInventory();
         if (playerInventory != null)
             playerInventory.Changed += RefreshInventory;
         SetupButtonColors();
         RefreshInventory();
+    }
+
+    private void OnDisable()
+    {
+        if (playerInventory != null)
+            playerInventory.Changed -= RefreshInventory;
     }
     
     // Name: FindPlayerInventory
@@ -43,8 +55,12 @@ public class InventoryUIController : MonoBehaviour
     // Outputs: PlayerInventory reference, or null if none exists.
     private PlayerInventory FindPlayerInventory()
     {
-        if (GameHandler.gh != null && GameHandler.gh.PlayerInventory != null)
-            return GameHandler.gh.PlayerInventory;
+        if (GameHandler.gh != null)
+        {
+            PlayerInventory ghInv = GameHandler.gh.PlayerInventory;
+            if (ghInv != null)
+                return ghInv;
+        }
         return FindFirstObjectByType<PlayerInventory>();
     }
     
@@ -72,10 +88,14 @@ public class InventoryUIController : MonoBehaviour
         {
             Image icon = slotIcons[i];
             if (icon == null)
+
                 continue;
     
             if (items != null && i < items.Count && items[i] != null && items[i].sprite != null)
             {
+                // Icon lives on a child GameObject that is inactive in the slot prefab until we
+                // assign an item; Image.enabled alone does not render if the GameObject is off.
+                icon.gameObject.SetActive(true);
                 icon.enabled = true;
                 icon.sprite = items[i].sprite;
                 icon.preserveAspect = true;
@@ -84,6 +104,7 @@ public class InventoryUIController : MonoBehaviour
             {
                 icon.sprite = null;
                 icon.enabled = false;
+                icon.gameObject.SetActive(false);
             }
         }
     }
