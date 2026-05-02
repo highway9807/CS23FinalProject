@@ -99,6 +99,8 @@ public class InventoryUIController : MonoBehaviour
                 icon.enabled = true;
                 icon.sprite = items[i].sprite;
                 icon.preserveAspect = true;
+                // Graphic.color multiplies the sprite; keep white so item art is not tinted dark.
+                icon.color = Color.white;
             }
             else
             {
@@ -164,8 +166,18 @@ public class InventoryUIController : MonoBehaviour
             cb.normalColor = normalSlotColor;
             cb.highlightedColor = hoverSlotColor;
             cb.pressedColor = pressedSlotColor;
-            cb.selectedColor = normalSlotColor;
+            cb.selectedColor = selectedSlotColor;
+            cb.colorMultiplier = 1f;
+            cb.fadeDuration = 0.1f;
             slotButtons[i].colors = cb;
+
+            // ColorTint multiplies into the slot frame Image; start from white RGB so the
+            // button's ColorBlock is the only tint (preserves original alpha on the frame).
+            if (slotButtons[i].targetGraphic != null)
+            {
+                Color c = slotButtons[i].targetGraphic.color;
+                slotButtons[i].targetGraphic.color = new Color(1f, 1f, 1f, c.a);
+            }
         }
     }
 }
