@@ -62,14 +62,14 @@ public class GameHandler : MonoBehaviour
     [Header("Stars")]
     public int star1, star2, star3;
     private List<List<int>> starPoints = new List<List<int>> {
-        new List<int> {300, 200, 100},
-        new List<int> {300, 200, 100},
-        new List<int> {500, 300, 100},
-        new List<int> {700, 400, 100},
-        new List<int> {800, 400, 100},
-        new List<int> {1000, 500, 100},
-        new List<int> {1000, 500, 100},
-        new List<int> {1000, 500, 100}
+        new List<int> {100, 100, 100},
+        new List<int> {100, 100, 100},
+        new List<int> {100, 200, 300},
+        new List<int> {100, 200, 300},
+        new List<int> {100, 200, 400},
+        new List<int> {100, 300, 500},
+        new List<int> {100, 300, 500},
+        new List<int> {100, 300, 500}
     };
 
     /// Inventory API for UI and gameplay systems.
