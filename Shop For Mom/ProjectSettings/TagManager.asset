@@ -14,6 +14,8 @@ TagManager:
   - LittleSister
   - Checkout
   - Inventory
+  - Row
+  - Panel
   layers:
   - Default
   - TransparentFX
