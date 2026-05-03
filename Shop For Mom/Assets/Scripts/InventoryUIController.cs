@@ -21,6 +21,8 @@ public class InventoryUIController : MonoBehaviour
 
     [Header("Item Removal")]
     public GameObject pickupPrefab;
+    [SerializeField] private Vector3 tossOriginOffset = Vector3.zero;
+    [SerializeField] private float tossImpulse = 0.5f;
 
     private void BindSlotRemoveListeners()
     {
@@ -64,33 +66,42 @@ public class InventoryUIController : MonoBehaviour
         TossItem(item);
     }
 
-    void TossItem(ItemDefinition item) {
+    void TossItem(ItemDefinition item)
+    {
         if (item == null || pickupPrefab == null)
             return;
-        // Create the object, it needs to be shrunk
-        GameObject newObj = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        Vector3 spawn = player.position + tossOriginOffset;
+
+        GameObject newObj = Instantiate(pickupPrefab, spawn, Quaternion.identity);
         newObj.transform.localScale = Vector3.one * 0.25f;
-        // Set the sprite and data to be the ones in the definition given
         ItemIdentity id = newObj.GetComponent<ItemIdentity>();
-        if (id != null) {
+        if (id != null)
             id.itemType = item;
-        }
         SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
-        if (sr != null) sr.sprite = item.sprite;
+        if (sr != null)
+            sr.sprite = item.sprite;
 
-
-        // Actually toss the object
-        
         Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
-        if (rb != null) {
-            // Pick a random direction
-            Vector2 randDir = Random.insideUnitCircle.normalized;
-            // Apply the force so it slides away
-            rb.AddForce(randDir * 0.5f, ForceMode2D.Impulse);
-           
-            // Add "Linear Drag" in the Inspector (around 5) so the item
-            // eventually slides to a stop instead of sliding forever!
+        if (rb == null)
+            return;
+
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = spawn.z;
+        Vector2 dir = (Vector2)(mouseWorld - spawn);
+        if (dir.sqrMagnitude < 0.01f)
+        {
+            dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (dir.sqrMagnitude < 0.01f)
+                dir = Vector2.down;
+            else
+                dir.Normalize();
         }
+        else
+            dir.Normalize();
+
+        rb.AddForce(dir * tossImpulse, ForceMode2D.Impulse);
     }
 
     // Name: OnEnable
