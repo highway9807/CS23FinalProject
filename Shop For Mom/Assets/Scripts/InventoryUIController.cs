@@ -16,6 +16,7 @@ public class InventoryUIController : MonoBehaviour
     [SerializeField] private Color selectedSlotColor = Color.yellow;
     [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private float flashSecs = 0.2f;
+    [SerializeField] private Color listItemSlotHighlight = new Color(0.45f, 0.85f, 0.5f, 1f);
     private PlayerInventory playerInventory;
     private Coroutine flashing;
 
@@ -194,6 +195,21 @@ public class InventoryUIController : MonoBehaviour
                 icon.gameObject.SetActive(false);
             }
         }
+
+        ApplyShoppingListSlotHighlights(items);
+    }
+
+    void ApplyShoppingListSlotHighlights(List<ItemDefinition> items)
+    {
+        ShoppingList list = FindFirstObjectByType<ShoppingList>();
+        for (int i = 0; i < slotButtons.Count; i++)
+        {
+            if (slotButtons[i] == null) continue;
+            bool onList = list != null && items != null && i < items.Count && items[i] != null && list.IsOnList(items[i]);
+            ColorBlock cb = slotButtons[i].colors;
+            cb.normalColor = onList ? listItemSlotHighlight : normalSlotColor;
+            slotButtons[i].colors = cb;
+        }
     }
     
     // Name: PlayFullInventoryFeedback
@@ -215,7 +231,8 @@ public class InventoryUIController : MonoBehaviour
     {
         SetAllSlotFrameColors(flashColor);
         yield return new WaitForSeconds(flashSecs);
-        SetAllSlotFrameColors(normalSlotColor);
+        List<ItemDefinition> items = playerInventory != null ? playerInventory.GetItemSlots() : null;
+        ApplyShoppingListSlotHighlights(items);
         flashing = null;
     }
 

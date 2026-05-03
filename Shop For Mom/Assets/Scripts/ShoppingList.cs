@@ -7,6 +7,14 @@ public class ShoppingList : MonoBehaviour
     [Header("Items required")]
     public ItemDefinition[] shopping_list;
 
+    public bool IsOnList(ItemDefinition item)
+    {
+        if (item == null || shopping_list == null) return false;
+        for (int i = 0; i < shopping_list.Length; i++)
+            if (shopping_list[i] == item) return true;
+        return false;
+    }
+
     [Header("UI References")]
     public GameObject panel;
     public Transform itemContainer;
