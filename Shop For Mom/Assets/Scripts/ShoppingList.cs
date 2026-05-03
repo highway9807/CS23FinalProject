@@ -10,11 +10,19 @@ public class ShoppingList : MonoBehaviour
     public ItemDefinition[] shopping_list;
 
     [Header("UI References")]
-    public GameObject panel;
+    public GameObject panel;//loajsbefoabe
     public Transform itemContainer;
     public GameObject rowPrefab;
     public float rowHeight = 30f;
     public float verticalOffset = 20f;
+
+    public bool IsOnList(ItemDefinition item)
+    {
+        if (item == null || shopping_list == null) return false;
+        for (int i = 0; i < shopping_list.Length; i++)
+            if (shopping_list[i] == item) return true;
+        return false;
+    }
 
     private bool isSettingUp = false;
 
