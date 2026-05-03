@@ -19,7 +19,79 @@ public class InventoryUIController : MonoBehaviour
     private PlayerInventory playerInventory;
     private Coroutine flashing;
 
-    private bool debugFlag = true;
+    [Header("Item Removal")]
+    public GameObject pickupPrefab;
+
+    private void BindSlotRemoveListeners()
+    {
+        for (int i = 0; i < slotButtons.Count; i++)
+        {
+            if (slotButtons[i] == null)
+                continue;
+            int slotIndex = i;
+            slotButtons[i].onClick.RemoveAllListeners();
+            slotButtons[i].onClick.AddListener(() => OnSlotRemoveClicked(slotIndex));
+        }
+    }
+
+    private void UnbindSlotRemoveListeners()
+    {
+        for (int i = 0; i < slotButtons.Count; i++)
+        {
+            if (slotButtons[i] == null)
+                continue;
+            slotButtons[i].onClick.RemoveAllListeners();
+        }
+    }
+
+    private void OnSlotRemoveClicked(int slotIndex)
+    {
+        PlayerInventory inv = playerInventory != null ? playerInventory : FindPlayerInventory();
+        if (inv == null)
+            return;
+
+        List<ItemDefinition> slots = inv.GetItemSlots();
+        if (slotIndex < 0 || slotIndex >= slots.Count)
+            return;
+
+        ItemDefinition item = slots[slotIndex];
+        if (item == null)
+            return;
+
+        if (!inv.TryRemoveAt(slotIndex))
+            return;
+
+        TossItem(item);
+    }
+
+    void TossItem(ItemDefinition item) {
+        if (item == null || pickupPrefab == null)
+            return;
+        // Create the object, it needs to be shrunk
+        GameObject newObj = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+        newObj.transform.localScale = Vector3.one * 0.25f;
+        // Set the sprite and data to be the ones in the definition given
+        ItemIdentity id = newObj.GetComponent<ItemIdentity>();
+        if (id != null) {
+            id.itemType = item;
+        }
+        SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
+        if (sr != null) sr.sprite = item.sprite;
+
+
+        // Actually toss the object
+        
+        Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
+        if (rb != null) {
+            // Pick a random direction
+            Vector2 randDir = Random.insideUnitCircle.normalized;
+            // Apply the force so it slides away
+            rb.AddForce(randDir * 0.5f, ForceMode2D.Impulse);
+           
+            // Add "Linear Drag" in the Inspector (around 5) so the item
+            // eventually slides to a stop instead of sliding forever!
+        }
+    }
 
     // Name: OnEnable
     // Purpose: Bind to the active PlayerInventory whenever this UI is enabled.
@@ -40,11 +112,13 @@ public class InventoryUIController : MonoBehaviour
         if (playerInventory != null)
             playerInventory.Changed += RefreshInventory;
         SetupButtonColors();
+        BindSlotRemoveListeners();
         RefreshInventory();
     }
 
     private void OnDisable()
     {
+        UnbindSlotRemoveListeners();
         if (playerInventory != null)
             playerInventory.Changed -= RefreshInventory;
     }

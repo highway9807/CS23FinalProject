@@ -191,6 +191,7 @@ MonoBehaviour:
   selectedSlotColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashSecs: 0.2
+  pickupPrefab: {fileID: 5970560953156064600, guid: aa172275f21d349c78c939ed32ecdd02, type: 3}
 --- !u!1 &9121118794669125775
 GameObject:
   m_ObjectHideFlags: 0
