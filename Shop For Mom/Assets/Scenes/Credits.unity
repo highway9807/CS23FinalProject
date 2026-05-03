@@ -570,8 +570,12 @@ MonoBehaviour:
   totalScoreText: {fileID: 0}
   messageText: {fileID: 0}
   starsText: {fileID: 0}
-  correctPoints: 100
-  incorrectPoints: 50
+  correctText: {fileID: 0}
+  missingText: {fileID: 0}
+  incorrectText: {fileID: 0}
+  correctScoreText: {fileID: 0}
+  incorrectScoreText: {fileID: 0}
+  missingScoreText: {fileID: 0}
   gameHandler: {fileID: 0}
   shoppingList: {fileID: 0}
 --- !u!4 &1303256911
@@ -801,11 +805,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4107236179656227834, guid: d7bd35f4627b547728205fc76df8326f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 17
+      value: -447
       objectReference: {fileID: 0}
     - target: {fileID: 4107236179656227834, guid: d7bd35f4627b547728205fc76df8326f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -305
+      value: 286
       objectReference: {fileID: 0}
     - target: {fileID: 4107236179656227834, guid: d7bd35f4627b547728205fc76df8326f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
