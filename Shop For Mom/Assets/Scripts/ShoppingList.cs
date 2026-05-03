@@ -30,8 +30,10 @@ public class ShoppingList : MonoBehaviour
 
     void Start()
     {
-        if (FindObjectOfType<ShoppingList>() != this && FindObjectOfType<ShoppingList>() != null)
+        ShoppingList existing = FindObjectOfType<ShoppingList>();
+        if (existing != null && existing != this)
         {
+            existing.shopping_list = this.shopping_list; // copy new scene's list to persistent instance
             Destroy(gameObject);
             return;
         }
