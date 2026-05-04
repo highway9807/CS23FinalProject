@@ -877,6 +877,18 @@ PrefabInstance:
       propertyPath: itemContainer
       value: 
       objectReference: {fileID: 314572911}
+    - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
+      propertyPath: shopping_list.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
+      propertyPath: 'shopping_list.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: aaae1ac6874c54dd8ada363d0df8852f, type: 2}
+    - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
+      propertyPath: 'shopping_list.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b3cfdb1371734a859a10cc6c92ee5d4, type: 2}
     - target: {fileID: 7316292325409811520, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.59937
