@@ -56,7 +56,7 @@ public class GameHandler : MonoBehaviour
     public AudioSource chillMusic;
 
     [Header("Level Management")]
-    [SerializeField] private List<string> levelSceneNames = new List<string> {"Level0", "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "Level1_OLD"}; // List of scenes in order
+    [SerializeField] private List<string> levelSceneNames = new List<string> {"Level0", "Level1", "Level2", "Level3", "Level4", "Level5", "Level6"}; // List of scenes in order
     private int currentLevelIndex = 0; // The current scene we are on
 
     [Header("Stars")]
