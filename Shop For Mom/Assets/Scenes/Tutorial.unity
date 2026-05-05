@@ -1329,7 +1329,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978195866}
   m_CullTransparentMesh: 1
---- !u!1 &1030772332
+--- !u!1 &1171356068
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1337,24 +1337,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1030772336}
-  - component: {fileID: 1030772335}
-  - component: {fileID: 1030772334}
-  - component: {fileID: 1030772333}
+  - component: {fileID: 1171356072}
+  - component: {fileID: 1171356071}
+  - component: {fileID: 1171356070}
+  - component: {fileID: 1171356069}
   m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
+  m_Name: Main Camera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1030772333
+--- !u!114 &1171356069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030772332}
+  m_GameObject: {fileID: 1171356068}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
@@ -1392,21 +1392,21 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1030772334
+--- !u!81 &1171356070
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030772332}
+  m_GameObject: {fileID: 1171356068}
   m_Enabled: 1
---- !u!20 &1030772335
+--- !u!20 &1171356071
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030772332}
+  m_GameObject: {fileID: 1171356068}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -1435,8 +1435,8 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.086602546
-  m_Depth: 0
+  orthographic size: 5
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1451,13 +1451,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &1030772336
+--- !u!4 &1171356072
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030772332}
+  m_GameObject: {fileID: 1171356068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
@@ -2193,10 +2193,10 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1030772336}
   - {fileID: 66150830}
   - {fileID: 869366662}
   - {fileID: 690105757}
   - {fileID: 1376630213}
   - {fileID: 771247762}
   - {fileID: 697615785}
+  - {fileID: 1171356072}
