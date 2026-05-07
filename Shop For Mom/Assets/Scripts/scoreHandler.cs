@@ -16,6 +16,8 @@ public class ScoreHandler : MonoBehaviour
     public TMP_Text incorrectScoreText;
     public TMP_Text missingScoreText;
     public TMP_Text totalScoreText;
+    public TMP_Text penaltiesText;
+    public TMP_Text penaltiesScoreText;
 
 
     // Settings
@@ -47,10 +49,13 @@ public class ScoreHandler : MonoBehaviour
         // Calculate the total score
         calculateScore();
 
+        int penalties = GameHandler.gh.GetComponent<GameHandler>().peopleHit;
+
         // Display the updated score
         int totalScore = correctCount*correctPoints
             - incorrectCount*incorrectPoints
-            - missingCount*missingPoints;
+            - missingCount*missingPoints
+            - penalties*50;
         
         // Update the text displays
         UpdateText(correctText, $"Correct items: {correctCount}");
@@ -59,6 +64,8 @@ public class ScoreHandler : MonoBehaviour
         UpdateText(correctScoreText, $"+{correctCount * correctPoints}");
         UpdateText(incorrectScoreText, $"-{incorrectCount * incorrectPoints}");
         UpdateText(missingScoreText, $"-{missingCount * missingPoints}");
+        UpdateText(penaltiesText, $"People hit: {penalties}");
+        UpdateText(penaltiesScoreText, $"-{penalties * 50}");
         UpdateText(scoreText, $"{totalScore}");
         
         if (totalScore >= GameHandler.gh.star3) {

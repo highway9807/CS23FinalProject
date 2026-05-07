@@ -90,6 +90,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public bool wasKickedOut = false;
+    public int peopleHit = 0;
 
     
 
