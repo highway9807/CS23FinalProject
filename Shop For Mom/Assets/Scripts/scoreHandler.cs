@@ -75,7 +75,7 @@ public class ScoreHandler : MonoBehaviour
         }
         else {
             UpdateText(starsText, "0 Stars!");
-            UpdateText(messageText, "You lose! Try again.");
+            UpdateText(messageText, "I suggest you run away from home and never look back.");
         }
 
         

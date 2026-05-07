@@ -52,6 +52,7 @@ public class Employee : MonoBehaviour
                 // Check distance
                 float dist = Vector3.Distance(transform.position, littleSister.transform.position);
                 if (dist < 0.5f) {
+                    GameHandler.gh.GetComponent<GameHandler>().clearPlayerInventory();
                     GameHandler.gh.LoadScoreScene();
                 }
             }

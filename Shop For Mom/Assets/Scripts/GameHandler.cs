@@ -64,12 +64,12 @@ public class GameHandler : MonoBehaviour
     private List<List<int>> starPoints = new List<List<int>> {
         new List<int> {0, 50, 100},
         new List<int> {0, 50, 100},
-        new List<int> {100, 150, 200},
-        new List<int> {100, 200, 300},
-        new List<int> {100, 200, 400},
-        new List<int> {100, 300, 500},
-        new List<int> {100, 300, 600},
-        new List<int> {100, 350, 700}
+        new List<int> {0, 100, 200},
+        new List<int> {0, 150, 300},
+        new List<int> {0, 200, 400},
+        new List<int> {0, 250, 500},
+        new List<int> {0, 300, 600},
+        new List<int> {0, 350, 700}
     };
 
 
@@ -358,6 +358,10 @@ public class GameHandler : MonoBehaviour
             // Send to the main menu when there are no more scenes
             LoadMainMenuScene();
         }
+    }
+
+    public void clearPlayerInventory() {
+        playerInv.ClearAll();
     }
 
 
