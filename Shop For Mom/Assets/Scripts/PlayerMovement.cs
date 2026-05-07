@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController_TopDown : MonoBehaviour {
 
@@ -100,7 +102,24 @@ public class PlayerController_TopDown : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Person")) {
-            GameHandler.gh.GetComponent<GameHandler>().peopleHit++;
+            
+            GameHandler.gh.peopleHit++;
+            StartCoroutine(showOuchArt(collision));
+            Debug.Log("Hit person");
+        }
+    }
+
+    IEnumerator showOuchArt(Collider2D personCollider) {
+        GameObject ouchArt = personCollider.transform.Find("ouch_ART")?.gameObject;
+
+        if (ouchArt != null) {
+            Debug.Log("Showing ouch art");
+            ouchArt.SetActive(true);
+
+            yield return new WaitForSeconds(1f);
+
+            ouchArt.SetActive(false);
+            Debug.Log("Hiding ouch art");
         }
     }
 }
