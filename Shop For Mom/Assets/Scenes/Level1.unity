@@ -253,7 +253,7 @@ PrefabInstance:
     - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
       propertyPath: itemContainer
       value: 
-      objectReference: {fileID: 1155780242207644205, guid: 3fe7995dbee7b429491b3cb7d6dcf7d8, type: 3}
+      objectReference: {fileID: 5097111711708703342}
     - target: {fileID: 5936445354603648498, guid: 23472ad27c1594f58be203fea81f7cee, type: 3}
       propertyPath: shopping_list.Array.size
       value: 1
@@ -13659,6 +13659,11 @@ PrefabInstance:
 --- !u!1 &5097111711708703341 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7512074332495395034, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+  m_PrefabInstance: {fileID: 5097111711708703340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5097111711708703342 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2707354255689751433, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
   m_PrefabInstance: {fileID: 5097111711708703340}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

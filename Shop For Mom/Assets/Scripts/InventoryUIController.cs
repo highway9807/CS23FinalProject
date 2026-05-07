@@ -16,10 +16,94 @@ public class InventoryUIController : MonoBehaviour
     [SerializeField] private Color selectedSlotColor = Color.yellow;
     [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private float flashSecs = 0.2f;
+    [SerializeField] private Color listItemSlotHighlight = new Color(0.45f, 0.85f, 0.5f, 1f);
     private PlayerInventory playerInventory;
     private Coroutine flashing;
 
-    private bool debugFlag = true;
+    [Header("Item Removal")]
+    public GameObject pickupPrefab;
+    [SerializeField] private Vector3 tossOriginOffset = Vector3.zero;
+    [SerializeField] private float tossImpulse = 0.5f;
+
+    private void BindSlotRemoveListeners()
+    {
+        for (int i = 0; i < slotButtons.Count; i++)
+        {
+            if (slotButtons[i] == null)
+                continue;
+            int slotIndex = i;
+            slotButtons[i].onClick.RemoveAllListeners();
+            slotButtons[i].onClick.AddListener(() => OnSlotRemoveClicked(slotIndex));
+        }
+    }
+
+    private void UnbindSlotRemoveListeners()
+    {
+        for (int i = 0; i < slotButtons.Count; i++)
+        {
+            if (slotButtons[i] == null)
+                continue;
+            slotButtons[i].onClick.RemoveAllListeners();
+        }
+    }
+
+    private void OnSlotRemoveClicked(int slotIndex)
+    {
+        PlayerInventory inv = playerInventory != null ? playerInventory : FindPlayerInventory();
+        if (inv == null)
+            return;
+
+        List<ItemDefinition> slots = inv.GetItemSlots();
+        if (slotIndex < 0 || slotIndex >= slots.Count)
+            return;
+
+        ItemDefinition item = slots[slotIndex];
+        if (item == null)
+            return;
+
+        if (!inv.TryRemoveAt(slotIndex))
+            return;
+
+        TossItem(item);
+    }
+
+    void TossItem(ItemDefinition item)
+    {
+        if (item == null || pickupPrefab == null)
+            return;
+
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        Vector3 spawn = player.position + tossOriginOffset;
+
+        GameObject newObj = Instantiate(pickupPrefab, spawn, Quaternion.identity);
+        newObj.transform.localScale = Vector3.one * 0.25f;
+        ItemIdentity id = newObj.GetComponent<ItemIdentity>();
+        if (id != null)
+            id.itemType = item;
+        SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.sprite = item.sprite;
+
+        Rigidbody2D rb = newObj.GetComponent<Rigidbody2D>();
+        if (rb == null)
+            return;
+
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = spawn.z;
+        Vector2 dir = (Vector2)(mouseWorld - spawn);
+        if (dir.sqrMagnitude < 0.01f)
+        {
+            dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (dir.sqrMagnitude < 0.01f)
+                dir = Vector2.down;
+            else
+                dir.Normalize();
+        }
+        else
+            dir.Normalize();
+
+        rb.AddForce(dir * tossImpulse, ForceMode2D.Impulse);
+    }
 
     // Name: OnEnable
     // Purpose: Bind to the active PlayerInventory whenever this UI is enabled.
@@ -40,11 +124,13 @@ public class InventoryUIController : MonoBehaviour
         if (playerInventory != null)
             playerInventory.Changed += RefreshInventory;
         SetupButtonColors();
+        BindSlotRemoveListeners();
         RefreshInventory();
     }
 
     private void OnDisable()
     {
+        UnbindSlotRemoveListeners();
         if (playerInventory != null)
             playerInventory.Changed -= RefreshInventory;
     }
@@ -109,6 +195,21 @@ public class InventoryUIController : MonoBehaviour
                 icon.gameObject.SetActive(false);
             }
         }
+
+        ApplyShoppingListSlotHighlights(items);
+    }
+
+    void ApplyShoppingListSlotHighlights(List<ItemDefinition> items)
+    {
+        ShoppingList list = FindFirstObjectByType<ShoppingList>();
+        for (int i = 0; i < slotButtons.Count; i++)
+        {
+            if (slotButtons[i] == null) continue;
+            bool onList = list != null && items != null && i < items.Count && items[i] != null && list.IsOnList(items[i]);
+            ColorBlock cb = slotButtons[i].colors;
+            cb.normalColor = onList ? listItemSlotHighlight : normalSlotColor;
+            slotButtons[i].colors = cb;
+        }
     }
     
     // Name: PlayFullInventoryFeedback
@@ -130,7 +231,8 @@ public class InventoryUIController : MonoBehaviour
     {
         SetAllSlotFrameColors(flashColor);
         yield return new WaitForSeconds(flashSecs);
-        SetAllSlotFrameColors(normalSlotColor);
+        List<ItemDefinition> items = playerInventory != null ? playerInventory.GetItemSlots() : null;
+        ApplyShoppingListSlotHighlights(items);
         flashing = null;
     }
 
