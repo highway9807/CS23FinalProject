@@ -53,6 +53,7 @@ public class Employee : MonoBehaviour
                 float dist = Vector3.Distance(transform.position, littleSister.transform.position);
                 if (dist < 0.5f) {
                     GameHandler.gh.GetComponent<GameHandler>().clearPlayerInventory();
+                    GameHandler.gh.GetComponent<GameHandler>().wasKickedOut = true;
                     GameHandler.gh.LoadScoreScene();
                 }
             }

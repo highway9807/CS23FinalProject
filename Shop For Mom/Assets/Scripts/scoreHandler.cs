@@ -78,6 +78,10 @@ public class ScoreHandler : MonoBehaviour
             UpdateText(messageText, "I suggest you run away from home and never look back.");
         }
 
+        if (gameHandler.GetComponent<GameHandler>().wasKickedOut) {
+            UpdateText(messageText, "Your sister was caught by an employee and you were kicked out of the store!");
+        }
+
         
         gameHandler.GetComponent<GameHandler>().setLevelScore(totalScore);
         int currScore = gameHandler.GetComponent<GameHandler>().getTotalScore();

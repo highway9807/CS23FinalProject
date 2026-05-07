@@ -10,7 +10,6 @@ public class GameHandler : MonoBehaviour
 {
     public static GameHandler gh;
 
-
     [Header("Game State")]
     // TODO: add player gameObject (pirvate, serialize)
     // TODO: add any TextMP objects (private, serialize)
@@ -74,6 +73,7 @@ public class GameHandler : MonoBehaviour
 
 
     [Header("Scoring")]
+
     public int cumulativeScore = 0;
     private List<int> levelScores = new List<int> {0, 0, 0, 0, 0, 0, 0};
 
@@ -88,6 +88,8 @@ public class GameHandler : MonoBehaviour
     public void setLevelScore(int newScore) {
         levelScores[currentLevelIndex] = newScore;
     }
+
+    public bool wasKickedOut = false;
 
     
 
