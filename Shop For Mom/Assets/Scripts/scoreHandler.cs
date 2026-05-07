@@ -5,7 +5,7 @@ using System.Collections.Generic; // I used this for Lists
 public class ScoreHandler : MonoBehaviour
 {
     // Score texts
-    public TMP_Text totalScoreText;
+    public TMP_Text scoreText;
     public TMP_Text messageText;
     public TMP_Text starsText;
     public TMP_Text correctText;
@@ -14,6 +14,7 @@ public class ScoreHandler : MonoBehaviour
     public TMP_Text correctScoreText;
     public TMP_Text incorrectScoreText;
     public TMP_Text missingScoreText;
+    public TMP_Text totalScoreText;
 
 
     // Settings
@@ -49,6 +50,9 @@ public class ScoreHandler : MonoBehaviour
         int totalScore = correctCount*correctPoints
             - incorrectCount*incorrectPoints
             - missingCount*missingPoints;
+
+        int prevScore = gameHandler.GetComponent<GameHandler>().cumulativeScore;
+        UpdateText(totalScoreText, $"Total Score: {prevScore}");
         
         // Update the text displays
         UpdateText(correctText, $"Correct items: {correctCount}");
@@ -57,7 +61,7 @@ public class ScoreHandler : MonoBehaviour
         UpdateText(correctScoreText, $"+{correctCount * correctPoints}");
         UpdateText(incorrectScoreText, $"-{incorrectCount * incorrectPoints}");
         UpdateText(missingScoreText, $"-{missingCount * missingPoints}");
-        UpdateText(totalScoreText, $"{totalScore}");
+        UpdateText(scoreText, $"{totalScore}");
         
         if (totalScore >= GameHandler.gh.star3) {
             UpdateText(starsText, "3 Stars!");
@@ -75,6 +79,8 @@ public class ScoreHandler : MonoBehaviour
             UpdateText(starsText, "0 Stars!");
             UpdateText(messageText, "You lose! Try again.");
         }
+
+        addTotalScore(prevScore, totalScore);
     }
 
     public void calculateScore() {
@@ -107,6 +113,12 @@ public class ScoreHandler : MonoBehaviour
             // Case 3: the item is here and should not be
             incorrectCount += inventory.GetItemSlots().Count;
         }
+    }
+
+    private void addTotalScore(int prevScore, int currScore) {
+        Debug.Log("Old score: " + gameHandler.GetComponent<GameHandler>().cumulativeScore);
+        gameHandler.GetComponent<GameHandler>().cumulativeScore += currScore;
+        Debug.Log("New score: " + gameHandler.GetComponent<GameHandler>().cumulativeScore);
     }
 
     private void UpdateText(TMP_Text textObject, string message)
