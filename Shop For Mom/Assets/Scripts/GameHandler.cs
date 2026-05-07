@@ -75,6 +75,21 @@ public class GameHandler : MonoBehaviour
 
     [Header("Scoring")]
     public int cumulativeScore = 0;
+    private List<int> levelScores = new List<int> {0, 0, 0, 0, 0, 0, 0};
+
+    public int getTotalScore() {
+        int totalScore = 0;
+        foreach (int score in levelScores) {
+            totalScore += score;
+        }
+        return totalScore;
+    }
+
+    public void setLevelScore(int newScore) {
+        levelScores[currentLevelIndex] = newScore;
+    }
+
+    
 
     /// Inventory API for UI and gameplay systems.
     public PlayerInventory PlayerInventory => playerInv;

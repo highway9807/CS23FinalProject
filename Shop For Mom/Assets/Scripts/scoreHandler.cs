@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic; // I used this for Lists
+using System.Collections;
+using System.Collections.Generic;
 
 public class ScoreHandler : MonoBehaviour
 {
@@ -50,9 +51,6 @@ public class ScoreHandler : MonoBehaviour
         int totalScore = correctCount*correctPoints
             - incorrectCount*incorrectPoints
             - missingCount*missingPoints;
-
-        int prevScore = gameHandler.GetComponent<GameHandler>().cumulativeScore;
-        UpdateText(totalScoreText, $"Total Score: {prevScore}");
         
         // Update the text displays
         UpdateText(correctText, $"Correct items: {correctCount}");
@@ -80,12 +78,15 @@ public class ScoreHandler : MonoBehaviour
             UpdateText(messageText, "You lose! Try again.");
         }
 
-        addTotalScore(prevScore, totalScore);
+        
+        gameHandler.GetComponent<GameHandler>().setLevelScore(totalScore);
+        int currScore = gameHandler.GetComponent<GameHandler>().getTotalScore();
+        UpdateText(totalScoreText, $"Total Score: {currScore}");;
     }
 
     public void calculateScore() {
-        Debug.Log("Calculating score!");
-        Debug.Log($"shoppingList={shoppingList}, shopping_list={shoppingList?.shopping_list}");
+        // Debug.Log("Calculating score!");
+        // Debug.Log($"shoppingList={shoppingList}, shopping_list={shoppingList?.shopping_list}");
         correctCount = 0;
         incorrectCount = 0;
         missingCount = 0;
@@ -113,12 +114,6 @@ public class ScoreHandler : MonoBehaviour
             // Case 3: the item is here and should not be
             incorrectCount += inventory.GetItemSlots().Count;
         }
-    }
-
-    private void addTotalScore(int prevScore, int currScore) {
-        Debug.Log("Old score: " + gameHandler.GetComponent<GameHandler>().cumulativeScore);
-        gameHandler.GetComponent<GameHandler>().cumulativeScore += currScore;
-        Debug.Log("New score: " + gameHandler.GetComponent<GameHandler>().cumulativeScore);
     }
 
     private void UpdateText(TMP_Text textObject, string message)
