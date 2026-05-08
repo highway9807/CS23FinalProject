@@ -406,9 +406,6 @@ public class CartSister : MonoBehaviour
         }
     }
 
-
-
-
    
 }
    

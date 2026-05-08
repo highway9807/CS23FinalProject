@@ -10,7 +10,6 @@ public class GameHandler : MonoBehaviour
 {
     public static GameHandler gh;
 
-
     [Header("Game State")]
     // TODO: add player gameObject (pirvate, serialize)
     // TODO: add any TextMP objects (private, serialize)
@@ -62,15 +61,38 @@ public class GameHandler : MonoBehaviour
     [Header("Stars")]
     public int star1, star2, star3;
     private List<List<int>> starPoints = new List<List<int>> {
-        new List<int> {100, 100, 100},
-        new List<int> {100, 100, 100},
-        new List<int> {100, 200, 300},
-        new List<int> {100, 200, 300},
-        new List<int> {100, 200, 400},
-        new List<int> {100, 300, 500},
-        new List<int> {100, 300, 500},
-        new List<int> {100, 300, 500}
+        new List<int> {0, 50, 100},
+        new List<int> {0, 50, 100},
+        new List<int> {0, 100, 200},
+        new List<int> {0, 150, 300},
+        new List<int> {0, 200, 400},
+        new List<int> {0, 250, 500},
+        new List<int> {0, 300, 600},
+        new List<int> {0, 350, 700}
     };
+
+
+    [Header("Scoring")]
+
+    public int cumulativeScore = 0;
+    private List<int> levelScores = new List<int> {0, 0, 0, 0, 0, 0, 0};
+
+    public int getTotalScore() {
+        int totalScore = 0;
+        foreach (int score in levelScores) {
+            totalScore += score;
+        }
+        return totalScore;
+    }
+
+    public void setLevelScore(int newScore) {
+        levelScores[currentLevelIndex] = newScore;
+    }
+
+    public bool wasKickedOut = false;
+    public int peopleHit = 0;
+
+    
 
     /// Inventory API for UI and gameplay systems.
     public PlayerInventory PlayerInventory => playerInv;
@@ -339,6 +361,10 @@ public class GameHandler : MonoBehaviour
             // Send to the main menu when there are no more scenes
             LoadMainMenuScene();
         }
+    }
+
+    public void clearPlayerInventory() {
+        playerInv.ClearAll();
     }
 
 

@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic; // I used this for Lists
+using System.Collections;
+using System.Collections.Generic;
 
 public class ScoreHandler : MonoBehaviour
 {
     // Score texts
-    public TMP_Text totalScoreText;
+    public TMP_Text scoreText;
     public TMP_Text messageText;
     public TMP_Text starsText;
     public TMP_Text correctText;
@@ -14,6 +15,9 @@ public class ScoreHandler : MonoBehaviour
     public TMP_Text correctScoreText;
     public TMP_Text incorrectScoreText;
     public TMP_Text missingScoreText;
+    public TMP_Text totalScoreText;
+    public TMP_Text penaltiesText;
+    public TMP_Text penaltiesScoreText;
 
 
     // Settings
@@ -45,10 +49,13 @@ public class ScoreHandler : MonoBehaviour
         // Calculate the total score
         calculateScore();
 
+        int penalties = GameHandler.gh.GetComponent<GameHandler>().peopleHit;
+
         // Display the updated score
         int totalScore = correctCount*correctPoints
             - incorrectCount*incorrectPoints
-            - missingCount*missingPoints;
+            - missingCount*missingPoints
+            - penalties*50;
         
         // Update the text displays
         UpdateText(correctText, $"Correct items: {correctCount}");
@@ -57,7 +64,9 @@ public class ScoreHandler : MonoBehaviour
         UpdateText(correctScoreText, $"+{correctCount * correctPoints}");
         UpdateText(incorrectScoreText, $"-{incorrectCount * incorrectPoints}");
         UpdateText(missingScoreText, $"-{missingCount * missingPoints}");
-        UpdateText(totalScoreText, $"{totalScore}");
+        UpdateText(penaltiesText, $"People hit: {penalties}");
+        UpdateText(penaltiesScoreText, $"-{penalties * 50}");
+        UpdateText(scoreText, $"{totalScore}");
         
         if (totalScore >= GameHandler.gh.star3) {
             UpdateText(starsText, "3 Stars!");
@@ -73,13 +82,22 @@ public class ScoreHandler : MonoBehaviour
         }
         else {
             UpdateText(starsText, "0 Stars!");
-            UpdateText(messageText, "You lose! Try again.");
+            UpdateText(messageText, "I suggest you run away from home and never look back.");
         }
+
+        if (gameHandler.GetComponent<GameHandler>().wasKickedOut) {
+            UpdateText(messageText, "Your sister was caught by an employee and you were kicked out of the store!");
+        }
+
+        
+        gameHandler.GetComponent<GameHandler>().setLevelScore(totalScore);
+        int currScore = gameHandler.GetComponent<GameHandler>().getTotalScore();
+        UpdateText(totalScoreText, $"Total Score: {currScore}");;
     }
 
     public void calculateScore() {
-        Debug.Log("Calculating score!");
-        Debug.Log($"shoppingList={shoppingList}, shopping_list={shoppingList?.shopping_list}");
+        // Debug.Log("Calculating score!");
+        // Debug.Log($"shoppingList={shoppingList}, shopping_list={shoppingList?.shopping_list}");
         correctCount = 0;
         incorrectCount = 0;
         missingCount = 0;
