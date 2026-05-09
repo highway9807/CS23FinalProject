@@ -11,6 +11,7 @@ public class GameTimer : MonoBehaviour
     // Timer display
     public TMP_Text timerText;
     public GameObject countdownArt;
+    [SerializeField] private PlayerController_TopDown playerMovement;
 
     private GameObject three;
     private GameObject two;
@@ -40,7 +41,8 @@ public class GameTimer : MonoBehaviour
     }
 
     IEnumerator StartCountdown()
-    {        
+    {
+        playerMovement.movementEnabled = false;
         // Three
         three.SetActive(true);
         yield return new WaitForSeconds(1f);
@@ -58,6 +60,7 @@ public class GameTimer : MonoBehaviour
 
         // Start the timer after the countdown ends
         timerStarted = true;
+        playerMovement.movementEnabled = true;
     }
 
 

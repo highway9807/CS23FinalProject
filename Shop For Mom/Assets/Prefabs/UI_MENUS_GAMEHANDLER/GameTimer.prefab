@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
   timeLeft: 20
   timerText: {fileID: 0}
+  playerMovement: {fileID: 0}

@@ -27363,6 +27363,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 260050899252827977, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 2044273130}
     - target: {fileID: 1322652834792499526, guid: 16e28a05ea3b94dcdad48d186aee0773, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -59025,6 +59029,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7990244213398356672, guid: e1b33629b188a495f8524c65d09a8b3a, type: 3}
   m_PrefabInstance: {fileID: 2044273127}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2044273130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2696681939597812772, guid: e1b33629b188a495f8524c65d09a8b3a, type: 3}
+  m_PrefabInstance: {fileID: 2044273127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d73c9feaf93491a99c3ddd1117a546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &2049033631
 GameObject:
   m_ObjectHideFlags: 0
