@@ -74,8 +74,7 @@ public class GameHandler : MonoBehaviour
 
     [Header("Scoring")]
 
-    public int cumulativeScore = 0;
-    private List<int> levelScores = new List<int> {0, 0, 0, 0, 0, 0, 0};
+    public List<int> levelScores = new List<int> {0, 0, 0, 0, 0, 0, 0};
 
     public int getTotalScore() {
         int totalScore = 0;
@@ -86,7 +85,9 @@ public class GameHandler : MonoBehaviour
     }
 
     public void setLevelScore(int newScore) {
-        levelScores[currentLevelIndex] = newScore;
+        if (newScore > levelScores[currentLevelIndex]) {
+            levelScores[currentLevelIndex] = newScore;
+        }
     }
 
     public bool wasKickedOut = false;
@@ -180,6 +181,7 @@ public class GameHandler : MonoBehaviour
         int index = levelSceneNames.IndexOf(scene.name);
         if (index != -1) {
             currentLevelIndex = index;
+            peopleHit = 0;
         }
         if (scene.name != "ScoreScene") {
             Debug.Log("Clearing inventory");
@@ -351,7 +353,7 @@ public class GameHandler : MonoBehaviour
     {
         currentLevelIndex++;
 
-        if (currentLevelIndex < levelSceneNames.Count) 
+        if (currentLevelIndex < levelSceneNames.Count)
         {
             PauseManager.ClearAllPauses();
             SceneManager.LoadScene(levelSceneNames[currentLevelIndex]);
@@ -359,8 +361,16 @@ public class GameHandler : MonoBehaviour
         else 
         {
             // Send to the main menu when there are no more scenes
-            LoadMainMenuScene();
+            LoadFinalScoreScene();
         }
+    }
+
+    public void LoadFinalScoreScene() {
+        PauseManager.ClearAllPauses();
+        SceneManager.LoadScene("FinalScoreScene");
+
+        playerInv.ClearAll();
+        currentLevelIndex = 0;
     }
 
     public void clearPlayerInventory() {
