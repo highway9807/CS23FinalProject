@@ -10,7 +10,13 @@ public class PlayerController_TopDown : MonoBehaviour {
 	private float movementBaseSpeed = 1f;
     public float acceleration = 5.0f; // How fast the player reaches max speed
     public float deacceleration = 3.0f; // How fast the player stops
-    public float maxSpeed = 10; 
+    public float maxSpeed = 10;
+    public bool movementEnabled = true;
+
+    [Header("Puddle glide")]
+    public float glideDuration = 1.25f;
+    public float minGlideSpeed = 1f;
+    public float maxGlideSpeed = 10f;
 
     [Header("Sprite Settings")]
     public Transform playerSpriteTransform;
@@ -22,6 +28,29 @@ public class PlayerController_TopDown : MonoBehaviour {
     // Local Variables
     Vector2 inputVector;
     Rigidbody2D playerRb2D;
+    float glideUntil;
+    Vector2 glideVel;
+
+    public void BeginGlide()
+    {
+        if (Time.time < glideUntil)
+            return;
+        Vector2 v = playerRb2D.linearVelocity;
+        float m = v.magnitude;
+        if (m < minGlideSpeed)
+        {
+            v = inputVector.normalized * movementSpeed;
+            m = v.magnitude;
+        }
+        if (m < 0.001f)
+        {
+            float sx = playerSpriteTransform.localScale.x;
+            v = new Vector2(sx >= 0f ? 1f : -1f, 0f) * minGlideSpeed;
+            m = minGlideSpeed;
+        }
+        glideVel = v.normalized * Mathf.Clamp(m, minGlideSpeed, maxGlideSpeed);
+        glideUntil = Time.time + glideDuration;
+    }
 
     void Awake() {
         playerRb2D = GetComponent<Rigidbody2D>();
@@ -41,32 +70,40 @@ public class PlayerController_TopDown : MonoBehaviour {
         inputVector.x = Input.GetAxisRaw("Horizontal");
         inputVector.y = Input.GetAxisRaw("Vertical");
 
+        bool gliding = Time.time < glideUntil;
+
         // Keep the sprite from rotating if the parent object ever does
         if (playerSpriteTransform != null) {
             playerSpriteTransform.rotation = Quaternion.identity;
         }
-        if (inputVector.x > 0) {
-            // Facing Right
-            playerSpriteTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        }
-        else if (inputVector.x < 0) {
-            // Facing Left
-            playerSpriteTransform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-        }
+        if (!gliding)
+        {
+            if (inputVector.x > 0) {
+                playerSpriteTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            }
+            else if (inputVector.x < 0) {
+                playerSpriteTransform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+            }
 
-		//walking audio
-		if (inputVector.x !=0 || inputVector.y !=0)
-		{
-			anim.SetBool("Walk", true);
-			if (!playerWalk.isPlaying){
-			playerWalk.Play();
-			}
-		}
-		else
-		{
-			anim.SetBool("Walk", false);
-			playerWalk.Stop();
-		}
+            if (inputVector.x !=0 || inputVector.y !=0)
+            {
+                anim.SetBool("Walk", true);
+                if (!playerWalk.isPlaying){
+                playerWalk.Play();
+                }
+            }
+            else
+            {
+                anim.SetBool("Walk", false);
+                playerWalk.Stop();
+            }
+        }
+        else
+        {
+            anim.SetBool("Walk", true);
+            if (!playerWalk.isPlaying)
+                playerWalk.Play();
+        }
     }
 
     void FixedUpdate() {
@@ -74,6 +111,17 @@ public class PlayerController_TopDown : MonoBehaviour {
     }
 
     void ApplyMovement() {
+        if (!movementEnabled)
+        {
+            glideUntil = 0f;
+            playerRb2D.linearVelocity = Vector2.zero;
+            return;
+        }
+        if (Time.time < glideUntil)
+        {
+            playerRb2D.linearVelocity = glideVel;
+            return;
+        }
         // Calculate targetVelocity
         Vector2 targetVelocity = inputVector.normalized * movementSpeed;
         // Calculate the difference between current and target velocity
