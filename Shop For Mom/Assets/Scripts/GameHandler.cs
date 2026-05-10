@@ -10,7 +10,6 @@ public class GameHandler : MonoBehaviour
 {
     public static GameHandler gh;
 
-
     [Header("Game State")]
     // TODO: add player gameObject (pirvate, serialize)
     // TODO: add any TextMP objects (private, serialize)
@@ -56,21 +55,45 @@ public class GameHandler : MonoBehaviour
     public AudioSource chillMusic;
 
     [Header("Level Management")]
-    [SerializeField] private List<string> levelSceneNames = new List<string> {"Level0", "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "Level1_OLD"}; // List of scenes in order
+    [SerializeField] private List<string> levelSceneNames = new List<string> {"Level0", "Level1", "Level2", "Level3", "Level4", "Level5", "Level6"}; // List of scenes in order
     private int currentLevelIndex = 0; // The current scene we are on
 
     [Header("Stars")]
     public int star1, star2, star3;
     private List<List<int>> starPoints = new List<List<int>> {
-        new List<int> {100, 100, 100},
-        new List<int> {100, 100, 100},
-        new List<int> {100, 200, 300},
-        new List<int> {100, 200, 300},
-        new List<int> {100, 200, 400},
-        new List<int> {100, 300, 500},
-        new List<int> {100, 300, 500},
-        new List<int> {100, 300, 500}
+        new List<int> {0, 50, 100},
+        new List<int> {0, 50, 100},
+        new List<int> {0, 100, 200},
+        new List<int> {0, 150, 300},
+        new List<int> {0, 200, 400},
+        new List<int> {0, 250, 500},
+        new List<int> {0, 300, 600},
+        new List<int> {0, 350, 700}
     };
+
+
+    [Header("Scoring")]
+
+    public List<int> levelScores = new List<int> {0, 0, 0, 0, 0, 0, 0};
+
+    public int getTotalScore() {
+        int totalScore = 0;
+        foreach (int score in levelScores) {
+            totalScore += score;
+        }
+        return totalScore;
+    }
+
+    public void setLevelScore(int newScore) {
+        if (newScore > levelScores[currentLevelIndex]) {
+            levelScores[currentLevelIndex] = newScore;
+        }
+    }
+
+    public bool wasKickedOut = false;
+    public int peopleHit = 0;
+
+    
 
     /// Inventory API for UI and gameplay systems.
     public PlayerInventory PlayerInventory => playerInv;
@@ -158,6 +181,7 @@ public class GameHandler : MonoBehaviour
         int index = levelSceneNames.IndexOf(scene.name);
         if (index != -1) {
             currentLevelIndex = index;
+            peopleHit = 0;
         }
         if (scene.name != "ScoreScene") {
             Debug.Log("Clearing inventory");
@@ -329,7 +353,7 @@ public class GameHandler : MonoBehaviour
     {
         currentLevelIndex++;
 
-        if (currentLevelIndex < levelSceneNames.Count) 
+        if (currentLevelIndex < levelSceneNames.Count)
         {
             PauseManager.ClearAllPauses();
             SceneManager.LoadScene(levelSceneNames[currentLevelIndex]);
@@ -337,8 +361,20 @@ public class GameHandler : MonoBehaviour
         else 
         {
             // Send to the main menu when there are no more scenes
-            LoadMainMenuScene();
+            LoadFinalScoreScene();
         }
+    }
+
+    public void LoadFinalScoreScene() {
+        PauseManager.ClearAllPauses();
+        SceneManager.LoadScene("FinalScoreScene");
+
+        playerInv.ClearAll();
+        currentLevelIndex = 0;
+    }
+
+    public void clearPlayerInventory() {
+        playerInv.ClearAll();
     }
 
 

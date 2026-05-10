@@ -328,7 +328,6 @@ MonoBehaviour:
   - Level4
   - Level5
   - Level6
-  - Level1_OLD
   star1: 0
   star2: 0
   star3: 0
@@ -346,3 +345,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
   invPrintSpacing: 30
   slots: []
+  maxSlots: 10
