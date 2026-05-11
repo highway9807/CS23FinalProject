@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bd64c362e5e104546b1e408ee8ef4c9e
+guid: fd27285a05ffc424eaa5993061cf40f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8884522752838221349
-    second: Sign_BG_0
+      213: -6726919500907840524
+    second: Sign_BG_stand_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sign_BG_0
+      name: Sign_BG_stand_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 47
-        width: 132
-        height: 187
+        x: 0
+        y: 11
+        width: 256
+        height: 419
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52e3cc91f5a2c4b70800000000000000
-      internalID: 8884522752838221349
+      spriteID: 4fb7dbbca5e25a2a0800000000000000
+      internalID: -6726919500907840524
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sign_BG_0: 8884522752838221349
+      Sign_BG_stand_0: -6726919500907840524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
