@@ -85,9 +85,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public void setLevelScore(int newScore) {
-        if (newScore > levelScores[currentLevelIndex]) {
-            levelScores[currentLevelIndex] = newScore;
-        }
+        levelScores[currentLevelIndex] = newScore;
     }
 
     public bool wasKickedOut = false;

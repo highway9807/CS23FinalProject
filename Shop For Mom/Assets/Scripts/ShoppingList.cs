@@ -30,6 +30,7 @@ public class ShoppingList : MonoBehaviour
     }
 
     private bool isSettingUp = false;
+    private bool isPersistent = false;
 
     private PlayerInventory playerInventory;
 
@@ -42,8 +43,9 @@ public class ShoppingList : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        isPersistent = true;
         DontDestroyOnLoad(gameObject);
-        FindUIReferences();
+        StartCoroutine(SetupAfterLoad(SceneManager.GetActiveScene()));
     }
     void OnEnable()
     {
@@ -57,15 +59,11 @@ public class ShoppingList : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (!isPersistent) return;
         itemContainer = null;
         panel = null;
         if(scene.name == "Level0" || scene.name == "Level1" || scene.name == "Level2" || scene.name == "Level3" ||
             scene.name == "Level4" || scene.name == "Level5" || scene.name == "Level6"){
-            GameObject [] rows = GameObject.FindGameObjectsWithTag("Row");
-            foreach (GameObject row in rows) {
-                 // Move out of container
-                Destroy(row); // Mark for deletion
-            }
             StartCoroutine(SetupAfterLoad(scene));
         }
     }
@@ -75,7 +73,11 @@ public class ShoppingList : MonoBehaviour
         yield return null;
         FindUIReferences();
         if (itemContainer == null) { isSettingUp = false; yield break; }
-			
+
+        // Destroy all existing children before repopulating
+        for (int i = itemContainer.childCount - 1; i >= 0; i--)
+            Destroy(itemContainer.GetChild(i).gameObject);
+
 			//Create shopping list header
 			GameObject rowHeader = Instantiate(rowPrefab, itemContainer);
 			rowHeader.transform.localScale = Vector3.one; 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameTimer : MonoBehaviour
     private GameObject three;
     private GameObject two;
     private GameObject one;
+
+    private string thisLevel;
 
     private void Start() {
 
@@ -43,6 +46,8 @@ public class GameTimer : MonoBehaviour
     IEnumerator StartCountdown()
     {
         playerMovement.movementEnabled = false;
+        thisLevel = SceneManager.GetActiveScene().name;    
+
         // Three
         three.SetActive(true);
         yield return new WaitForSeconds(1f);
