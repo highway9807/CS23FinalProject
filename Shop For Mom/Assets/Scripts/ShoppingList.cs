@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class ShoppingList : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class ShoppingList : MonoBehaviour
     public GameObject rowPrefab;
     public float rowHeight = 30f;
     public float verticalOffset = 20f;
+
+	//position ietm sin shopping list
+	//private List<GameObject> theRows = new List<GameObject>();
 
     public bool IsOnList(ItemDefinition item)
     {
@@ -70,7 +75,17 @@ public class ShoppingList : MonoBehaviour
         yield return null;
         FindUIReferences();
         if (itemContainer == null) { isSettingUp = false; yield break; }
+			
+			//Create shopping list header
+			GameObject rowHeader = Instantiate(rowPrefab, itemContainer);
+			rowHeader.transform.localScale = Vector3.one; 
+			TextMeshProUGUI labelHeader = rowHeader.GetComponent<TextMeshProUGUI>();
+			if (labelHeader != null) {
+				labelHeader.text = " Mom's List:";
+				labelHeader.color = Color.black;
+			}
 
+			//Create all shopping list items for this level 
             foreach (ItemDefinition item in shopping_list)
             {
                 int have = playerInventory != null ? playerInventory.GetTotalItems(item) : 0;
@@ -82,7 +97,7 @@ public class ShoppingList : MonoBehaviour
                 
                 TextMeshProUGUI label = row.GetComponent<TextMeshProUGUI>();
                 if (label != null) {
-                    label.text = (got ? "<s>" : "") + item.itemName + (got ? "</s>" : "");
+                    label.text = (got ? "<s>" : "") + " " + item.itemName + (got ? "</s>" : "");
                     label.color = got ? Color.green : Color.black;
                 }
             }
@@ -106,6 +121,19 @@ public class ShoppingList : MonoBehaviour
                 rt.anchoredPosition = pos;
             }
         }
+
+		/*
+		//for improved legibility /layout:
+		//1. Get all items with tag "row" in a list
+		theRows.AddRange(GameObject.FindGameObjectsWithTag("Row"));
+		//2. in a for-loop, position all these items 10 pixels to the right 
+		for (int i=0; i < theRows.Count; i++)
+		{
+			Vector3 itemPos = theRows[i].transform.localPosition;
+			theRows[i].transform.localPosition = new Vector3(itemPos.x + 10f, itemPos.y, itemPos.z);
+		}
+		*/
+
         isSettingUp = false;
     }
 
@@ -156,8 +184,8 @@ public class ShoppingList : MonoBehaviour
             
             foreach(GameObject row in rows){
                 TextMeshProUGUI label = row.GetComponent<TextMeshProUGUI>();
-                if (label != null && label.text.Replace("<s>", "").Replace("</s>", "") == item.itemName) {
-                    label.text = (got ? "<s>" : "") + item.itemName + (got ? "</s>" : "");
+                if (label != null && label.text.Replace("<s>", "").Replace("</s>", "") == " " + item.itemName) {
+                    label.text = (got ? "<s>" : "") + " " + item.itemName + (got ? "</s>" : "");
                     label.color = got ? Color.green : Color.black;
                 }
 
